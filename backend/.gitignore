@@ -1,0 +1,23 @@
+# Ignorar diretórios de build
+/build/
+/dist/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de configuração local
+.env
+*.local
+
+# Ignorar dependências de pacotes
+/node_modules/
+/vendor/
+
+# Ignorar arquivos do sistema
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Ignorar arquivos de backup
+*~
+*.bak
