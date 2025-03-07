@@ -1,51 +1,49 @@
 from typing import List
-from fastapi import APIRouter, HTTPException, status, Depends
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from app.core.database import get_db
 from app.models.cliente_model import ClienteModel
+from app.schemas.cliente import ClienteSchema
+from app.core.database import get_db
 
 
 router = APIRouter()
 
 
 @router.post(
-    "/clientes", status_code=status.HTTP_201_CREATED,
-    response_model=ClienteModel
+    "/", status_code=status.HTTP_201_CREATED,
+    response_model=ClienteSchema,
 )
-async def criar_cliente(
-    nome: str, endereco: str, telefone: str, db: Session = Depends(get_db)
-):
-    novo_cliente = ClienteModel(nome=nome, endereco=endereco,
-                                telefone=telefone)
+async def criar_cliente(cliente: ClienteSchema, db: Session = Depends(get_db)):
+    novo_cliente = ClienteModel(**cliente.model_dump())
     await db.add(novo_cliente)
     await db.commit()
     await db.refresh(novo_cliente)
     return novo_cliente
 
 
-@router.get("/clientes", response_model=List[ClienteModel])
+@router.get("/", response_model=List[ClienteSchema])
 async def listar_clientes(db: Session = Depends(get_db)):
     clientes = db.query(ClienteModel).all()
     return clientes
 
 
 @router.get(
-    "/clientes/{cliente_id}",
-    response_model=ClienteModel,
+    "/{cliente_id}",
+    response_model=ClienteSchema,
     status_code=status.HTTP_200_OK,
 )
 async def buscar_cliente_por_id(cliente_id: int,
                                 db: Session = Depends(get_db)):
-    cliente = db.query(ClienteModel).filter(
+    cliente_id = db.query(ClienteModel).filter(
         ClienteModel.id == cliente_id).one_or_none()
-    if not cliente:
+    if not cliente_id:
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
-    return cliente
+    return cliente_id
 
 
 @router.put(
-    "/clientes/{cliente_id}",
-    response_model=ClienteModel,
+    "/{cliente_id}",
+    response_model=ClienteSchema,
     status_code=status.HTTP_200_OK,
 )
 async def atualizar_cliente(
@@ -55,28 +53,25 @@ async def atualizar_cliente(
     telefone: str,
     db: Session = Depends(get_db),
 ):
-    cliente = db.query(ClienteModel).filter(
+    cliente_up = db.query(ClienteModel).filter(
         ClienteModel.id == cliente_id).one_or_none()
-    if not cliente:
+    if not cliente_up:
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
-    cliente.nome = nome
-    cliente.endereco = endereco
-    cliente.telefone = telefone
+    cliente_up.nome = nome
+    cliente_up.endereco = endereco
+    cliente_up.telefone = telefone
     await db.commit()
-    await db.refresh(cliente)
-    return cliente
+    await db.refresh(cliente_up)
+    return ClienteSchema.model_validate(cliente_up)
 
 
 @router.delete(
-    "/clientes/{cliente_id}",
-    status_code=status.HTTP_204_NO_CONTENT,
-    response_model=ClienteModel(),
-)
+    "/{cliente_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def deletar_cliente(cliente_id: int, db: Session = Depends(get_db)):
-    cliente = db.query(ClienteModel).filter(
+    cliente_del = db.query(ClienteModel).filter(
         ClienteModel.id == cliente_id).one_or_none()
-    if not cliente:
+    if not cliente_del:
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
-    db.delete(cliente)
+    db.delete(cliente_del)
     db.commit()
     return {"message": "Cliente deletado com sucesso"}

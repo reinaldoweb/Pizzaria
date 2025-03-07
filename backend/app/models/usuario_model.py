@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 from app.core.database import Base
+from sqlalchemy.orm import relationship
 
 
 class UsuarioModel(Base):
@@ -11,4 +12,7 @@ class UsuarioModel(Base):
     senha = Column(String(255), nullable=False)
     data_criacao = Column(String(20), nullable=False)
     # "admin" ou "cliente"
-    tipo = Column(String(50), nullable=False)
+    is_admin = Column(Boolean, nullable=False)
+
+    pedidos = relationship("PedidoModel", back_populates="usuario")
+    clientes = relationship("ClienteModel", back_populates="usuario")
