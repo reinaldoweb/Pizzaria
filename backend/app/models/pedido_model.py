@@ -15,4 +15,5 @@ class PedidoModel(Base):
     pedido_cliente = relationship("ClienteModel", back_populates="cliente")
     pedidos = relationship("UsuarioModel", back_populates="pedidos_user")
     pizza_pedido = relationship("PizzaModel", back_populates="pedido_pizza")
-    quantidade = Column(Integer, nullable=False)
+
+    pedido = relationship("PedidoPizzaModel", back_populates="pedido_pizza")
