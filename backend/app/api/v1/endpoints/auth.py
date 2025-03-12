@@ -6,7 +6,7 @@ from app.core.security import verificar_senha
 from app.core.auth import criar_token
 from pydantic import BaseModel
 
-router = APIRouter(prefix="/auth", tags=["Auth"])
+router = APIRouter()
 
 
 class LoginSchema(BaseModel):
@@ -20,6 +20,6 @@ def login(dados: LoginSchema, db: Session = Depends(get_db)):
         UsuarioModel.email == dados.email).first()
     if not usuario or not verificar_senha(dados.senha, usuario.senha):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail="Usuário não encontrado")
+                            detail="E-mail ou senha inválidos")
     token = criar_token({"sub": usuario.email, "is_admin": usuario.is_admin})
     return {"access_token": token, "token_type": "bearer"}
