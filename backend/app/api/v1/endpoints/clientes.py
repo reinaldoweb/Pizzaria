@@ -18,6 +18,11 @@ async def criar_cliente(cliente: ClienteSchema, db: Session = Depends(get_db)):
     await db.add(novo_cliente)
     await db.commit()
     await db.refresh(novo_cliente)
+    if novo_cliente:
+        raise HTTPException(
+            status_code=status.HTTP_201_CREATED,
+            detail="Cliente criado com sucesso",
+        )
     return novo_cliente
 
 
@@ -62,6 +67,11 @@ async def atualizar_cliente(
     cliente_up.telefone = telefone
     await db.commit()
     await db.refresh(cliente_up)
+    if cliente_up:
+        raise HTTPException(
+            status_code=status.HTTP_200_OK,
+            detail="Cliente atualizado com sucesso",
+        )
     return ClienteSchema.model_validate(cliente_up)
 
 

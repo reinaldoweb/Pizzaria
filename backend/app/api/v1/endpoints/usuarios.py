@@ -29,12 +29,16 @@ def create_usuario(usuario: UsuarioCreateSchema,
         email=usuario.email,
         senha_hash=senha_hash,
         data_criacao=datetime.now(timezone.utc),
-        is_admin=False,
+        is_admin=usuario.is_admin,
     )
 
     db.add(novo_usuario)
     db.commit()
     db.refresh(novo_usuario)
+
+    if novo_usuario:
+        raise HTTPException(status_code=status.HTTP_201_CREATED,
+                            detail="Usuário criado com sucesso")
     return UsuarioSchema.model_validate(novo_usuario)
 
 
@@ -82,6 +86,9 @@ def update_usuario(
 
     db.commit()
     db.refresh(usuario_update)
+    if usuario_update:
+        raise HTTPException(status_code=status.HTTP_202_ACCEPTED,
+                            detail="Usuário atualizado com sucesso")
     return usuario_update
 
 
