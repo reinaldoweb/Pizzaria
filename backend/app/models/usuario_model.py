@@ -1,7 +1,6 @@
 from datetime import datetime
 from sqlalchemy import Column, DateTime, Integer, String, Boolean
-
-
+from sqlalchemy.orm import relationship
 from app.core.database import Base
 
 
@@ -15,3 +14,5 @@ class UsuarioModel(Base):
     data_criacao = Column(DateTime, default=datetime.now(), nullable=False)
     # "admin" ou "cliente"
     is_admin = Column(Boolean, default=False, nullable=False)
+
+    cliente = relationship("ClienteModel", back_populates="usuario")

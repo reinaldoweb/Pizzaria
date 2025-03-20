@@ -2,7 +2,7 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.models.cliente_model import ClienteModel
-from app.schemas.cliente import ClienteSchema
+from app.schemas.cliente import ClienteSchema, ClienteCreateSchema
 from app.core.database import get_db
 
 
@@ -13,11 +13,11 @@ router = APIRouter()
     "/", status_code=status.HTTP_201_CREATED,
     response_model=ClienteSchema,
 )
-async def criar_cliente(cliente: ClienteSchema, db: Session = Depends(get_db)):
+def criar_cliente(cliente: ClienteCreateSchema, db: Session = Depends(get_db)):
     novo_cliente = ClienteModel(**cliente.model_dump())
-    await db.add(novo_cliente)
-    await db.commit()
-    await db.refresh(novo_cliente)
+    db.add(novo_cliente)
+    db.commit()
+    db.refresh(novo_cliente)
     if novo_cliente:
         raise HTTPException(
             status_code=status.HTTP_201_CREATED,

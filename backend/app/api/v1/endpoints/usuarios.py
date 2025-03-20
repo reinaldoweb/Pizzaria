@@ -41,6 +41,12 @@ def create_usuario(usuario: UsuarioCreateSchema,
     db.commit()
     db.refresh(novo_usuario)
 
+    if novo_usuario:
+        raise HTTPException(
+            status_code=status.HTTP_201_CREATED,
+            detail="Usuário criado com sucesso"
+        )
+
     logging.info(f"Usuário criado com sucesso: {novo_usuario.email}")
     return UsuarioSchema.model_validate(novo_usuario)
 
