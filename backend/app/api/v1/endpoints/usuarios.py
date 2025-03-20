@@ -1,13 +1,14 @@
 from datetime import datetime, timezone
-from typing import List
+from typing import Annotated, List, Union
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.usuario_model import UsuarioModel
-from app.schemas.usuario import (UsuarioSchema, UsuarioCreateSchema,
-                                 UsuarioUpdateSchema)
+from app.schemas.usuario import (UsuarioSchema,
+                                 UsuarioCreateSchema, UsuarioUpdateSchema)
 from app.core.security import gerar_hash_senha
-
+from app.core.dependencies import get_current_active_user
+import logging
 
 router = APIRouter()
 
@@ -16,11 +17,15 @@ router = APIRouter()
              status_code=status.HTTP_201_CREATED)
 def create_usuario(usuario: UsuarioCreateSchema,
                    db: Session = Depends(get_db)):
-    usuario_existente = db.query(UsuarioModel).filter(
-        UsuarioModel.email == usuario.email).first()
+    usuario_existente = (
+        db.query(UsuarioModel).filter(UsuarioModel.email == usuario.email)
+        .first()
+    )
     if usuario_existente:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
-                            detail="E-mail já cadastrado")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="E-mail já cadastrado"
+        )
 
     senha_hash = gerar_hash_senha(usuario.senha)
 
@@ -36,9 +41,7 @@ def create_usuario(usuario: UsuarioCreateSchema,
     db.commit()
     db.refresh(novo_usuario)
 
-    if novo_usuario:
-        raise HTTPException(status_code=status.HTTP_201_CREATED,
-                            detail="Usuário criado com sucesso")
+    logging.info(f"Usuário criado com sucesso: {novo_usuario.email}")
     return UsuarioSchema.model_validate(novo_usuario)
 
 
@@ -52,7 +55,7 @@ def get_usuarios(db: Session = Depends(get_db)):
     "/{usuario_id}", response_model=UsuarioSchema,
     status_code=status.HTTP_200_OK
 )
-def get_usuario_id(usuario_id: int, db: Session = Depends(get_db)):
+def get_usuario_id(usuario_id: Union[int, str], db: Session = Depends(get_db)):
     usuario = db.query(UsuarioModel).filter(
         UsuarioModel.id == usuario_id).first()
     if not usuario:
@@ -63,9 +66,10 @@ def get_usuario_id(usuario_id: int, db: Session = Depends(get_db)):
     return usuario
 
 
-@router.put(
-    "/{usuario_id}", response_model=UsuarioSchema,
-    status_code=status.HTTP_202_ACCEPTED
+@router.patch(
+    "/{usuario_id}",
+    response_model=UsuarioUpdateSchema,
+    status_code=status.HTTP_202_ACCEPTED,
 )
 def update_usuario(
     usuario_id: int, usuario: UsuarioUpdateSchema,
@@ -80,15 +84,16 @@ def update_usuario(
             detail="Usuário não encontrado"
         )
 
-    usuario_update.nome = usuario.nome
-    usuario_update.email = usuario.email
-    usuario_update.senha_hash = usuario.senha
+    if usuario_update.nome:
+        usuario_update.nome = usuario.nome
+    if usuario_update.email:
+        usuario_update.email = usuario.email
+    if usuario.senha:
+        usuario_update.senha_hash = gerar_hash_senha(usuario.senha)
 
     db.commit()
     db.refresh(usuario_update)
-    if usuario_update:
-        raise HTTPException(status_code=status.HTTP_202_ACCEPTED,
-                            detail="Usuário atualizado com sucesso")
+    logging.info(f"Usuário atualizado com sucesso: {usuario_update.email}")
     return usuario_update
 
 
@@ -105,4 +110,21 @@ def delete_usuario(usuario_id: int, db: Session = Depends(get_db)):
 
     db.delete(usuario_delete)
     db.commit()
+    logging.info(f"Usuário deletado com sucesso: {usuario_delete.email}")
     return {"message": "Usuário deletado com sucesso"}
+
+
+@router.get("/me/")
+def get_me(current_user: Annotated[UsuarioSchema,
+                                   Depends(get_current_active_user)]):
+    if not current_user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Usuário não autenticado"
+        )
+
+    return {
+        "id": current_user.id,
+        "nome": current_user.nome,
+        "email": current_user.email,
+    }

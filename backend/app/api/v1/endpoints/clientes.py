@@ -26,7 +26,8 @@ async def criar_cliente(cliente: ClienteSchema, db: Session = Depends(get_db)):
     return novo_cliente
 
 
-@router.get("/", response_model=List[ClienteSchema])
+@router.get("/", response_model=List[ClienteSchema],
+            status_code=status.HTTP_200_OK)
 async def listar_clientes(db: Session = Depends(get_db)):
     clientes = db.query(ClienteModel).all()
     return clientes
