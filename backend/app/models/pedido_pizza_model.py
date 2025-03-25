@@ -9,4 +9,8 @@ class PedidoPizzaModel(Base):
     quantidade = Column(Integer, nullable=False)
     pizza_id = Column(Integer, nullable=False)
 
-    pedido = relationship("PedidoModel", back_populates="pedido_pizza")
+    # Relacionamentos
+    # Um pedido de pizza pertence a um pedido
+    pedidos = relationship("PedidoModel", back_populates="pedido_pizza")
+    # Um pedido de pizza pertence a uma pizza
+    pizzas = relationship("PizzaModel", back_populates="pedido_pizza")

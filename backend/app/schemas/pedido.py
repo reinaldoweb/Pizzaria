@@ -1,21 +1,23 @@
+from datetime import datetime
 from pydantic import BaseModel
 
 
 class PedidoBaseSchema(BaseModel):
-    cliente_id: int
-    status: str
+    id: int
 
     class config:
         from_attributes = True
 
 
 class PedidoSchema(PedidoBaseSchema):
-    data_pedido: str
+    pass
 
 
-class PedidoCreateSchema(PedidoSchema):
-    id: int
-    pedido_pizza_id: int
+class PedidoCreateSchema(BaseModel):
+    cliente_id: int
+    pizza_id: int
+    status: str
+    data_pedido: datetime
 
     class Config:
         from_attributes = True

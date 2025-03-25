@@ -15,4 +15,6 @@ class UsuarioModel(Base):
     # "admin" ou "cliente"
     is_admin = Column(Boolean, default=False, nullable=False)
 
+    # Relacionamentos
+    # Um usuário pode ter vários pedidos
     cliente = relationship("ClienteModel", back_populates="usuario")

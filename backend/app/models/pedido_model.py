@@ -10,7 +10,10 @@ class PedidoModel(Base):
     status = Column(String, default="pendente")
     data_pedido = Column(DateTime, nullable=False)
     cliente_id = Column(Integer, ForeignKey("clientes.id"), nullable=False)
-    pedido_pizza_id = Column(Integer, nullable=False)
+    pizza_id = Column(Integer, ForeignKey("pizzas.id"), nullable=False)
 
-    cliente = relationship("ClienteModel", back_populates="pedidos")
-    pedido_pizza = relationship("PedidoPizzaModel", back_populates="pedido")
+    # Relacionamentos
+    # Um pedido pertence a um cliente
+    clientes = relationship("ClienteModel", back_populates="pedidos")
+    # Um pedido pertence a uma pizza
+    pizza = relationship("PizzaModel", back_populates="pedidos")
