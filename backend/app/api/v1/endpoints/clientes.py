@@ -5,54 +5,65 @@ from app.models.cliente_model import ClienteModel
 from app.schemas.cliente import ClienteBaseSchema, ClienteSchema, ClienteCreateSchema
 from app.core.database import get_db
 from app.core.dependencies import get_current_user as get_usuario_logado
+from app.services.cliente_service import criar_cliente_service
 
 
 router = APIRouter()
 
 
-@router.post(
-    "/", status_code=status.HTTP_201_CREATED,
-    response_model=ClienteSchema,
-)
+# @router.post(
+#     "/", status_code=status.HTTP_201_CREATED,
+#     response_model=ClienteSchema,
+# )
 
 
-def criar_cliente(
+# def criar_cliente(
+#     cliente: ClienteCreateSchema,
+#     db: Session = Depends(get_db),
+#     usuario_logado=Depends(get_usuario_logado)
+# ) -> ClienteModel:
+#     """
+#     Cria um novo cliente associado ao usuário logado.
+
+#     Args:
+#         cliente: Dados do cliente a ser criado
+#         db: Sessão do banco de dados
+#         usuario_logado: Usuário autenticado
+
+#     Returns:
+#         ClienteModel: O cliente criado
+
+#     Raises:
+#         HTTPException: 400 em caso de erro na criação
+#     """
+#     try:
+#         novo_cliente = ClienteModel(
+#             usuario_id=usuario_logado.id,
+#             **cliente.model_dump()  # Usa model_dump para evitar atribuição manual
+#         )
+
+#         db.add(novo_cliente)
+#         db.commit()
+#         db.refresh(novo_cliente)
+
+#         return novo_cliente
+
+#     except Exception as e:
+#         db.rollback()
+#         raise HTTPException(
+#             status_code=status.HTTP_400_BAD_REQUEST,
+#             detail=f"Erro ao criar cliente: {str(e)}"
+#         )
+
+
+@router.post("/clientes", response_model=ClienteSchema, status_code=201)
+def criar_cliente_endpoint(
     cliente: ClienteCreateSchema,
     db: Session = Depends(get_db),
     usuario_logado=Depends(get_usuario_logado)
-) -> ClienteModel:
-    """
-    Cria um novo cliente associado ao usuário logado.
+):
+    return criar_cliente_service(db, cliente.model_dump(), usuario_logado.id)
 
-    Args:
-        cliente: Dados do cliente a ser criado
-        db: Sessão do banco de dados
-        usuario_logado: Usuário autenticado
-
-    Returns:
-        ClienteModel: O cliente criado
-
-    Raises:
-        HTTPException: 400 em caso de erro na criação
-    """
-    try:
-        novo_cliente = ClienteModel(
-            usuario_id=usuario_logado.id,
-            **cliente.model_dump()  # Usa model_dump para evitar atribuição manual
-        )
-
-        db.add(novo_cliente)
-        db.commit()
-        db.refresh(novo_cliente)
-
-        return novo_cliente
-
-    except Exception as e:
-        db.rollback()
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Erro ao criar cliente: {str(e)}"
-        )
 
 
 @router.get("/", response_model=List[ClienteBaseSchema],
