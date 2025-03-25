@@ -4,11 +4,13 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.usuario_model import UsuarioModel
-from app.schemas.usuario import (UsuarioSchema,
+from app.schemas.usuario import (UsuarioBaseSchema, UsuarioSchema,
                                  UsuarioCreateSchema, UsuarioUpdateSchema)
 from app.core.security import gerar_hash_senha
 from app.core.dependencies import get_current_active_user
 import logging
+
+from app.services.usuario_update_service import UsuarioUpdateService
 
 router = APIRouter()
 
@@ -51,14 +53,14 @@ def create_usuario(usuario: UsuarioCreateSchema,
     return UsuarioSchema.model_validate(novo_usuario)
 
 
-@router.get("/", response_model=List[UsuarioSchema],
+@router.get("/", response_model=List[UsuarioBaseSchema],
             status_code=status.HTTP_200_OK)
 def get_usuarios(db: Session = Depends(get_db)):
     return db.query(UsuarioModel).all()
 
 
 @router.get(
-    "/{usuario_id}", response_model=UsuarioSchema,
+    "/{usuario_id}", response_model=UsuarioBaseSchema,
     status_code=status.HTTP_200_OK
 )
 def get_usuario_id(usuario_id: Union[int, str], db: Session = Depends(get_db)):
@@ -75,32 +77,28 @@ def get_usuario_id(usuario_id: Union[int, str], db: Session = Depends(get_db)):
 @router.patch(
     "/{usuario_id}",
     response_model=UsuarioUpdateSchema,
-    status_code=status.HTTP_202_ACCEPTED,
+    status_code=status.HTTP_200_OK,
 )
 def update_usuario(
-    usuario_id: int, usuario: UsuarioUpdateSchema,
+    usuario_id: int,
+    usuario: UsuarioUpdateSchema,
     db: Session = Depends(get_db)
 ):
-    usuario_update = (
-        db.query(UsuarioModel).filter(UsuarioModel.id == usuario_id).first()
-    )
-    if not usuario_update:
+    """
+    Atualiza um usuário existente.
+
+    - **usuario_id**: ID do usuário a ser atualizado
+    - **usuario**: Dados para atualização (campos opcionais)
+    """
+
+    service = UsuarioUpdateService(db)
+    usuario_atualizado = service.atualizar_usuario(usuario_id, usuario)
+    if usuario_atualizado is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Usuário não encontrado"
         )
-
-    if usuario_update.nome:
-        usuario_update.nome = usuario.nome
-    if usuario_update.email:
-        usuario_update.email = usuario.email
-    if usuario.senha:
-        usuario_update.senha_hash = gerar_hash_senha(usuario.senha)
-
-    db.commit()
-    db.refresh(usuario_update)
-    logging.info(f"Usuário atualizado com sucesso: {usuario_update.email}")
-    return usuario_update
+    return usuario_atualizado
 
 
 @router.delete("/{usuario_id}", status_code=status.HTTP_204_NO_CONTENT)
