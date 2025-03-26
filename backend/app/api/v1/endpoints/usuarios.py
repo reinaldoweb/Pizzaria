@@ -1,56 +1,65 @@
-from datetime import datetime, timezone
 from typing import Annotated, List, Union
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, logger, status
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.usuario_model import UsuarioModel
 from app.schemas.usuario import (UsuarioBaseSchema, UsuarioSchema,
                                  UsuarioCreateSchema, UsuarioUpdateSchema)
-from app.core.security import gerar_hash_senha
 from app.core.dependencies import get_current_active_user
 import logging
 
-from app.services.usuario_update_service import UsuarioUpdateService
+from app.services.usuario_service import UsuarioService
+from app.core.security import gerar_hash_senha
 
 router = APIRouter()
 
 
-@router.post("/", response_model=UsuarioSchema,
-             status_code=status.HTTP_201_CREATED)
-def create_usuario(usuario: UsuarioCreateSchema,
-                   db: Session = Depends(get_db)):
-    usuario_existente = (
-        db.query(UsuarioModel).filter(UsuarioModel.email == usuario.email)
-        .first()
-    )
-    if usuario_existente:
+@router.post(
+    "/",
+    response_model=UsuarioSchema,
+    status_code=status.HTTP_201_CREATED,
+    summary="Cria um novo usuário",
+    description="Endpoint para cadastrar um novo usuário no sistema",
+)
+def create_usuario(
+    usuario: UsuarioCreateSchema, db: Session = Depends(get_db)
+) -> UsuarioSchema:
+    """
+    Cria um novo usuário no sistema.
+
+    Args:
+        usuario: Dados do usuário a ser criado (schema de criação)
+        db: Sessão do banco de dados
+
+    Returns:
+        UsuarioSchema: O usuário criado com seus dados
+
+    Raises:
+        HTTPException: 400 se o e-mail já estiver cadastrado
+        HTTPException: 500 em caso de erro interno
+    """
+    try:
+        service = UsuarioService(db)
+        usuario_data = usuario.model_dump()
+
+        # Se o schema inclui senha diretamente (não hash)
+        if "senha" in usuario_data:
+            usuario_data["senha_hash"] = gerar_hash_senha(
+                usuario_data.pop("senha"))
+
+        usuario_criado = service.criar_usuario(usuario_data)
+        return usuario_criado
+
+    except ValueError as e:
+        # Erro de e-mail duplicado
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="E-mail já cadastrado"
-        )
-
-    senha_hash = gerar_hash_senha(usuario.senha)
-
-    novo_usuario = UsuarioModel(
-        nome=usuario.nome,
-        email=usuario.email,
-        senha_hash=senha_hash,
-        data_criacao=datetime.now(timezone.utc),
-        is_admin=usuario.is_admin,
-    )
-
-    db.add(novo_usuario)
-    db.commit()
-    db.refresh(novo_usuario)
-
-    if novo_usuario:
+            status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+    except Exception as e:
+        logger.error(f"Erro ao criar usuário: {str(e)}")
         raise HTTPException(
-            status_code=status.HTTP_201_CREATED,
-            detail="Usuário criado com sucesso"
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Erro interno ao criar usuário",
         )
-
-    logging.info(f"Usuário criado com sucesso: {novo_usuario.email}")
-    return UsuarioSchema.model_validate(novo_usuario)
 
 
 @router.get("/", response_model=List[UsuarioBaseSchema],
@@ -86,12 +95,11 @@ def update_usuario(
 ):
     """
     Atualiza um usuário existente.
-
     - **usuario_id**: ID do usuário a ser atualizado
     - **usuario**: Dados para atualização (campos opcionais)
     """
 
-    service = UsuarioUpdateService(db)
+    service = UsuarioService(db)
     usuario_atualizado = service.atualizar_usuario(usuario_id, usuario)
     if usuario_atualizado is None:
         raise HTTPException(
@@ -111,7 +119,6 @@ def delete_usuario(usuario_id: int, db: Session = Depends(get_db)):
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Usuário não encontrado"
         )
-
     db.delete(usuario_delete)
     db.commit()
     logging.info(f"Usuário deletado com sucesso: {usuario_delete.email}")

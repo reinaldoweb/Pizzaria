@@ -308,3 +308,244 @@ FROM pizzas
 FROM pizzas
 2025-03-25 11:10:38,635 - INFO - [cached since 215.6s ago] {}
 2025-03-25 11:10:38,645 - INFO - ROLLBACK
+2025-03-26 09:53:34,589 - INFO - select pg_catalog.version()
+2025-03-26 09:53:34,590 - INFO - [raw sql] {}
+2025-03-26 09:53:34,596 - INFO - select current_schema()
+2025-03-26 09:53:34,597 - INFO - [raw sql] {}
+2025-03-26 09:53:34,603 - INFO - show standard_conforming_strings
+2025-03-26 09:53:34,603 - INFO - [raw sql] {}
+2025-03-26 09:53:34,607 - INFO - BEGIN (implicit)
+2025-03-26 09:53:34,609 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-03-26 09:53:34,610 - INFO - [generated in 0.00074s] {'email_1': 'user@exeample.com', 'param_1': 1}
+2025-03-26 09:53:34,620 - WARNING - Tentativa de login inválida para o email: user@exeample.com
+2025-03-26 09:53:34,621 - INFO - ROLLBACK
+2025-03-26 09:53:47,013 - INFO - BEGIN (implicit)
+2025-03-26 09:53:47,014 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-03-26 09:53:47,015 - INFO - [cached since 12.41s ago] {'email_1': 'user@example.com', 'param_1': 1}
+2025-03-26 09:53:47,021 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-03-26 09:53:47,264 - INFO - Token criado para o email: user@example.com
+2025-03-26 09:53:47,266 - INFO - ROLLBACK
+2025-03-26 09:54:21,352 - INFO - BEGIN (implicit)
+2025-03-26 09:54:21,354 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-03-26 09:54:21,354 - INFO - [cached since 46.75s ago] {'email_1': 'user@example.com', 'param_1': 1}
+2025-03-26 09:54:21,584 - INFO - Token criado para o email: user@example.com
+2025-03-26 09:54:21,586 - INFO - ROLLBACK
+2025-03-26 10:52:51,581 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-03-26 10:52:51,872 - INFO - select pg_catalog.version()
+2025-03-26 10:52:51,873 - INFO - [raw sql] {}
+2025-03-26 10:52:51,876 - INFO - select current_schema()
+2025-03-26 10:52:51,876 - INFO - [raw sql] {}
+2025-03-26 10:52:51,880 - INFO - show standard_conforming_strings
+2025-03-26 10:52:51,881 - INFO - [raw sql] {}
+2025-03-26 10:52:51,884 - INFO - BEGIN (implicit)
+2025-03-26 10:52:51,888 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-03-26 10:52:51,889 - INFO - [generated in 0.00072s] {'email_1': 'admin@teste.com', 'param_1': 1}
+2025-03-26 10:52:51,895 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-03-26 10:52:51,896 - INFO - [generated in 0.00067s] {'nome': 'Administrador', 'email': 'admin@teste.com', 'senha_hash': '$2b$12$uojziuF0x73gtfopu76Bj.UjWD4n9Hx52cRDzDUU0DimlSLZ/erKC', 'data_criacao': datetime.datetime(2025, 3, 26, 13, 52, 13, 326000, tzinfo=TzInfo(UTC)), 'is_admin': True}
+2025-03-26 10:52:51,907 - INFO - COMMIT
+2025-03-26 10:52:51,912 - INFO - BEGIN (implicit)
+2025-03-26 10:52:51,914 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-03-26 10:52:51,914 - INFO - [generated in 0.00072s] {'pk_1': 3}
+2025-03-26 10:52:51,920 - INFO - ROLLBACK
+2025-03-26 10:59:30,406 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-03-26 10:59:30,678 - INFO - select pg_catalog.version()
+2025-03-26 10:59:30,679 - INFO - [raw sql] {}
+2025-03-26 10:59:30,682 - INFO - select current_schema()
+2025-03-26 10:59:30,683 - INFO - [raw sql] {}
+2025-03-26 10:59:30,688 - INFO - show standard_conforming_strings
+2025-03-26 10:59:30,688 - INFO - [raw sql] {}
+2025-03-26 10:59:30,692 - INFO - BEGIN (implicit)
+2025-03-26 10:59:30,694 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-03-26 10:59:30,695 - INFO - [generated in 0.00083s] {'email_1': 'superviosor@teste.com', 'param_1': 1}
+2025-03-26 10:59:30,700 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-03-26 10:59:30,700 - INFO - [generated in 0.00063s] {'nome': 'superivisor', 'email': 'superviosor@teste.com', 'senha_hash': '$2b$12$MO.p2GtXbsGpow2JcPhlA.wHkp2I128E/QCqAerMtP0uqduQgudri', 'data_criacao': datetime.datetime(2025, 3, 26, 13, 52, 13, 326000, tzinfo=TzInfo(UTC)), 'is_admin': True}
+2025-03-26 10:59:30,704 - INFO - COMMIT
+2025-03-26 10:59:30,719 - INFO - BEGIN (implicit)
+2025-03-26 10:59:30,720 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-03-26 10:59:30,721 - INFO - [generated in 0.00075s] {'pk_1': 4}
+2025-03-26 10:59:30,724 - INFO - Usuário criado: superviosor@teste.com
+2025-03-26 10:59:30,726 - INFO - ROLLBACK
+2025-03-26 11:00:24,331 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-03-26 11:00:24,604 - INFO - select pg_catalog.version()
+2025-03-26 11:00:24,605 - INFO - [raw sql] {}
+2025-03-26 11:00:24,608 - INFO - select current_schema()
+2025-03-26 11:00:24,608 - INFO - [raw sql] {}
+2025-03-26 11:00:24,612 - INFO - show standard_conforming_strings
+2025-03-26 11:00:24,612 - INFO - [raw sql] {}
+2025-03-26 11:00:24,616 - INFO - BEGIN (implicit)
+2025-03-26 11:00:24,618 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-03-26 11:00:24,620 - INFO - [generated in 0.00070s] {'email_1': 'super@teste.com', 'param_1': 1}
+2025-03-26 11:00:24,625 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-03-26 11:00:24,625 - INFO - [generated in 0.00087s] {'nome': 'supervisor', 'email': 'super@teste.com', 'senha_hash': '$2b$12$7wLuWobNHpuZ90pKv./4HuNuoMZUThJbqafmBuGvZJSQ48txcWC5O', 'data_criacao': datetime.datetime(2025, 3, 26, 13, 59, 56, 203000, tzinfo=TzInfo(UTC)), 'is_admin': True}
+2025-03-26 11:00:24,629 - INFO - COMMIT
+2025-03-26 11:00:24,642 - INFO - BEGIN (implicit)
+2025-03-26 11:00:24,644 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-03-26 11:00:24,644 - INFO - [generated in 0.00076s] {'pk_1': 5}
+2025-03-26 11:00:24,648 - INFO - Usuário criado: super@teste.com
+2025-03-26 11:00:24,650 - INFO - ROLLBACK
+2025-03-26 11:00:47,984 - INFO - BEGIN (implicit)
+2025-03-26 11:00:47,989 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-03-26 11:00:47,990 - INFO - [cached since 23.37s ago] {'email_1': 'super@teste.com', 'param_1': 1}
+2025-03-26 11:00:47,995 - INFO - ROLLBACK
+2025-03-26 11:05:48,202 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-03-26 11:05:48,484 - INFO - select pg_catalog.version()
+2025-03-26 11:05:48,485 - INFO - [raw sql] {}
+2025-03-26 11:05:48,489 - INFO - select current_schema()
+2025-03-26 11:05:48,490 - INFO - [raw sql] {}
+2025-03-26 11:05:48,493 - INFO - show standard_conforming_strings
+2025-03-26 11:05:48,494 - INFO - [raw sql] {}
+2025-03-26 11:05:48,498 - INFO - BEGIN (implicit)
+2025-03-26 11:05:48,501 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-03-26 11:05:48,502 - INFO - [generated in 0.00074s] {'email_1': 'suporte@example.com', 'param_1': 1}
+2025-03-26 11:05:48,508 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-03-26 11:05:48,509 - INFO - [generated in 0.00068s] {'nome': 'suporte', 'email': 'suporte@example.com', 'senha_hash': '$2b$12$auGmXF3N/jyyvXhYd7WlbOO9v1CSy8O.BRbfS8TrRKe3Z.GhaK.Gu', 'data_criacao': datetime.datetime(2025, 3, 26, 14, 5, 23, 300000, tzinfo=TzInfo(UTC)), 'is_admin': True}
+2025-03-26 11:05:48,512 - INFO - COMMIT
+2025-03-26 11:05:48,526 - INFO - BEGIN (implicit)
+2025-03-26 11:05:48,528 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-03-26 11:05:48,529 - INFO - [generated in 0.00079s] {'pk_1': 6}
+2025-03-26 11:05:48,533 - INFO - Usuário criado: suporte@example.com
+2025-03-26 11:05:48,533 - INFO - ROLLBACK
+2025-03-26 11:05:48,536 - ERROR - Erro ao criar usuário
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\usuario_service.py", line 33, in criar_usuario
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 201: Usuário criado com sucesso
+2025-03-26 11:31:28,723 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-03-26 11:31:29,000 - INFO - select pg_catalog.version()
+2025-03-26 11:31:29,001 - INFO - [raw sql] {}
+2025-03-26 11:31:29,005 - INFO - select current_schema()
+2025-03-26 11:31:29,005 - INFO - [raw sql] {}
+2025-03-26 11:31:29,009 - INFO - show standard_conforming_strings
+2025-03-26 11:31:29,010 - INFO - [raw sql] {}
+2025-03-26 11:31:29,014 - INFO - BEGIN (implicit)
+2025-03-26 11:31:29,017 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-03-26 11:31:29,018 - INFO - [generated in 0.00089s] {'email_1': 'vendedor@example.com', 'param_1': 1}
+2025-03-26 11:31:29,023 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-03-26 11:31:29,024 - INFO - [generated in 0.00094s] {'nome': 'vendedor', 'email': 'vendedor@example.com', 'senha_hash': '$2b$12$Z4ZPYsqlwbOD7QmFD14OdeVemdorO2pW9L0ClOSHkbO/FmCTS/bYS', 'data_criacao': datetime.datetime(2025, 3, 26, 14, 30, 53, 857000, tzinfo=TzInfo(UTC)), 'is_admin': True}
+2025-03-26 11:31:29,028 - INFO - COMMIT
+2025-03-26 11:31:29,032 - INFO - BEGIN (implicit)
+2025-03-26 11:31:29,033 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-03-26 11:31:29,034 - INFO - [generated in 0.00065s] {'pk_1': 7}
+2025-03-26 11:31:29,037 - INFO - Usuário criado: vendedor@example.com
+2025-03-26 11:31:29,039 - INFO - ROLLBACK
+2025-03-26 11:34:08,591 - INFO - select pg_catalog.version()
+2025-03-26 11:34:08,592 - INFO - [raw sql] {}
+2025-03-26 11:34:08,595 - INFO - select current_schema()
+2025-03-26 11:34:08,596 - INFO - [raw sql] {}
+2025-03-26 11:34:08,600 - INFO - show standard_conforming_strings
+2025-03-26 11:34:08,600 - INFO - [raw sql] {}
+2025-03-26 11:34:08,604 - INFO - BEGIN (implicit)
+2025-03-26 11:34:08,609 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-03-26 11:34:08,610 - INFO - [generated in 0.00110s] {'id_1': 7, 'param_1': 1}
+2025-03-26 11:34:08,618 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE %(param_1)s = clientes.usuario_id
+2025-03-26 11:34:08,619 - INFO - [generated in 0.00075s] {'param_1': 7}
+2025-03-26 11:34:08,626 - INFO - DELETE FROM usuarios WHERE usuarios.id = %(id)s
+2025-03-26 11:34:08,627 - INFO - [generated in 0.00064s] {'id': 7}
+2025-03-26 11:34:08,632 - INFO - COMMIT
+2025-03-26 11:34:08,635 - INFO - Usuário deletado com sucesso: vendedor@example.com
+2025-03-26 11:35:40,050 - INFO - select pg_catalog.version()
+2025-03-26 11:35:40,050 - INFO - [raw sql] {}
+2025-03-26 11:35:40,054 - INFO - select current_schema()
+2025-03-26 11:35:40,054 - INFO - [raw sql] {}
+2025-03-26 11:35:40,058 - INFO - show standard_conforming_strings
+2025-03-26 11:35:40,059 - INFO - [raw sql] {}
+2025-03-26 11:35:40,063 - INFO - BEGIN (implicit)
+2025-03-26 11:35:40,066 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-03-26 11:35:40,067 - INFO - [generated in 0.00094s] {'id_1': 7, 'param_1': 1}
+2025-03-26 11:35:40,071 - INFO - ROLLBACK
+2025-03-26 11:43:54,406 - INFO - select pg_catalog.version()
+2025-03-26 11:43:54,407 - INFO - [raw sql] {}
+2025-03-26 11:43:54,410 - INFO - select current_schema()
+2025-03-26 11:43:54,410 - INFO - [raw sql] {}
+2025-03-26 11:43:54,414 - INFO - show standard_conforming_strings
+2025-03-26 11:43:54,415 - INFO - [raw sql] {}
+2025-03-26 11:43:54,419 - INFO - BEGIN (implicit)
+2025-03-26 11:43:54,422 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-03-26 11:43:54,422 - INFO - [generated in 0.00047s] {'id_1': 6, 'param_1': 1}
+2025-03-26 11:43:54,426 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-03-26 11:43:54,670 - INFO - UPDATE usuarios SET nome=%(nome)s, email=%(email)s, senha_hash=%(senha_hash)s WHERE usuarios.id = %(usuarios_id)s
+2025-03-26 11:43:54,671 - INFO - [generated in 0.00100s] {'nome': 'suporte1', 'email': 'suporte1@example.com', 'senha_hash': '$2b$12$ZFSq6yFxuRJciGl.UdI8xefr9ReeGTWiaJ4u3MfV8Fosp.IBn56LW', 'usuarios_id': 6}
+2025-03-26 11:43:54,674 - INFO - COMMIT
+2025-03-26 11:43:54,689 - INFO - BEGIN (implicit)
+2025-03-26 11:43:54,690 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-03-26 11:43:54,691 - INFO - [generated in 0.00071s] {'pk_1': 6}
+2025-03-26 11:43:54,694 - INFO - Usuário atualizado: suporte1@example.com
+2025-03-26 11:43:54,696 - INFO - ROLLBACK
