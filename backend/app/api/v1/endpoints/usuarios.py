@@ -6,10 +6,11 @@ from app.models.usuario_model import UsuarioModel
 from app.schemas.usuario import (UsuarioBaseSchema, UsuarioSchema,
                                  UsuarioCreateSchema, UsuarioUpdateSchema)
 from app.core.dependencies import get_current_active_user
-import logging
 
 from app.services.usuario_service import UsuarioService
 from app.core.security import gerar_hash_senha
+import logging
+
 
 router = APIRouter()
 

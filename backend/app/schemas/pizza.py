@@ -11,14 +11,14 @@ class PizzaBaseSchema(BaseModel):
 
 
 class PizzaSchema(PizzaBaseSchema):
-    pass  # Removido `id: int` duplicado e mantido apenas a herança
-
-
-class PizzaUpdateSchema(BaseModel):
     nome: Optional[str] = None
     descricao: Optional[str] = None
     preco: Optional[float] = None
     sabor: Optional[str] = None
+
+
+class PizzaUpdateSchema(PizzaBaseSchema):
+    pass
 
     class Config:
         # Garantindo que Pydantic reconheça atributos ORM

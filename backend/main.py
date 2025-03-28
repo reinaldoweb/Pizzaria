@@ -3,7 +3,7 @@ from app.core.database import engine, Base
 from app.api.v1.api import api_router
 import logging
 
-app: FastAPI = FastAPI(title="Fast Pizzaria", version="0.1.0")
+app: FastAPI = FastAPI(title="Fast Service", version="0.1.0")
 
 app.include_router(api_router)
 

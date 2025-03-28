@@ -1,55 +1,43 @@
-from typing import List, Optional
+from typing import List
 from fastapi import APIRouter, HTTPException, status, Depends
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.pedido_model import PedidoModel
 from app.schemas.pedido import PedidoSchema, PedidoCreateSchema
-from app.models.cliente_model import ClienteModel
-from app.models.pizza_model import PizzaModel
 from app.core.dependencies import get_current_user as get_usuario_logado
+from app.services.pedido_service import PedidoService
 
 router = APIRouter()
 
 
 @router.post(
-    '/', status_code=status.HTTP_201_CREATED,
-    response_model=PedidoSchema)
-def criar_pedido(pedido: PedidoCreateSchema,
-                 db: Session = Depends(get_db),
-                 usuario_logado=Depends(get_usuario_logado)):
+    '/',
+    response_model=PedidoSchema,
+    status_code=status.HTTP_201_CREATED,
+    summary="Cria um novo pedido",
+    description="Endpoint para cadastrar um novo pedido no sistema"
+    )
+def criar_pedido(
+    pedido: PedidoCreateSchema,
+    db: Session = Depends(get_db),
+    usuario_logado: dict = Depends(get_usuario_logado)
+) -> PedidoSchema:
+    """
+    Cria um novo pedido para o usuário autenticado.
 
-    # Verificar se  o cliente existe
-    cliente_id = pedido.usuario_logado.id
-    cliente = db.query(ClienteModel).filter(
-        ClienteModel.id == cliente_id).first()
-    if not cliente:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Cliente não encontrado"
-        )
+    Args:
+        pedido: Dados do pedido a ser criado
+        db: Sessão do banco de dados
+        usuario_logado: Usuário autenticado
 
-    # Verificar se a pizza existe
-    pizza_id = pedido.pizza_id
-    pizza = db.query(PizzaModel).filter(PizzaModel.id == pizza_id).first()
-    if not pizza:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Pizza não encontrada"
-        )
+    Returns:
+        PedidoSchema: O pedido criado com seus dados
+    """
 
-    # Criar o pedido
-    novo_pedido = PedidoModel(
-        cliente_id=cliente_id,
-        quantidade=pedido.quantidade,
-        pizza_id=pedido.pizza_id,
-        preco=pedido.preco * pedido.quantidade,
-        status='pendente'  # status padrão para novo pedido
-
-        )
-    db.add(novo_pedido)
-    db.commit()
-    db.refresh(novo_pedido)
-    return novo_pedido
+    service = PedidoService(db, usuario_logado)
+    pedido_data = pedido.model_dump()
+    pedido_criado = service.criar_novo_pedido(**pedido_data)
+    return pedido_criado
 
 
 @router.get('/',
@@ -94,7 +82,8 @@ def atualizar_pedido(
         HTTPException: 404 se o pedido não for encontrado
     """
     # Busca o pedido no banco de dados
-    pedido_db = db.query(PedidoModel).filter(PedidoModel.id == pedido_id).first()
+    pedido_db = db.query(PedidoModel).filter(
+        PedidoModel.id == pedido_id).first()
 
     if not pedido_db:
         raise HTTPException(
