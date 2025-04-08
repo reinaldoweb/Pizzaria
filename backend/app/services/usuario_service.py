@@ -36,7 +36,9 @@ class UsuarioService:
             raise
 
     def atualizar_usuario(
-        self, usuario_id: int, usuario_update: UsuarioUpdateSchema
+        self,
+        usuario_id: int,
+        usuario_update: UsuarioUpdateSchema
     ) -> Optional[UsuarioModel]:
         """Atualiza os dados de um usuário existente"""
         usuario_up = self.db.query(UsuarioModel).filter_by(

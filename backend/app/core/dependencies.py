@@ -52,7 +52,7 @@ def get_current_user(
         raise HTTPException(status_code=401, detail="Token inválido")
     except Exception as e:
         logging.error(f"Erro inesperado na autenticação: {e}")
-        raise HTTPException(status_code=500, detail="Erro interno no servidor")
+        raise HTTPException(status_code=401, detail="Token inválido")
 
 
 def get_current_active_user(

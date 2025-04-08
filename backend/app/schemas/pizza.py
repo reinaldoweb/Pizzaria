@@ -1,13 +1,11 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
 
 
 class PizzaBaseSchema(BaseModel):
     id: int
 
-    class Config:
-        # Certifique-se de que está corretamente capitalizado
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class PizzaSchema(PizzaBaseSchema):
@@ -20,9 +18,7 @@ class PizzaSchema(PizzaBaseSchema):
 class PizzaUpdateSchema(PizzaBaseSchema):
     pass
 
-    class Config:
-        # Garantindo que Pydantic reconheça atributos ORM
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class PizzaCreateSchema(BaseModel):
@@ -31,6 +27,4 @@ class PizzaCreateSchema(BaseModel):
     preco: float
     sabor: str
 
-    class Config:
-        # Mantendo compatibilidade com Pydantic ORM
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

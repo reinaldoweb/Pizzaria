@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, ConfigDict, EmailStr
 
 
 class UsuarioBaseSchema(BaseModel):
@@ -10,8 +10,8 @@ class UsuarioBaseSchema(BaseModel):
     data_criacao: datetime
     is_admin: bool
 
-    class Config:
-        from_attributes = True  # Para suportar conversão de ORM para Pydantic
+# Para suportar conversão de ORM para Pydantic
+    model_config = ConfigDict(from_attributes=True)
 
 
 class UsuarioCreateSchema(UsuarioBaseSchema):
@@ -22,8 +22,7 @@ class UsuarioSchema(UsuarioBaseSchema):
     id: int
     data_criacao: datetime
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class UsuarioUpdateSchema(BaseModel):
@@ -32,5 +31,4 @@ class UsuarioUpdateSchema(BaseModel):
     email: Optional[EmailStr] = None
     senha: Optional[str] = None  # Pode ser atualizado, mas não é obrigatório
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

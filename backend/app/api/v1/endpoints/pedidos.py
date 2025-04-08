@@ -42,14 +42,14 @@ def criar_pedido(
 
 @router.get('/',
             response_model=List[PedidoSchema], status_code=status.HTTP_200_OK)
-async def listar_pedidos(db: Session = Depends(get_db)):
+def listar_pedidos(db: Session = Depends(get_db)):
     pedidos = db.query(PedidoModel).all()
     return pedidos
 
 
 @router.get('/{pedido_id}', response_model=PedidoSchema,
             status_code=status.HTTP_202_ACCEPTED)
-async def get_pedido_id(pedido_id: int, db: Session = Depends(get_db)):
+def get_pedido_id(pedido_id: int, db: Session = Depends(get_db)):
     pedido = db.query(PedidoModel).filter(
      PedidoModel.id == pedido_id).one_or_none()
     if not pedido:

@@ -1,28 +1,19 @@
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class ClienteBaseSchema(BaseModel):
-
     nome: str
     endereco: str
     telefone: str
 
-    class config:
+    class Config:
+        # ou orm_mode=True se estiver usando Pydantic v1
         from_attributes = True
 
 
 class ClienteCreateSchema(ClienteBaseSchema):
-    nome: str
-    endereco: str
-    telefone: str
-
-
-class ClienteSchema(BaseModel):
-    id: Optional[int] = None
-
-    class Config:
-        from_attributes = True
+    pass  # Herda tudo de ClienteBaseSchema, não precisa repetir os campos
 
 
 class ClienteUpdateSchema(BaseModel):
@@ -32,3 +23,9 @@ class ClienteUpdateSchema(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class ClienteSchema(ClienteBaseSchema):
+    id: int  # Nesse caso, o ID é obrigatório na resposta
+
+    model_config = ConfigDict(from_attributes=True)

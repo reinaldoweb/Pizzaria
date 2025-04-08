@@ -1,6 +1,8 @@
+from typing import List
 from sqlalchemy.orm import Session
 from app.models.cliente_model import ClienteModel
 import logging
+
 
 logger = logging.getLogger(__name__)
 
@@ -16,21 +18,22 @@ class ClienteService:
             ) -> ClienteModel:
         """
         Cria um novo cliente no sistema
-        :param db: Session de banco de dados
-        :param cliente_data: Dados do cliente a ser criado
-        :param usuario_id: ID do usuário associado ao cliente
-        :return: ClienteModel: O cliente criado
-        :raises Exception: Se ocorrer um erro ao criar o cliente
+        Args:
+            usuario_id: int
+            cliente_data: dict
+        Returns:
+            ClienteModel: O cliente criado
+            Exception: Caso ocorra algum erro durante a criação do cliente
         """
         cliente_existente = (
             self.db.query(ClienteModel)
-            .filter(ClienteModel.email == cliente_data["cliente_id"])
+            .filter(ClienteModel.usuario_id == usuario_id)
             .first()
         )
         if cliente_existente:
             raise ValueError("Cliente já cadastrado")
         try:
-            novo_cliente = ClienteModel(usuario_id=usuario_id, **cliente_data)
+            novo_cliente = ClienteModel(**cliente_data, usuario_id=usuario_id)
             self.db.add(novo_cliente)
             self.db.commit()
             self.db.refresh(novo_cliente)
@@ -43,91 +46,119 @@ class ClienteService:
             logger.exception("Erro ao criar cliente")
             raise
 
+    def listar_todos_clientes(self) -> List[ClienteModel]:
+        """
+        Lista todos os clientes do sistema
+        :return: Lista de clientes do sistema
+        """
+        try:
+            logger.info("Listando todos os clientes")
+            clientes = self.db.query(ClienteModel).all()
+            logger.info(f"Encontrados {len(clientes)} clientes")
+            return clientes
+        except Exception as e:
+            logger.exception(f"Erro ao listar clientes{str(e)}")
+            raise
 
-def listar_todos_clientes(self) -> list[ClienteModel]:
-    """
-    Lista todos os clientes do sistema
-    :return: Lista de clientes do sistema
-    """
-    clientes_all = (
-        self.db.query(ClienteModel)
-        .order_by(ClienteModel.nome).all()
-    )
-    if not clientes_all:
-        raise ValueError("Nenhum cliente encontrado")
-        return []
+    def buscar_cliente_por_id(
+            self,
+            usuario_id: int
+            ) -> ClienteModel:
+        """
+        Busca um cliente pelo seu ID.
 
+        Args:
+            cliente_id: ID do cliente a ser buscado
 
-def lista_cliente_por_id(self, cliente_id: int) -> ClienteModel:
-    """
-    Lista um cliente pelo ID
-    :param cliente_id: ID do cliente
-    :return: ClienteModel: O cliente encontrado
-    :raises Exception: Se ocorrer um erro ao listar o cliente
-    """
-    cliente = (
-        self.db.query(ClienteModel)
-        .filter(ClienteModel.id == cliente_id)
-        .one_or_none()
-    )
-    try:
-        if not cliente:
-            raise ValueError("Cliente não encontrado")
-        return cliente
-    except Exception:
-        self.db.rollback()
-        logger.exception(f"Falha ao listar cliente ID: {cliente_id}")
-        raise
+        Returns:
+            ClienteModel: O cliente encontrado
 
+        Raises:
+            ValueError: Se o cliente não for encontrado
+            Exception: Para erros inesperados no banco de dados
+        """
+        try:
+            if not isinstance(usuario_id, int) or usuario_id <= 0:
+                raise ValueError("ID do Cliente deve ser unúmero positivo")
 
-def atualizar_cliente(
+            cliente_data = self.db.query(ClienteModel).filter(
+                ClienteModel.usuario_id == usuario_id).first()
+
+            if not cliente_data:
+                logger.warning(f"Cliente não encontrado com ID {usuario_id}")
+                raise ValueError(f"Cliente com ID {usuario_id} não encontrado")
+            return cliente_data
+
+        except ValueError as ve:
+            logger.exception(f"Erro ao buscar cliente: {str(ve)}")
+            raise
+        except Exception as e:
+            logger.exception(f"Erro ao buscar cliente: {str(e)}")
+            raise Exception(f"Erro ao buscar cliente, {str(e)}")
+
+    def atualizar_cliente(
         self,
         cliente_id: int,
-        cliente_update: dict) -> ClienteModel:
+        cliente_update: dict
+    ) -> ClienteModel:
+
+        """
+        Atualiza um cliente existente no sistema.
+
+        Args:
+            cliente_id: ID do cliente a ser atualizado
+            cliente_update: Dados atualizados do cliente
+
+        Returns:
+            ClienteModel: O cliente atualizado
+
+        Raises:
+            ValueError: Se o cliente não for encontrado
+            Exception: Para erros inesperados no banco de dados
     """
-    Atualiza um cliente pelo ID
-    :param cliente_id: ID do cliente
-    :param cliente_update: Dados do cliente a serem atualizados
-    :return: ClienteModel: O cliente atualizado
-    :raises Exception: Se ocorrer um erro ao atualizar o cliente
-    """
-    cliente_update = self.db.query(ClienteModel).filter(
-        ClienteModel.id == cliente_id).first()
-    try:
+        cliente = self.db.query(ClienteModel).filter_by(id=cliente_id).first()
+
+        if not cliente:
+            logger.warning(f"Cliente não encontrado com ID {cliente_id}")
+            raise ValueError(f"Cliente com ID {cliente_id} não encontrado")
+
         if not cliente_update:
-            raise ValueError("Cliente não encontrado")
-        cliente_data = cliente_update.model_dump(exclude_unset=True)
-        for field, value in cliente_update.items():
-            setattr(cliente_update, field, value)
-            if field in cliente_data:
-                setattr(cliente_update, field, value)
+            logger.warning("Nenhum dado foi fornecido para atualizar o cliente"
+                           ".")
+            return cliente
+
+        try:
+            for field, value in cliente_update.items():
+                setattr(cliente, field, value)
+
                 self.db.commit()
-                self.db.refresh(cliente_update)
-                logger.info(f"Cliente atualizado: {cliente_update.nome}")
-                return cliente_update
-    except Exception:
-        self.db.rollback()
-        logger.exception(f"Falha ao atualizar cliente ID: {cliente_id}")
-    raise
+                self.db.refresh(cliente)
 
+                logger.info(f"Cliente atualizado: {cliente.nome}")
+                return cliente
 
-def deletar_cliente(self, cliente_id: int) -> None:
-    """
-    Deleta um cliente pelo ID
-    :param cliente_id: ID do cliente
-    :return: None
-    :raises Exception: Se ocorrer um erro ao deletar o cliente
-    """
-    cliente_delete = self.db.query(ClienteModel).filter(
-        ClienteModel.id == cliente_id).first()
-    try:
-        if not cliente_delete:
-            raise ValueError("Cliente não encontrado")
-        self.db.delete(cliente_delete)
-        self.db.commit()
-        logger.info(f"Cliente deletado: {cliente_delete.nome}")
-    except Exception:
-        self.db.rollback()
-        logger.exception(f"Falha ao deletar cliente ID: {cliente_id}")
-        raise
-    return None
+        except Exception:
+            self.db.rollback()
+            logger.exception("Erro ao atualizar cliente")
+            raise Exception("Erro interno ao autlizar cliente")
+
+    def deletar_cliente(self, cliente_id: int) -> None:
+        """
+        Deleta um cliente pelo ID
+        :param cliente_id: ID do cliente
+        :return: None
+        :raises Exception: Se ocorrer um erro ao deletar o cliente
+        """
+        cliente_delete = self.db.query(ClienteModel).filter(
+            ClienteModel.id == cliente_id).first()
+        try:
+            if not cliente_delete:
+                raise ValueError("Cliente não encontrado")
+            self.db.delete(cliente_delete)
+            self.db.commit()
+            logger.info(f"Cliente deletado: {cliente_delete.nome}")
+        except Exception:
+            self.db.rollback()
+            logger.exception(f"Falha ao deletar cliente ID: {cliente_id}")
+            raise
+        return None
