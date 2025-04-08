@@ -21,3 +21,6 @@ ehthumbs.db
 # Ignorar arquivos de backup
 *~
 *.bak
+
+# Ignorar arquivos de log
+*.log
