@@ -141,12 +141,13 @@ def cliente_update(
         )
 
 
-@router.delete("/{cliente_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{cliente_id}", status_code=200)
 def deletar_cliente(
     cliente_id: int,
     db: Session = Depends(get_db),
-    usuario_logado: dict = Depends(get_usuario_logado)
+
         ):
+    print(f"ID recebido: {cliente_id} (tipo: {type(cliente_id)})")
 
     cliente_del = db.query(ClienteModel).filter(
                     ClienteModel.id == cliente_id).first()
@@ -155,4 +156,4 @@ def deletar_cliente(
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
     db.delete(cliente_del)
     db.commit()
-    return
+    return {"message": "Cliente deletado com sucesso"}
