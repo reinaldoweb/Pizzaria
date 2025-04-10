@@ -46,14 +46,18 @@ class ClienteService:
             logger.exception("Erro ao criar cliente")
             raise
 
-    def listar_todos_clientes(self) -> List[ClienteModel]:
+    def listar_todos_clientes(
+            self,
+            usuario_id) -> List[ClienteModel]:
         """
         Lista todos os clientes do sistema
         :return: Lista de clientes do sistema
         """
         try:
             logger.info("Listando todos os clientes")
-            clientes = self.db.query(ClienteModel).all()
+            clientes = self.db.query(ClienteModel).filter(
+                ClienteModel.usuario_id == usuario_id
+            ).all()
             logger.info(f"Encontrados {len(clientes)} clientes")
             return clientes
         except Exception as e:

@@ -64,7 +64,10 @@ def criar_cliente(
             description="Endpoint para listar todos os clientes"
             "cadastrados no sistema"
             )
-def listar_clientes(db: Session = Depends(get_db)):
+def listar_clientes(
+    db: Session = Depends(get_db),
+    usuario_logado=Depends(get_usuario_logado)
+        ):
     """"
     Retorna uma lista de todos os clientes cadastrados no sistema.
     Args:
@@ -72,9 +75,11 @@ def listar_clientes(db: Session = Depends(get_db)):
     Returns:
         List[ClienteBaseSchema]: Lista de clientes cadastrados no sistema
     """
-
     service = ClienteService(db)
-    clientes = service.listar_todos_clientes()
+    clientes = service.listar_todos_clientes(usuario_logado.id)
+    if not clientes:
+        raise HTTPException(
+            status_code=404, detail="Nenhum cliente encontrado")
     return clientes
 
 
