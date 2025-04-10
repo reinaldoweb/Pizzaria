@@ -136,8 +136,8 @@ def cliente_update(
     except Exception as e:
         logger.exception(f"Erro ao tentar atualizar cliente: {str(e)}")
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Erro interno ao atualizar cliente",
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Você não tem permissão para acessar este recurso.",
         )
 
 
