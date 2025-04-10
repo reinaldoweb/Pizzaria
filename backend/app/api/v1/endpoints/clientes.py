@@ -51,8 +51,8 @@ def criar_cliente(
     except Exception:
         logger.exception("Erro ao tentar cadastrar cliente")
         return HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Erro interno ao cadastrar cliente",
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Não autenticado",
         )
     raise
 
