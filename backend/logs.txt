@@ -4833,3 +4833,2134 @@ WHERE clientes.usuario_id = %(usuario_id_1)s
 2025-04-10 15:37:27,206 - INFO - Encontrados 1 clientes
 2025-04-10 15:37:27,207 - INFO - ROLLBACK
 2025-04-10 15:37:27,211 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 08:20:44,385 - INFO - select pg_catalog.version()
+2025-04-11 08:20:44,387 - INFO - [raw sql] {}
+2025-04-11 08:20:44,391 - INFO - select current_schema()
+2025-04-11 08:20:44,392 - INFO - [raw sql] {}
+2025-04-11 08:20:44,396 - INFO - show standard_conforming_strings
+2025-04-11 08:20:44,396 - INFO - [raw sql] {}
+2025-04-11 08:20:44,399 - INFO - BEGIN (implicit)
+2025-04-11 08:20:44,399 - INFO - SET session_replication_role = 'replica';
+2025-04-11 08:20:44,401 - INFO - [generated in 0.00040s] {}
+2025-04-11 08:20:44,404 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 08:20:44,404 - INFO - [generated in 0.00031s] {}
+2025-04-11 08:20:44,422 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 08:20:44,422 - INFO - [generated in 0.00051s] {}
+2025-04-11 08:20:44,435 - INFO - SET session_replication_role = 'origin';
+2025-04-11 08:20:44,435 - INFO - [generated in 0.00029s] {}
+2025-04-11 08:20:44,437 - INFO - COMMIT
+2025-04-11 08:20:44,725 - INFO - BEGIN (implicit)
+2025-04-11 08:20:44,728 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 08:20:44,728 - INFO - [generated in 0.00042s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$dwZYxgWVZ9m9J2lKjbNVKOP83PzSBeJyORSmumeOwYciXgzMdeTEy', 'data_criacao': datetime.datetime(2025, 4, 11, 8, 20, 43, 321820), 'is_admin': False}
+2025-04-11 08:20:44,735 - INFO - COMMIT
+2025-04-11 08:20:44,738 - INFO - BEGIN (implicit)
+2025-04-11 08:20:44,741 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 08:20:44,741 - INFO - [generated in 0.00031s] {'pk_1': 1}
+2025-04-11 08:20:44,746 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 08:20:44,747 - INFO - [generated in 0.00034s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 08:20:44,751 - INFO - COMMIT
+2025-04-11 08:20:44,754 - INFO - BEGIN (implicit)
+2025-04-11 08:20:44,755 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 08:20:44,755 - INFO - [generated in 0.00030s] {'pk_1': 1}
+2025-04-11 08:20:44,988 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 08:20:44,988 - INFO - [cached since 0.2604s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$.IeAq0jzSydk1UjezSeixuyj9zcUzPa1ox//mhh/sjFziuA3I6nlO', 'data_criacao': datetime.datetime(2025, 4, 11, 8, 20, 43, 321820), 'is_admin': False}
+2025-04-11 08:20:44,990 - INFO - COMMIT
+2025-04-11 08:20:44,994 - INFO - BEGIN (implicit)
+2025-04-11 08:20:44,994 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 08:20:44,995 - INFO - [cached since 0.2536s ago] {'pk_1': 2}
+2025-04-11 08:20:44,997 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 08:20:44,998 - INFO - [cached since 0.2521s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 08:20:45,000 - INFO - COMMIT
+2025-04-11 08:20:45,004 - INFO - BEGIN (implicit)
+2025-04-11 08:20:45,004 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 08:20:45,004 - INFO - [cached since 0.2496s ago] {'pk_1': 2}
+2025-04-11 08:20:45,056 - INFO - BEGIN (implicit)
+2025-04-11 08:20:45,058 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 08:20:45,058 - INFO - [generated in 0.00030s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 08:20:45,316 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 08:20:45,318 - INFO - ROLLBACK
+2025-04-11 08:20:45,322 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 08:20:45,328 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 08:20:45,328 - INFO - BEGIN (implicit)
+2025-04-11 08:20:45,328 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 08:20:45,328 - INFO - [cached since 0.2707s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 08:20:45,332 - INFO - Usuário autenticado: ID=1
+2025-04-11 08:20:45,339 - INFO - Listando todos os clientes
+2025-04-11 08:20:45,340 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 08:20:45,340 - INFO - [generated in 0.00028s] {'usuario_id_1': 1}
+2025-04-11 08:20:45,343 - INFO - Encontrados 1 clientes
+2025-04-11 08:20:45,344 - INFO - ROLLBACK
+2025-04-11 08:20:45,347 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 08:31:58,193 - INFO - select pg_catalog.version()
+2025-04-11 08:31:58,193 - INFO - [raw sql] {}
+2025-04-11 08:31:58,195 - INFO - select current_schema()
+2025-04-11 08:31:58,196 - INFO - [raw sql] {}
+2025-04-11 08:31:58,198 - INFO - show standard_conforming_strings
+2025-04-11 08:31:58,198 - INFO - [raw sql] {}
+2025-04-11 08:31:58,202 - INFO - BEGIN (implicit)
+2025-04-11 08:31:58,203 - INFO - SET session_replication_role = 'replica';
+2025-04-11 08:31:58,203 - INFO - [generated in 0.00039s] {}
+2025-04-11 08:31:58,206 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 08:31:58,206 - INFO - [generated in 0.00040s] {}
+2025-04-11 08:31:58,216 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 08:31:58,216 - INFO - [generated in 0.00029s] {}
+2025-04-11 08:31:58,223 - INFO - SET session_replication_role = 'origin';
+2025-04-11 08:31:58,223 - INFO - [generated in 0.00028s] {}
+2025-04-11 08:31:58,224 - INFO - COMMIT
+2025-04-11 08:31:58,245 - WARNING - Erro ao verificar o token: Not enough segments
+2025-04-11 08:31:58,246 - ERROR - Erro inesperado na autenticação: 401: Token inválido
+2025-04-11 08:31:58,248 - INFO - HTTP Request: PATCH http://testserver/clientes/3 "HTTP/1.1 401 Unauthorized"
+2025-04-11 08:31:58,251 - INFO - BEGIN (implicit)
+2025-04-11 08:31:58,251 - INFO - SET session_replication_role = 'replica';
+2025-04-11 08:31:58,251 - INFO - [cached since 0.04831s ago] {}
+2025-04-11 08:31:58,254 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 08:31:58,254 - INFO - [cached since 0.04812s ago] {}
+2025-04-11 08:31:58,261 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 08:31:58,261 - INFO - [cached since 0.04633s ago] {}
+2025-04-11 08:31:58,267 - INFO - SET session_replication_role = 'origin';
+2025-04-11 08:31:58,267 - INFO - [cached since 0.04495s ago] {}
+2025-04-11 08:31:58,269 - INFO - COMMIT
+2025-04-11 08:31:58,534 - INFO - BEGIN (implicit)
+2025-04-11 08:31:58,536 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 08:31:58,536 - INFO - [generated in 0.00073s] {'nome': 'Teste3', 'email': 'teste3@example.com', 'senha_hash': '$2b$12$RtFNt5y8ndPgC73WTiR5p.OP44swIOURpwb0hGcgIPouiPXI25RYK', 'data_criacao': datetime.datetime(2025, 4, 11, 8, 31, 58, 276672), 'is_admin': False}
+2025-04-11 08:31:58,540 - INFO - COMMIT
+2025-04-11 08:31:58,543 - INFO - BEGIN (implicit)
+2025-04-11 08:31:58,546 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 08:31:58,546 - INFO - [generated in 0.00028s] {'pk_1': 1}
+2025-04-11 08:31:58,551 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 08:31:58,551 - INFO - [generated in 0.00032s] {'usuario_id': 1, 'nome': 'Fernando da Silva Sauro', 'telefone': '123456789', 'endereco': 'Rua das Flores Verdes'}
+2025-04-11 08:31:58,554 - INFO - COMMIT
+2025-04-11 08:31:58,557 - INFO - BEGIN (implicit)
+2025-04-11 08:31:58,558 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 08:31:58,558 - INFO - [generated in 0.00021s] {'pk_1': 1}
+2025-04-11 08:31:58,584 - INFO - BEGIN (implicit)
+2025-04-11 08:31:58,586 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 08:31:58,586 - INFO - [generated in 0.00036s] {'email_1': 'teste3@example.com', 'param_1': 1}
+2025-04-11 08:31:58,822 - INFO - Token criado para o email: teste3@example.com
+2025-04-11 08:31:58,824 - INFO - ROLLBACK
+2025-04-11 08:31:58,828 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 08:31:58,832 - INFO - Buscando usuário com e-mail: teste3@example.com
+2025-04-11 08:31:58,833 - INFO - BEGIN (implicit)
+2025-04-11 08:31:58,834 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 08:31:58,834 - INFO - [cached since 0.2485s ago] {'email_1': 'teste3@example.com', 'param_1': 1}
+2025-04-11 08:31:58,837 - INFO - Usuário autenticado: ID=1
+2025-04-11 08:31:58,845 - ERROR - Erro ao tentar atualizar cliente: ClienteService.__init__() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\api\v1\endpoints\clientes.py", line 129, in cliente_update
+    service = ClienteService(db, usuario_logado)
+TypeError: ClienteService.__init__() takes 2 positional arguments but 3 were given
+2025-04-11 08:31:58,856 - INFO - ROLLBACK
+2025-04-11 08:31:58,860 - INFO - HTTP Request: PATCH http://testserver/clientes/1 "HTTP/1.1 403 Forbidden"
+2025-04-11 08:31:59,032 - INFO - BEGIN (implicit)
+2025-04-11 08:31:59,033 - INFO - SET session_replication_role = 'replica';
+2025-04-11 08:31:59,033 - INFO - [cached since 0.8304s ago] {}
+2025-04-11 08:31:59,036 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 08:31:59,036 - INFO - [cached since 0.8298s ago] {}
+2025-04-11 08:43:57,662 - INFO - select pg_catalog.version()
+2025-04-11 08:43:57,664 - INFO - [raw sql] {}
+2025-04-11 08:43:57,667 - INFO - select current_schema()
+2025-04-11 08:43:57,667 - INFO - [raw sql] {}
+2025-04-11 08:43:57,670 - INFO - show standard_conforming_strings
+2025-04-11 08:43:57,670 - INFO - [raw sql] {}
+2025-04-11 08:43:57,673 - INFO - BEGIN (implicit)
+2025-04-11 08:43:57,673 - INFO - SET session_replication_role = 'replica';
+2025-04-11 08:43:57,674 - INFO - [generated in 0.00040s] {}
+2025-04-11 08:43:57,677 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 08:43:57,677 - INFO - [generated in 0.00032s] {}
+2025-04-11 08:43:57,685 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 08:43:57,686 - INFO - [generated in 0.00041s] {}
+2025-04-11 08:43:57,690 - INFO - SET session_replication_role = 'origin';
+2025-04-11 08:43:57,690 - INFO - [generated in 0.00029s] {}
+2025-04-11 08:43:57,691 - INFO - COMMIT
+2025-04-11 08:43:57,713 - WARNING - Erro ao verificar o token: Not enough segments
+2025-04-11 08:43:57,714 - ERROR - Erro inesperado na autenticação: 401: Token inválido
+2025-04-11 08:43:57,715 - INFO - HTTP Request: PATCH http://testserver/clientes/3 "HTTP/1.1 401 Unauthorized"
+2025-04-11 08:43:57,718 - INFO - BEGIN (implicit)
+2025-04-11 08:43:57,718 - INFO - SET session_replication_role = 'replica';
+2025-04-11 08:43:57,718 - INFO - [cached since 0.04536s ago] {}
+2025-04-11 08:43:57,722 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 08:43:57,722 - INFO - [cached since 0.04452s ago] {}
+2025-04-11 08:43:57,728 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 08:43:57,728 - INFO - [cached since 0.04287s ago] {}
+2025-04-11 08:43:57,733 - INFO - SET session_replication_role = 'origin';
+2025-04-11 08:43:57,733 - INFO - [cached since 0.04312s ago] {}
+2025-04-11 08:43:57,735 - INFO - COMMIT
+2025-04-11 08:43:58,000 - INFO - BEGIN (implicit)
+2025-04-11 08:43:58,001 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 08:43:58,001 - INFO - [generated in 0.00031s] {'nome': 'Teste3', 'email': 'teste3@example.com', 'senha_hash': '$2b$12$zA5NxAt9X6AUKPJR/N.rwOJsN6saFnsI7I7mnqlSF.ELSAwnHpox2', 'data_criacao': datetime.datetime(2025, 4, 11, 8, 43, 57, 742722), 'is_admin': False}
+2025-04-11 08:43:58,006 - INFO - COMMIT
+2025-04-11 08:43:58,010 - INFO - BEGIN (implicit)
+2025-04-11 08:43:58,011 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 08:43:58,012 - INFO - [generated in 0.00026s] {'pk_1': 1}
+2025-04-11 08:43:58,016 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 08:43:58,016 - INFO - [generated in 0.00030s] {'usuario_id': 1, 'nome': 'Fernando da Silva Sauro', 'telefone': '123456789', 'endereco': 'Rua das Flores Verdes'}
+2025-04-11 08:43:58,019 - INFO - COMMIT
+2025-04-11 08:43:58,023 - INFO - BEGIN (implicit)
+2025-04-11 08:43:58,024 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 08:43:58,024 - INFO - [generated in 0.00020s] {'pk_1': 1}
+2025-04-11 08:43:58,064 - INFO - BEGIN (implicit)
+2025-04-11 08:43:58,065 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 08:43:58,065 - INFO - [generated in 0.00024s] {'email_1': 'teste3@example.com', 'param_1': 1}
+2025-04-11 08:43:58,302 - INFO - Token criado para o email: teste3@example.com
+2025-04-11 08:43:58,303 - INFO - ROLLBACK
+2025-04-11 08:43:58,306 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 08:43:58,311 - INFO - Buscando usuário com e-mail: teste3@example.com
+2025-04-11 08:43:58,311 - INFO - BEGIN (implicit)
+2025-04-11 08:43:58,312 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 08:43:58,312 - INFO - [cached since 0.2474s ago] {'email_1': 'teste3@example.com', 'param_1': 1}
+2025-04-11 08:43:58,315 - INFO - Usuário autenticado: ID=1
+2025-04-11 08:43:58,323 - ERROR - Erro ao tentar atualizar cliente: ClienteService.__init__() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\api\v1\endpoints\clientes.py", line 129, in cliente_update
+    service = ClienteService(db, usuario_logado)
+TypeError: ClienteService.__init__() takes 2 positional arguments but 3 were given
+2025-04-11 08:43:58,324 - INFO - ROLLBACK
+2025-04-11 08:43:58,327 - INFO - HTTP Request: PATCH http://testserver/clientes/1 "HTTP/1.1 403 Forbidden"
+2025-04-11 08:43:58,501 - INFO - BEGIN (implicit)
+2025-04-11 08:43:58,502 - INFO - SET session_replication_role = 'replica';
+2025-04-11 08:43:58,502 - INFO - [cached since 0.8289s ago] {}
+2025-04-11 08:43:58,505 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 08:43:58,505 - INFO - [cached since 0.8283s ago] {}
+2025-04-11 08:45:49,099 - INFO - select pg_catalog.version()
+2025-04-11 08:45:49,100 - INFO - [raw sql] {}
+2025-04-11 08:45:49,103 - INFO - select current_schema()
+2025-04-11 08:45:49,103 - INFO - [raw sql] {}
+2025-04-11 08:45:49,105 - INFO - show standard_conforming_strings
+2025-04-11 08:45:49,106 - INFO - [raw sql] {}
+2025-04-11 08:45:49,108 - INFO - BEGIN (implicit)
+2025-04-11 08:45:49,109 - INFO - SET session_replication_role = 'replica';
+2025-04-11 08:45:49,109 - INFO - [generated in 0.00023s] {}
+2025-04-11 08:45:49,121 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 08:45:49,123 - INFO - [generated in 0.00039s] {}
+2025-04-11 08:45:49,135 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 08:45:49,135 - INFO - [generated in 0.00043s] {}
+2025-04-11 08:45:49,140 - INFO - SET session_replication_role = 'origin';
+2025-04-11 08:45:49,140 - INFO - [generated in 0.00029s] {}
+2025-04-11 08:45:49,142 - INFO - COMMIT
+2025-04-11 08:45:49,405 - INFO - BEGIN (implicit)
+2025-04-11 08:45:49,407 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 08:45:49,407 - INFO - [generated in 0.00036s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$MpJrkmDD9tYE5I9pDQ/tluCcOS.i4yuHnrDJiVaCf03x1QQGSWwh2', 'data_criacao': datetime.datetime(2025, 4, 11, 8, 45, 48, 315946), 'is_admin': False}
+2025-04-11 08:45:49,411 - INFO - COMMIT
+2025-04-11 08:45:49,415 - INFO - BEGIN (implicit)
+2025-04-11 08:45:49,417 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 08:45:49,417 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 08:45:49,421 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 08:45:49,421 - INFO - [generated in 0.00031s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 08:45:49,424 - INFO - COMMIT
+2025-04-11 08:45:49,427 - INFO - BEGIN (implicit)
+2025-04-11 08:45:49,428 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 08:45:49,428 - INFO - [generated in 0.00022s] {'pk_1': 1}
+2025-04-11 08:45:49,660 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 08:45:49,660 - INFO - [cached since 0.2548s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$DfPbVolTxwcPIPT9CYIM9uxyV.YIXobPa2s7qT5AptL0NHZcZeebq', 'data_criacao': datetime.datetime(2025, 4, 11, 8, 45, 48, 315946), 'is_admin': False}
+2025-04-11 08:45:49,664 - INFO - COMMIT
+2025-04-11 08:45:49,668 - INFO - BEGIN (implicit)
+2025-04-11 08:45:49,669 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 08:45:49,669 - INFO - [cached since 0.2518s ago] {'pk_1': 2}
+2025-04-11 08:45:49,672 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 08:45:49,672 - INFO - [cached since 0.2503s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 08:45:49,673 - INFO - COMMIT
+2025-04-11 08:45:49,677 - INFO - BEGIN (implicit)
+2025-04-11 08:45:49,677 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 08:45:49,677 - INFO - [cached since 0.2494s ago] {'pk_1': 2}
+2025-04-11 08:45:49,726 - INFO - BEGIN (implicit)
+2025-04-11 08:45:49,728 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 08:45:49,729 - INFO - [generated in 0.00024s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 08:45:49,964 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 08:45:49,966 - INFO - ROLLBACK
+2025-04-11 08:45:49,969 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 08:45:49,974 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 08:45:49,975 - INFO - BEGIN (implicit)
+2025-04-11 08:45:49,975 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 08:45:49,975 - INFO - [cached since 0.2475s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 08:45:49,980 - INFO - Usuário autenticado: ID=1
+2025-04-11 08:45:49,985 - INFO - Listando todos os clientes
+2025-04-11 08:45:49,986 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 08:45:49,987 - INFO - [generated in 0.00027s] {'usuario_id_1': 1}
+2025-04-11 08:45:49,988 - INFO - Encontrados 1 clientes
+2025-04-11 08:45:49,989 - INFO - ROLLBACK
+2025-04-11 08:45:49,992 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 09:03:44,846 - INFO - select pg_catalog.version()
+2025-04-11 09:03:44,846 - INFO - [raw sql] {}
+2025-04-11 09:03:44,850 - INFO - select current_schema()
+2025-04-11 09:03:44,851 - INFO - [raw sql] {}
+2025-04-11 09:03:44,854 - INFO - show standard_conforming_strings
+2025-04-11 09:03:44,854 - INFO - [raw sql] {}
+2025-04-11 09:03:44,856 - INFO - BEGIN (implicit)
+2025-04-11 09:03:44,857 - INFO - SET session_replication_role = 'replica';
+2025-04-11 09:03:44,857 - INFO - [generated in 0.00022s] {}
+2025-04-11 09:03:44,860 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 09:03:44,860 - INFO - [generated in 0.00033s] {}
+2025-04-11 09:03:44,879 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 09:03:44,879 - INFO - [generated in 0.00063s] {}
+2025-04-11 09:03:44,889 - INFO - SET session_replication_role = 'origin';
+2025-04-11 09:03:44,889 - INFO - [generated in 0.00033s] {}
+2025-04-11 09:03:44,891 - INFO - COMMIT
+2025-04-11 09:03:45,160 - INFO - BEGIN (implicit)
+2025-04-11 09:03:45,161 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:03:45,161 - INFO - [generated in 0.00031s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$xkCwHH81k8piwMENeEeSneSMSdO7Z8g5n1gsHDsUbXIQnMc1I1vNi', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 3, 44, 76500), 'is_admin': False}
+2025-04-11 09:03:45,167 - INFO - COMMIT
+2025-04-11 09:03:45,181 - INFO - BEGIN (implicit)
+2025-04-11 09:03:45,183 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:03:45,183 - INFO - [generated in 0.00028s] {'pk_1': 1}
+2025-04-11 09:03:45,188 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:03:45,188 - INFO - [generated in 0.00030s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 09:03:45,192 - INFO - COMMIT
+2025-04-11 09:03:45,195 - INFO - BEGIN (implicit)
+2025-04-11 09:03:45,196 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:03:45,196 - INFO - [generated in 0.00020s] {'pk_1': 1}
+2025-04-11 09:03:45,428 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:03:45,428 - INFO - [cached since 0.2676s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$yge3wctg0jN1NmT3s9yKSeN5kXg5OOlx3tycr8au0XPu7MFuUBa4C', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 3, 44, 76500), 'is_admin': False}
+2025-04-11 09:03:45,431 - INFO - COMMIT
+2025-04-11 09:03:45,446 - INFO - BEGIN (implicit)
+2025-04-11 09:03:45,446 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:03:45,446 - INFO - [cached since 0.263s ago] {'pk_1': 2}
+2025-04-11 09:03:45,450 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:03:45,450 - INFO - [cached since 0.2618s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 09:03:45,452 - INFO - COMMIT
+2025-04-11 09:03:45,455 - INFO - BEGIN (implicit)
+2025-04-11 09:03:45,456 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:03:45,456 - INFO - [cached since 0.2598s ago] {'pk_1': 2}
+2025-04-11 09:03:45,514 - INFO - BEGIN (implicit)
+2025-04-11 09:03:45,515 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:03:45,516 - INFO - [generated in 0.00031s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:03:45,752 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 09:03:45,754 - INFO - ROLLBACK
+2025-04-11 09:03:45,758 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 09:03:45,763 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 09:03:45,763 - INFO - BEGIN (implicit)
+2025-04-11 09:03:45,764 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:03:45,764 - INFO - [cached since 0.2484s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:03:45,768 - INFO - Usuário autenticado: ID=1
+2025-04-11 09:03:45,773 - INFO - Listando todos os clientes
+2025-04-11 09:03:45,774 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 09:03:45,774 - INFO - [generated in 0.00026s] {'usuario_id_1': 1}
+2025-04-11 09:03:45,776 - INFO - Encontrados 1 clientes
+2025-04-11 09:03:45,778 - INFO - ROLLBACK
+2025-04-11 09:03:45,781 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 09:08:30,874 - INFO - select pg_catalog.version()
+2025-04-11 09:08:30,874 - INFO - [raw sql] {}
+2025-04-11 09:08:30,877 - INFO - select current_schema()
+2025-04-11 09:08:30,878 - INFO - [raw sql] {}
+2025-04-11 09:08:30,881 - INFO - show standard_conforming_strings
+2025-04-11 09:08:30,881 - INFO - [raw sql] {}
+2025-04-11 09:08:30,884 - INFO - BEGIN (implicit)
+2025-04-11 09:08:30,884 - INFO - SET session_replication_role = 'replica';
+2025-04-11 09:08:30,884 - INFO - [generated in 0.00030s] {}
+2025-04-11 09:08:30,897 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 09:08:30,897 - INFO - [generated in 0.00031s] {}
+2025-04-11 09:08:30,905 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 09:08:30,905 - INFO - [generated in 0.00034s] {}
+2025-04-11 09:08:30,910 - INFO - SET session_replication_role = 'origin';
+2025-04-11 09:08:30,911 - INFO - [generated in 0.00028s] {}
+2025-04-11 09:08:30,912 - INFO - COMMIT
+2025-04-11 09:08:31,176 - INFO - BEGIN (implicit)
+2025-04-11 09:08:31,178 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:08:31,178 - INFO - [generated in 0.00032s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$kMlhRdUgaNhKo5LSXIdEteHjY7kL/vIxUPeohgS82m8XEVNSSfK9i', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 8, 30, 93595), 'is_admin': False}
+2025-04-11 09:08:31,183 - INFO - COMMIT
+2025-04-11 09:08:31,196 - INFO - BEGIN (implicit)
+2025-04-11 09:08:31,198 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:08:31,199 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 09:08:31,203 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:08:31,203 - INFO - [generated in 0.00034s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 09:08:31,205 - INFO - COMMIT
+2025-04-11 09:08:31,209 - INFO - BEGIN (implicit)
+2025-04-11 09:08:31,210 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:08:31,210 - INFO - [generated in 0.00033s] {'pk_1': 1}
+2025-04-11 09:08:31,443 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:08:31,443 - INFO - [cached since 0.2652s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$uwhyQ7rIwrCwtFEhsuWoQOvJGFe1OmvEzlJvjZhe8azPShnLQRUki', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 8, 30, 93595), 'is_admin': False}
+2025-04-11 09:08:31,446 - INFO - COMMIT
+2025-04-11 09:08:31,459 - INFO - BEGIN (implicit)
+2025-04-11 09:08:31,460 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:08:31,460 - INFO - [cached since 0.2614s ago] {'pk_1': 2}
+2025-04-11 09:08:31,462 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:08:31,462 - INFO - [cached since 0.2604s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 09:08:31,466 - INFO - COMMIT
+2025-04-11 09:08:31,469 - INFO - BEGIN (implicit)
+2025-04-11 09:08:31,469 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:08:31,469 - INFO - [cached since 0.2588s ago] {'pk_1': 2}
+2025-04-11 09:08:31,525 - INFO - BEGIN (implicit)
+2025-04-11 09:08:31,526 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:08:31,526 - INFO - [generated in 0.00036s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:08:31,763 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 09:08:31,765 - INFO - ROLLBACK
+2025-04-11 09:08:31,768 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 09:08:31,773 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 09:08:31,773 - INFO - BEGIN (implicit)
+2025-04-11 09:08:31,774 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:08:31,774 - INFO - [cached since 0.2481s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:08:31,778 - INFO - Usuário autenticado: ID=1
+2025-04-11 09:08:31,783 - INFO - Listando todos os clientes
+2025-04-11 09:08:31,784 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 09:08:31,784 - INFO - [generated in 0.00027s] {'usuario_id_1': 1}
+2025-04-11 09:08:31,787 - INFO - Encontrados 1 clientes
+2025-04-11 09:08:31,788 - INFO - ROLLBACK
+2025-04-11 09:08:31,792 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 09:11:36,961 - INFO - select pg_catalog.version()
+2025-04-11 09:11:36,961 - INFO - [raw sql] {}
+2025-04-11 09:11:36,966 - INFO - select current_schema()
+2025-04-11 09:11:36,966 - INFO - [raw sql] {}
+2025-04-11 09:11:36,969 - INFO - show standard_conforming_strings
+2025-04-11 09:11:36,969 - INFO - [raw sql] {}
+2025-04-11 09:11:36,972 - INFO - BEGIN (implicit)
+2025-04-11 09:11:36,972 - INFO - SET session_replication_role = 'replica';
+2025-04-11 09:11:36,973 - INFO - [generated in 0.00027s] {}
+2025-04-11 09:11:36,975 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 09:11:36,976 - INFO - [generated in 0.00033s] {}
+2025-04-11 09:11:36,983 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 09:11:36,983 - INFO - [generated in 0.00034s] {}
+2025-04-11 09:11:36,989 - INFO - SET session_replication_role = 'origin';
+2025-04-11 09:11:36,989 - INFO - [generated in 0.00028s] {}
+2025-04-11 09:11:36,990 - INFO - COMMIT
+2025-04-11 09:11:37,253 - INFO - BEGIN (implicit)
+2025-04-11 09:11:37,255 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:11:37,255 - INFO - [generated in 0.00037s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$hTKxSVcHhJRc58L583oeD.u0k65n1iKh69MrwBo8FR7ZJoFiZsAPq', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 11, 36, 192079), 'is_admin': False}
+2025-04-11 09:11:37,259 - INFO - COMMIT
+2025-04-11 09:11:37,263 - INFO - BEGIN (implicit)
+2025-04-11 09:11:37,264 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:11:37,265 - INFO - [generated in 0.00028s] {'pk_1': 1}
+2025-04-11 09:11:37,269 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:11:37,269 - INFO - [generated in 0.00030s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 09:11:37,272 - INFO - COMMIT
+2025-04-11 09:11:37,275 - INFO - BEGIN (implicit)
+2025-04-11 09:11:37,276 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:11:37,276 - INFO - [generated in 0.00021s] {'pk_1': 1}
+2025-04-11 09:11:37,510 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:11:37,510 - INFO - [cached since 0.2549s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$a/ZZBjztLeARFqnpotl.OOkrHjF/h2G3pctRea2xJuwLh2JOiIraC', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 11, 36, 192079), 'is_admin': False}
+2025-04-11 09:11:37,512 - INFO - COMMIT
+2025-04-11 09:11:37,526 - INFO - BEGIN (implicit)
+2025-04-11 09:11:37,526 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:11:37,527 - INFO - [cached since 0.2619s ago] {'pk_1': 2}
+2025-04-11 09:11:37,530 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:11:37,530 - INFO - [cached since 0.2614s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 09:11:37,532 - INFO - COMMIT
+2025-04-11 09:11:37,535 - INFO - BEGIN (implicit)
+2025-04-11 09:11:37,536 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:11:37,536 - INFO - [cached since 0.2602s ago] {'pk_1': 2}
+2025-04-11 09:11:37,585 - INFO - BEGIN (implicit)
+2025-04-11 09:11:37,586 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:11:37,586 - INFO - [generated in 0.00029s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:11:37,822 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 09:11:37,824 - INFO - ROLLBACK
+2025-04-11 09:11:37,827 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 09:11:37,831 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 09:11:37,832 - INFO - BEGIN (implicit)
+2025-04-11 09:11:37,832 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:11:37,832 - INFO - [cached since 0.2464s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:11:37,836 - INFO - Usuário autenticado: ID=1
+2025-04-11 09:11:37,841 - INFO - Listando todos os clientes
+2025-04-11 09:11:37,842 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 09:11:37,842 - INFO - [generated in 0.00025s] {'usuario_id_1': 1}
+2025-04-11 09:11:37,845 - INFO - Encontrados 1 clientes
+2025-04-11 09:11:37,846 - INFO - ROLLBACK
+2025-04-11 09:11:37,850 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 09:47:09,051 - INFO - select pg_catalog.version()
+2025-04-11 09:47:09,051 - INFO - [raw sql] {}
+2025-04-11 09:47:09,054 - INFO - select current_schema()
+2025-04-11 09:47:09,055 - INFO - [raw sql] {}
+2025-04-11 09:47:09,057 - INFO - show standard_conforming_strings
+2025-04-11 09:47:09,058 - INFO - [raw sql] {}
+2025-04-11 09:47:09,061 - INFO - BEGIN (implicit)
+2025-04-11 09:47:09,061 - INFO - SET session_replication_role = 'replica';
+2025-04-11 09:47:09,062 - INFO - [generated in 0.00028s] {}
+2025-04-11 09:47:09,075 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 09:47:09,075 - INFO - [generated in 0.00032s] {}
+2025-04-11 09:47:09,083 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 09:47:09,084 - INFO - [generated in 0.00041s] {}
+2025-04-11 09:47:09,089 - INFO - SET session_replication_role = 'origin';
+2025-04-11 09:47:09,090 - INFO - [generated in 0.00029s] {}
+2025-04-11 09:47:09,091 - INFO - COMMIT
+2025-04-11 09:47:09,356 - INFO - BEGIN (implicit)
+2025-04-11 09:47:09,357 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:47:09,358 - INFO - [generated in 0.00035s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$YnjqkBapPKejT3O4h9GJYuSo8aHt6WCyXjdAVw0fEO3MDbPughoOy', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 47, 8, 281387), 'is_admin': False}
+2025-04-11 09:47:09,361 - INFO - COMMIT
+2025-04-11 09:47:09,365 - INFO - BEGIN (implicit)
+2025-04-11 09:47:09,367 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:47:09,367 - INFO - [generated in 0.00030s] {'pk_1': 1}
+2025-04-11 09:47:09,372 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:47:09,372 - INFO - [generated in 0.00029s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 09:47:09,375 - INFO - COMMIT
+2025-04-11 09:47:09,378 - INFO - BEGIN (implicit)
+2025-04-11 09:47:09,379 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:47:09,379 - INFO - [generated in 0.00021s] {'pk_1': 1}
+2025-04-11 09:47:09,611 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:47:09,612 - INFO - [cached since 0.2544s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$V67P9TgS0qScLP4j71DlQuVENYr8KvEb04B3TATzQ9koRTtiN25Eu', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 47, 8, 281387), 'is_admin': False}
+2025-04-11 09:47:09,614 - INFO - COMMIT
+2025-04-11 09:47:09,617 - INFO - BEGIN (implicit)
+2025-04-11 09:47:09,618 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:47:09,618 - INFO - [cached since 0.251s ago] {'pk_1': 2}
+2025-04-11 09:47:09,622 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:47:09,622 - INFO - [cached since 0.2505s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 09:47:09,624 - INFO - COMMIT
+2025-04-11 09:47:09,627 - INFO - BEGIN (implicit)
+2025-04-11 09:47:09,628 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:47:09,628 - INFO - [cached since 0.249s ago] {'pk_1': 2}
+2025-04-11 09:47:09,680 - INFO - BEGIN (implicit)
+2025-04-11 09:47:09,681 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:47:09,682 - INFO - [generated in 0.00023s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:47:09,917 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 09:47:09,918 - INFO - ROLLBACK
+2025-04-11 09:47:09,922 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 09:47:09,926 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 09:47:09,927 - INFO - BEGIN (implicit)
+2025-04-11 09:47:09,927 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:47:09,927 - INFO - [cached since 0.2462s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:47:09,931 - INFO - Usuário autenticado: ID=1
+2025-04-11 09:47:09,936 - INFO - Listando todos os clientes
+2025-04-11 09:47:09,937 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 09:47:09,938 - INFO - [generated in 0.00030s] {'usuario_id_1': 1}
+2025-04-11 09:47:09,940 - INFO - Encontrados 1 clientes
+2025-04-11 09:47:09,942 - INFO - ROLLBACK
+2025-04-11 09:47:09,945 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 09:49:24,073 - INFO - select pg_catalog.version()
+2025-04-11 09:49:24,073 - INFO - [raw sql] {}
+2025-04-11 09:49:24,076 - INFO - select current_schema()
+2025-04-11 09:49:24,076 - INFO - [raw sql] {}
+2025-04-11 09:49:24,079 - INFO - show standard_conforming_strings
+2025-04-11 09:49:24,079 - INFO - [raw sql] {}
+2025-04-11 09:49:24,083 - INFO - BEGIN (implicit)
+2025-04-11 09:49:24,083 - INFO - SET session_replication_role = 'replica';
+2025-04-11 09:49:24,083 - INFO - [generated in 0.00022s] {}
+2025-04-11 09:49:24,086 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 09:49:24,086 - INFO - [generated in 0.00031s] {}
+2025-04-11 09:49:24,093 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 09:49:24,094 - INFO - [generated in 0.00033s] {}
+2025-04-11 09:49:24,100 - INFO - SET session_replication_role = 'origin';
+2025-04-11 09:49:24,100 - INFO - [generated in 0.00028s] {}
+2025-04-11 09:49:24,101 - INFO - COMMIT
+2025-04-11 09:49:24,363 - INFO - BEGIN (implicit)
+2025-04-11 09:49:24,365 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:49:24,365 - INFO - [generated in 0.00033s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$Pr31sSHpFYmxQwE0licjtOwKmiC3RioMpylSCl6WYNgm7lg8LHXem', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 49, 23, 342842), 'is_admin': False}
+2025-04-11 09:49:24,369 - INFO - COMMIT
+2025-04-11 09:49:24,384 - INFO - BEGIN (implicit)
+2025-04-11 09:49:24,385 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:49:24,385 - INFO - [generated in 0.00027s] {'pk_1': 1}
+2025-04-11 09:49:24,390 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:49:24,390 - INFO - [generated in 0.00030s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 09:49:24,393 - INFO - COMMIT
+2025-04-11 09:49:24,396 - INFO - BEGIN (implicit)
+2025-04-11 09:49:24,397 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:49:24,397 - INFO - [generated in 0.00020s] {'pk_1': 1}
+2025-04-11 09:49:24,630 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:49:24,630 - INFO - [cached since 0.2651s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$KSn3xgB6OQ6MYnNblx4U4u4s53d8dfEtyEyo9t.nP5GfRXJrM5se.', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 49, 23, 342842), 'is_admin': False}
+2025-04-11 09:49:24,633 - INFO - COMMIT
+2025-04-11 09:49:24,636 - INFO - BEGIN (implicit)
+2025-04-11 09:49:24,636 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:49:24,636 - INFO - [cached since 0.2513s ago] {'pk_1': 2}
+2025-04-11 09:49:24,640 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:49:24,640 - INFO - [cached since 0.2501s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 09:49:24,642 - INFO - COMMIT
+2025-04-11 09:49:24,645 - INFO - BEGIN (implicit)
+2025-04-11 09:49:24,645 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:49:24,646 - INFO - [cached since 0.2487s ago] {'pk_1': 2}
+2025-04-11 09:49:24,705 - INFO - BEGIN (implicit)
+2025-04-11 09:49:24,706 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:49:24,706 - INFO - [generated in 0.00030s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:49:24,942 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 09:49:24,943 - INFO - ROLLBACK
+2025-04-11 09:49:24,947 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 09:49:24,952 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 09:49:24,953 - INFO - BEGIN (implicit)
+2025-04-11 09:49:24,953 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:49:24,954 - INFO - [cached since 0.2476s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:49:24,957 - INFO - Usuário autenticado: ID=1
+2025-04-11 09:49:24,962 - INFO - Listando todos os clientes
+2025-04-11 09:49:24,963 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 09:49:24,963 - INFO - [generated in 0.00032s] {'usuario_id_1': 1}
+2025-04-11 09:49:24,966 - INFO - Encontrados 1 clientes
+2025-04-11 09:49:24,967 - INFO - ROLLBACK
+2025-04-11 09:49:24,971 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 09:50:11,007 - INFO - select pg_catalog.version()
+2025-04-11 09:50:11,007 - INFO - [raw sql] {}
+2025-04-11 09:50:11,011 - INFO - select current_schema()
+2025-04-11 09:50:11,012 - INFO - [raw sql] {}
+2025-04-11 09:50:11,015 - INFO - show standard_conforming_strings
+2025-04-11 09:50:11,015 - INFO - [raw sql] {}
+2025-04-11 09:50:11,018 - INFO - BEGIN (implicit)
+2025-04-11 09:50:11,019 - INFO - SET session_replication_role = 'replica';
+2025-04-11 09:50:11,019 - INFO - [generated in 0.00022s] {}
+2025-04-11 09:50:11,022 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 09:50:11,022 - INFO - [generated in 0.00031s] {}
+2025-04-11 09:50:11,029 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 09:50:11,030 - INFO - [generated in 0.00035s] {}
+2025-04-11 09:50:11,034 - INFO - SET session_replication_role = 'origin';
+2025-04-11 09:50:11,034 - INFO - [generated in 0.00028s] {}
+2025-04-11 09:50:11,036 - INFO - COMMIT
+2025-04-11 09:50:11,300 - INFO - BEGIN (implicit)
+2025-04-11 09:50:11,302 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:50:11,302 - INFO - [generated in 0.00030s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$HBdId4vBuiR6/gW8kCyJRO0mVwnxGITEM7ef9.rzXEZwGn0UoYYjq', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 50, 10, 231817), 'is_admin': False}
+2025-04-11 09:50:11,306 - INFO - COMMIT
+2025-04-11 09:50:11,320 - INFO - BEGIN (implicit)
+2025-04-11 09:50:11,322 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:50:11,322 - INFO - [generated in 0.00028s] {'pk_1': 1}
+2025-04-11 09:50:11,327 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:50:11,327 - INFO - [generated in 0.00030s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 09:50:11,330 - INFO - COMMIT
+2025-04-11 09:50:11,334 - INFO - BEGIN (implicit)
+2025-04-11 09:50:11,334 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:50:11,335 - INFO - [generated in 0.00021s] {'pk_1': 1}
+2025-04-11 09:50:11,568 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 09:50:11,568 - INFO - [cached since 0.2664s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$SEIQBjEv.AjvbjJ8pk32gOOVcgYMxOTwcd9rS78/Tvf4LIqLAjyiG', 'data_criacao': datetime.datetime(2025, 4, 11, 9, 50, 10, 231817), 'is_admin': False}
+2025-04-11 09:50:11,570 - INFO - COMMIT
+2025-04-11 09:50:11,583 - INFO - BEGIN (implicit)
+2025-04-11 09:50:11,583 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 09:50:11,583 - INFO - [cached since 0.2613s ago] {'pk_1': 2}
+2025-04-11 09:50:11,586 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 09:50:11,586 - INFO - [cached since 0.2592s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 09:50:11,588 - INFO - COMMIT
+2025-04-11 09:50:11,591 - INFO - BEGIN (implicit)
+2025-04-11 09:50:11,592 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 09:50:11,592 - INFO - [cached since 0.2575s ago] {'pk_1': 2}
+2025-04-11 09:50:11,634 - INFO - BEGIN (implicit)
+2025-04-11 09:50:11,635 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:50:11,635 - INFO - [generated in 0.00045s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:50:11,873 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 09:50:11,874 - INFO - ROLLBACK
+2025-04-11 09:50:11,878 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 09:50:11,883 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 09:50:11,883 - INFO - BEGIN (implicit)
+2025-04-11 09:50:11,883 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 09:50:11,884 - INFO - [cached since 0.2491s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 09:50:11,887 - INFO - Usuário autenticado: ID=1
+2025-04-11 09:50:11,892 - INFO - Listando todos os clientes
+2025-04-11 09:50:11,894 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 09:50:11,894 - INFO - [generated in 0.00031s] {'usuario_id_1': 1}
+2025-04-11 09:50:11,896 - INFO - Encontrados 1 clientes
+2025-04-11 09:50:11,897 - INFO - ROLLBACK
+2025-04-11 09:50:11,900 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 10:00:33,338 - INFO - select pg_catalog.version()
+2025-04-11 10:00:33,339 - INFO - [raw sql] {}
+2025-04-11 10:00:33,342 - INFO - select current_schema()
+2025-04-11 10:00:33,343 - INFO - [raw sql] {}
+2025-04-11 10:00:33,345 - INFO - show standard_conforming_strings
+2025-04-11 10:00:33,346 - INFO - [raw sql] {}
+2025-04-11 10:00:33,348 - INFO - BEGIN (implicit)
+2025-04-11 10:00:33,349 - INFO - SET session_replication_role = 'replica';
+2025-04-11 10:00:33,349 - INFO - [generated in 0.00021s] {}
+2025-04-11 10:00:33,361 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 10:00:33,362 - INFO - [generated in 0.00030s] {}
+2025-04-11 10:00:33,371 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 10:00:33,371 - INFO - [generated in 0.00033s] {}
+2025-04-11 10:00:33,376 - INFO - SET session_replication_role = 'origin';
+2025-04-11 10:00:33,377 - INFO - [generated in 0.00026s] {}
+2025-04-11 10:00:33,378 - INFO - COMMIT
+2025-04-11 10:00:33,641 - INFO - BEGIN (implicit)
+2025-04-11 10:00:33,642 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 10:00:33,642 - INFO - [generated in 0.00030s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$lE8IQ//Z607H3OvpOo3j8u27hhrcMpcnizvlvqdnxOxT3/c.8GA/G', 'data_criacao': datetime.datetime(2025, 4, 11, 10, 0, 32, 597366), 'is_admin': False}
+2025-04-11 10:00:33,647 - INFO - COMMIT
+2025-04-11 10:00:33,651 - INFO - BEGIN (implicit)
+2025-04-11 10:00:33,653 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 10:00:33,653 - INFO - [generated in 0.00035s] {'pk_1': 1}
+2025-04-11 10:00:33,657 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 10:00:33,658 - INFO - [generated in 0.00030s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 10:00:33,661 - INFO - COMMIT
+2025-04-11 10:00:33,664 - INFO - BEGIN (implicit)
+2025-04-11 10:00:33,665 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 10:00:33,665 - INFO - [generated in 0.00025s] {'pk_1': 1}
+2025-04-11 10:00:33,899 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 10:00:33,899 - INFO - [cached since 0.2567s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$8HkWix9vNmPOjyyS8oX9rez74njY8XNeq8wLn1YpzhBAt4eDt6YNO', 'data_criacao': datetime.datetime(2025, 4, 11, 10, 0, 32, 597366), 'is_admin': False}
+2025-04-11 10:00:33,902 - INFO - COMMIT
+2025-04-11 10:00:33,904 - INFO - BEGIN (implicit)
+2025-04-11 10:00:33,905 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 10:00:33,905 - INFO - [cached since 0.2526s ago] {'pk_1': 2}
+2025-04-11 10:00:33,909 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 10:00:33,909 - INFO - [cached since 0.252s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 10:00:33,911 - INFO - COMMIT
+2025-04-11 10:00:33,914 - INFO - BEGIN (implicit)
+2025-04-11 10:00:33,914 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 10:00:33,915 - INFO - [cached since 0.2499s ago] {'pk_1': 2}
+2025-04-11 10:00:33,959 - INFO - BEGIN (implicit)
+2025-04-11 10:00:33,961 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 10:00:33,961 - INFO - [generated in 0.00030s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 10:00:34,197 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 10:00:34,198 - INFO - ROLLBACK
+2025-04-11 10:00:34,202 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 10:00:34,206 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 10:00:34,207 - INFO - BEGIN (implicit)
+2025-04-11 10:00:34,207 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 10:00:34,207 - INFO - [cached since 0.2469s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 10:00:34,211 - INFO - Usuário autenticado: ID=1
+2025-04-11 10:00:34,217 - INFO - Listando todos os clientes
+2025-04-11 10:00:34,218 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 10:00:34,218 - INFO - [generated in 0.00031s] {'usuario_id_1': 1}
+2025-04-11 10:00:34,220 - INFO - Encontrados 1 clientes
+2025-04-11 10:00:34,221 - INFO - ROLLBACK
+2025-04-11 10:00:34,225 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 10:50:24,494 - INFO - select pg_catalog.version()
+2025-04-11 10:50:24,495 - INFO - [raw sql] {}
+2025-04-11 10:50:24,498 - INFO - select current_schema()
+2025-04-11 10:50:24,498 - INFO - [raw sql] {}
+2025-04-11 10:50:24,501 - INFO - show standard_conforming_strings
+2025-04-11 10:50:24,501 - INFO - [raw sql] {}
+2025-04-11 10:50:24,505 - INFO - BEGIN (implicit)
+2025-04-11 10:50:24,505 - INFO - SET session_replication_role = 'replica';
+2025-04-11 10:50:24,506 - INFO - [generated in 0.00047s] {}
+2025-04-11 10:50:24,510 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 10:50:24,510 - INFO - [generated in 0.00032s] {}
+2025-04-11 10:50:24,520 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 10:50:24,520 - INFO - [generated in 0.00035s] {}
+2025-04-11 10:50:24,526 - INFO - SET session_replication_role = 'origin';
+2025-04-11 10:50:24,527 - INFO - [generated in 0.00036s] {}
+2025-04-11 10:50:24,528 - INFO - COMMIT
+2025-04-11 10:50:24,795 - INFO - BEGIN (implicit)
+2025-04-11 10:50:24,797 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 10:50:24,798 - INFO - [generated in 0.00033s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$Lz4BY1Duowt6ZtknHxMrpum1IxZHxgND0oQ..9sU9Eyll5GUgwVSm', 'data_criacao': datetime.datetime(2025, 4, 11, 10, 50, 21, 434249), 'is_admin': False}
+2025-04-11 10:50:24,802 - INFO - COMMIT
+2025-04-11 10:50:24,817 - INFO - BEGIN (implicit)
+2025-04-11 10:50:24,818 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 10:50:24,819 - INFO - [generated in 0.00032s] {'pk_1': 1}
+2025-04-11 10:50:24,823 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 10:50:24,823 - INFO - [generated in 0.00033s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 10:50:24,827 - INFO - COMMIT
+2025-04-11 10:50:24,830 - INFO - BEGIN (implicit)
+2025-04-11 10:50:24,831 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 10:50:24,831 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 10:50:25,064 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 10:50:25,065 - INFO - [cached since 0.2678s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$wEtUlRNGQdPuzv3Zk/AqZev2GLh3FuftrRNyPMbpSJVP1VbVUXPDO', 'data_criacao': datetime.datetime(2025, 4, 11, 10, 50, 21, 434249), 'is_admin': False}
+2025-04-11 10:50:25,067 - INFO - COMMIT
+2025-04-11 10:50:25,080 - INFO - BEGIN (implicit)
+2025-04-11 10:50:25,080 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 10:50:25,081 - INFO - [cached since 0.2624s ago] {'pk_1': 2}
+2025-04-11 10:50:25,084 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 10:50:25,084 - INFO - [cached since 0.2617s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 10:50:25,086 - INFO - COMMIT
+2025-04-11 10:50:25,088 - INFO - BEGIN (implicit)
+2025-04-11 10:50:25,090 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 10:50:25,090 - INFO - [cached since 0.2586s ago] {'pk_1': 2}
+2025-04-11 10:50:25,154 - INFO - BEGIN (implicit)
+2025-04-11 10:50:25,155 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 10:50:25,155 - INFO - [generated in 0.00034s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 10:50:25,409 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 10:50:25,410 - INFO - ROLLBACK
+2025-04-11 10:50:25,413 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 10:50:25,419 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 10:50:25,419 - INFO - BEGIN (implicit)
+2025-04-11 10:50:25,419 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 10:50:25,420 - INFO - [cached since 0.2647s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 10:50:25,423 - INFO - Usuário autenticado: ID=1
+2025-04-11 10:50:25,436 - INFO - Listando todos os clientes
+2025-04-11 10:50:25,437 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 10:50:25,437 - INFO - [generated in 0.00024s] {'usuario_id_1': 1}
+2025-04-11 10:50:25,440 - INFO - Encontrados 1 clientes
+2025-04-11 10:50:25,443 - INFO - ROLLBACK
+2025-04-11 10:50:25,445 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 10:51:53,547 - INFO - select pg_catalog.version()
+2025-04-11 10:51:53,548 - INFO - [raw sql] {}
+2025-04-11 10:51:53,551 - INFO - select current_schema()
+2025-04-11 10:51:53,552 - INFO - [raw sql] {}
+2025-04-11 10:51:53,554 - INFO - show standard_conforming_strings
+2025-04-11 10:51:53,554 - INFO - [raw sql] {}
+2025-04-11 10:51:53,557 - INFO - BEGIN (implicit)
+2025-04-11 10:51:53,557 - INFO - SET session_replication_role = 'replica';
+2025-04-11 10:51:53,557 - INFO - [generated in 0.00022s] {}
+2025-04-11 10:51:53,571 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 10:51:53,571 - INFO - [generated in 0.00032s] {}
+2025-04-11 10:51:53,578 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 10:51:53,578 - INFO - [generated in 0.00034s] {}
+2025-04-11 10:51:53,583 - INFO - SET session_replication_role = 'origin';
+2025-04-11 10:51:53,583 - INFO - [generated in 0.00029s] {}
+2025-04-11 10:51:53,585 - INFO - COMMIT
+2025-04-11 10:51:53,847 - INFO - BEGIN (implicit)
+2025-04-11 10:51:53,849 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 10:51:53,849 - INFO - [generated in 0.00029s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$LUn..N5LTZRDBZeaXlNSIuV04HYWIOWwnTLMFEd.4ypIugjaT9AVq', 'data_criacao': datetime.datetime(2025, 4, 11, 10, 51, 52, 765766), 'is_admin': False}
+2025-04-11 10:51:53,853 - INFO - COMMIT
+2025-04-11 10:51:53,868 - INFO - BEGIN (implicit)
+2025-04-11 10:51:53,870 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 10:51:53,870 - INFO - [generated in 0.00027s] {'pk_1': 1}
+2025-04-11 10:51:53,874 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 10:51:53,875 - INFO - [generated in 0.00038s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 10:51:53,877 - INFO - COMMIT
+2025-04-11 10:51:53,880 - INFO - BEGIN (implicit)
+2025-04-11 10:51:53,881 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 10:51:53,881 - INFO - [generated in 0.00020s] {'pk_1': 1}
+2025-04-11 10:51:54,115 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 10:51:54,115 - INFO - [cached since 0.2667s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$M74c2p/IGgbDGrthEyp6E.i0/j67aiSQaKwnTMaY8q9mEjmU/Rm3G', 'data_criacao': datetime.datetime(2025, 4, 11, 10, 51, 52, 765766), 'is_admin': False}
+2025-04-11 10:51:54,118 - INFO - COMMIT
+2025-04-11 10:51:54,131 - INFO - BEGIN (implicit)
+2025-04-11 10:51:54,132 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 10:51:54,132 - INFO - [cached since 0.2627s ago] {'pk_1': 2}
+2025-04-11 10:51:54,136 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 10:51:54,136 - INFO - [cached since 0.2616s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 10:51:54,138 - INFO - COMMIT
+2025-04-11 10:51:54,141 - INFO - BEGIN (implicit)
+2025-04-11 10:51:54,141 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 10:51:54,141 - INFO - [cached since 0.2601s ago] {'pk_1': 2}
+2025-04-11 10:51:54,186 - INFO - BEGIN (implicit)
+2025-04-11 10:51:54,189 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 10:51:54,189 - INFO - [generated in 0.00029s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 10:51:54,427 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 10:51:54,434 - INFO - ROLLBACK
+2025-04-11 10:51:54,438 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 10:51:54,444 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 10:51:54,444 - INFO - BEGIN (implicit)
+2025-04-11 10:51:54,445 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 10:51:54,445 - INFO - [cached since 0.2556s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 10:51:54,448 - INFO - Usuário autenticado: ID=1
+2025-04-11 10:51:54,453 - INFO - Listando todos os clientes
+2025-04-11 10:51:54,454 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 10:51:54,454 - INFO - [generated in 0.00027s] {'usuario_id_1': 1}
+2025-04-11 10:51:54,456 - INFO - Encontrados 1 clientes
+2025-04-11 10:51:54,457 - INFO - ROLLBACK
+2025-04-11 10:51:54,461 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 10:58:59,711 - INFO - select pg_catalog.version()
+2025-04-11 10:58:59,711 - INFO - [raw sql] {}
+2025-04-11 10:58:59,715 - INFO - select current_schema()
+2025-04-11 10:58:59,715 - INFO - [raw sql] {}
+2025-04-11 10:58:59,716 - INFO - show standard_conforming_strings
+2025-04-11 10:58:59,716 - INFO - [raw sql] {}
+2025-04-11 10:58:59,722 - INFO - BEGIN (implicit)
+2025-04-11 10:58:59,722 - INFO - SET session_replication_role = 'replica';
+2025-04-11 10:58:59,722 - INFO - [generated in 0.00028s] {}
+2025-04-11 10:58:59,722 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 10:58:59,722 - INFO - [generated in 0.00031s] {}
+2025-04-11 10:58:59,722 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 10:58:59,722 - INFO - [generated in 0.00053s] {}
+2025-04-11 10:58:59,738 - INFO - SET session_replication_role = 'origin';
+2025-04-11 10:58:59,738 - INFO - [generated in 0.00030s] {}
+2025-04-11 10:58:59,738 - INFO - COMMIT
+2025-04-11 10:58:59,997 - INFO - BEGIN (implicit)
+2025-04-11 10:58:59,997 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 10:58:59,997 - INFO - [generated in 0.00032s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$6u6/HOI.fEx66fFGt0gh6.86dZ39w7973l6X2aWajJ3dJjedCvn1O', 'data_criacao': datetime.datetime(2025, 4, 11, 10, 58, 58, 961630), 'is_admin': False}
+2025-04-11 10:58:59,997 - INFO - COMMIT
+2025-04-11 10:59:00,024 - INFO - BEGIN (implicit)
+2025-04-11 10:59:00,024 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 10:59:00,024 - INFO - [generated in 0.00026s] {'pk_1': 1}
+2025-04-11 10:59:00,028 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 10:59:00,028 - INFO - [generated in 0.00029s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 10:59:00,028 - INFO - COMMIT
+2025-04-11 10:59:00,028 - INFO - BEGIN (implicit)
+2025-04-11 10:59:00,028 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 10:59:00,028 - INFO - [generated in 0.00031s] {'pk_1': 1}
+2025-04-11 10:59:00,270 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 10:59:00,271 - INFO - [cached since 0.2658s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$32ZILxWzOXzdypRY.K6tyewWNnG60CukgHi2XSqjPcrEot8cWEQMW', 'data_criacao': datetime.datetime(2025, 4, 11, 10, 58, 58, 961630), 'is_admin': False}
+2025-04-11 10:59:00,272 - INFO - COMMIT
+2025-04-11 10:59:00,287 - INFO - BEGIN (implicit)
+2025-04-11 10:59:00,288 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 10:59:00,288 - INFO - [cached since 0.2626s ago] {'pk_1': 2}
+2025-04-11 10:59:00,290 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 10:59:00,290 - INFO - [cached since 0.2606s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 10:59:00,290 - INFO - COMMIT
+2025-04-11 10:59:00,290 - INFO - BEGIN (implicit)
+2025-04-11 10:59:00,290 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 10:59:00,290 - INFO - [cached since 0.2589s ago] {'pk_1': 2}
+2025-04-11 10:59:00,348 - INFO - BEGIN (implicit)
+2025-04-11 10:59:00,348 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 10:59:00,351 - INFO - [generated in 0.00027s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 10:59:00,574 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 10:59:00,574 - INFO - ROLLBACK
+2025-04-11 10:59:00,590 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 10:59:00,595 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 10:59:00,595 - INFO - BEGIN (implicit)
+2025-04-11 10:59:00,595 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 10:59:00,595 - INFO - [cached since 0.2487s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 10:59:00,595 - INFO - Usuário autenticado: ID=1
+2025-04-11 10:59:00,606 - INFO - Listando todos os clientes
+2025-04-11 10:59:00,606 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 10:59:00,606 - INFO - [generated in 0.00025s] {'usuario_id_1': 1}
+2025-04-11 10:59:00,606 - INFO - Encontrados 1 clientes
+2025-04-11 10:59:00,606 - INFO - ROLLBACK
+2025-04-11 10:59:00,606 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:00:56,714 - INFO - select pg_catalog.version()
+2025-04-11 11:00:56,714 - INFO - [raw sql] {}
+2025-04-11 11:00:56,718 - INFO - select current_schema()
+2025-04-11 11:00:56,718 - INFO - [raw sql] {}
+2025-04-11 11:00:56,722 - INFO - show standard_conforming_strings
+2025-04-11 11:00:56,722 - INFO - [raw sql] {}
+2025-04-11 11:00:56,726 - INFO - BEGIN (implicit)
+2025-04-11 11:00:56,726 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:00:56,727 - INFO - [generated in 0.00021s] {}
+2025-04-11 11:00:56,729 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:00:56,730 - INFO - [generated in 0.00032s] {}
+2025-04-11 11:00:56,741 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:00:56,741 - INFO - [generated in 0.00045s] {}
+2025-04-11 11:00:56,745 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:00:56,745 - INFO - [generated in 0.00028s] {}
+2025-04-11 11:00:56,747 - INFO - COMMIT
+2025-04-11 11:00:57,008 - INFO - BEGIN (implicit)
+2025-04-11 11:00:57,010 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:00:57,010 - INFO - [generated in 0.00029s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$DaTKyO0VSePO65WolKSu/ORmOAdWtGE5eCCnYGCCSLMFjkEe./OQq', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 0, 55, 896042), 'is_admin': False}
+2025-04-11 11:00:57,017 - INFO - COMMIT
+2025-04-11 11:00:57,021 - INFO - BEGIN (implicit)
+2025-04-11 11:00:57,023 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:00:57,024 - INFO - [generated in 0.00030s] {'pk_1': 1}
+2025-04-11 11:00:57,028 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:00:57,028 - INFO - [generated in 0.00030s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 11:00:57,032 - INFO - COMMIT
+2025-04-11 11:00:57,035 - INFO - BEGIN (implicit)
+2025-04-11 11:00:57,037 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:00:57,037 - INFO - [generated in 0.00022s] {'pk_1': 1}
+2025-04-11 11:00:57,271 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:00:57,271 - INFO - [cached since 0.2609s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$gEHrE9ADu2WjNY9nQN65VOBQuhYTK2OEPigv5BdT7YKL6mjzRzUGS', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 0, 55, 896042), 'is_admin': False}
+2025-04-11 11:00:57,273 - INFO - COMMIT
+2025-04-11 11:00:57,286 - INFO - BEGIN (implicit)
+2025-04-11 11:00:57,287 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:00:57,287 - INFO - [cached since 0.2639s ago] {'pk_1': 2}
+2025-04-11 11:00:57,291 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:00:57,291 - INFO - [cached since 0.2629s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 11:00:57,292 - INFO - COMMIT
+2025-04-11 11:00:57,295 - INFO - BEGIN (implicit)
+2025-04-11 11:00:57,295 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:00:57,296 - INFO - [cached since 0.2593s ago] {'pk_1': 2}
+2025-04-11 11:00:57,356 - INFO - BEGIN (implicit)
+2025-04-11 11:00:57,358 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:00:57,358 - INFO - [generated in 0.00028s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 11:00:57,597 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 11:00:57,598 - INFO - ROLLBACK
+2025-04-11 11:00:57,602 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:00:57,607 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 11:00:57,607 - INFO - BEGIN (implicit)
+2025-04-11 11:00:57,608 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:00:57,608 - INFO - [cached since 0.2498s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 11:00:57,612 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:00:57,616 - INFO - Listando todos os clientes
+2025-04-11 11:00:57,617 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:00:57,618 - INFO - [generated in 0.00025s] {'usuario_id_1': 1}
+2025-04-11 11:00:57,620 - INFO - Encontrados 1 clientes
+2025-04-11 11:00:57,621 - INFO - ROLLBACK
+2025-04-11 11:00:57,625 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:05:27,243 - INFO - select pg_catalog.version()
+2025-04-11 11:05:27,244 - INFO - [raw sql] {}
+2025-04-11 11:05:27,247 - INFO - select current_schema()
+2025-04-11 11:05:27,247 - INFO - [raw sql] {}
+2025-04-11 11:05:27,251 - INFO - show standard_conforming_strings
+2025-04-11 11:05:27,251 - INFO - [raw sql] {}
+2025-04-11 11:05:27,254 - INFO - BEGIN (implicit)
+2025-04-11 11:05:27,255 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:05:27,255 - INFO - [generated in 0.00023s] {}
+2025-04-11 11:05:27,259 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:05:27,259 - INFO - [generated in 0.00034s] {}
+2025-04-11 11:05:27,267 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:05:27,267 - INFO - [generated in 0.00036s] {}
+2025-04-11 11:05:27,271 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:05:27,272 - INFO - [generated in 0.00030s] {}
+2025-04-11 11:05:27,273 - INFO - COMMIT
+2025-04-11 11:05:27,538 - INFO - BEGIN (implicit)
+2025-04-11 11:05:27,540 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:05:27,540 - INFO - [generated in 0.00032s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$dJ12dguqVKAFWUyHSls2M.kc/67rmzojfOPogJhB3YDn.3v700NTm', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 5, 26, 443815), 'is_admin': False}
+2025-04-11 11:05:27,544 - INFO - COMMIT
+2025-04-11 11:05:27,559 - INFO - BEGIN (implicit)
+2025-04-11 11:05:27,560 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:05:27,560 - INFO - [generated in 0.00026s] {'pk_1': 1}
+2025-04-11 11:05:27,565 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:05:27,565 - INFO - [generated in 0.00032s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 11:05:27,570 - INFO - COMMIT
+2025-04-11 11:05:27,573 - INFO - BEGIN (implicit)
+2025-04-11 11:05:27,574 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:05:27,574 - INFO - [generated in 0.00022s] {'pk_1': 1}
+2025-04-11 11:05:27,809 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:05:27,809 - INFO - [cached since 0.2693s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$ONjKn47ByoMsSNR03YJ4/uSpq7nkem40AaaNXffenDyQZ.SMXJYKy', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 5, 26, 443815), 'is_admin': False}
+2025-04-11 11:05:27,811 - INFO - COMMIT
+2025-04-11 11:05:27,814 - INFO - BEGIN (implicit)
+2025-04-11 11:05:27,814 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:05:27,815 - INFO - [cached since 0.2542s ago] {'pk_1': 2}
+2025-04-11 11:05:27,818 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:05:27,818 - INFO - [cached since 0.2522s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 11:05:27,820 - INFO - COMMIT
+2025-04-11 11:05:27,822 - INFO - BEGIN (implicit)
+2025-04-11 11:05:27,823 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:05:27,823 - INFO - [cached since 0.25s ago] {'pk_1': 2}
+2025-04-11 11:05:27,877 - INFO - BEGIN (implicit)
+2025-04-11 11:05:27,878 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:05:27,879 - INFO - [generated in 0.00034s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 11:05:28,119 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 11:05:28,120 - INFO - ROLLBACK
+2025-04-11 11:05:28,124 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:05:28,129 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 11:05:28,130 - INFO - BEGIN (implicit)
+2025-04-11 11:05:28,131 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:05:28,131 - INFO - [cached since 0.2523s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 11:05:28,134 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:05:28,139 - INFO - Listando todos os clientes
+2025-04-11 11:05:28,140 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:05:28,140 - INFO - [generated in 0.00025s] {'usuario_id_1': 1}
+2025-04-11 11:05:28,143 - INFO - Encontrados 1 clientes
+2025-04-11 11:05:28,145 - INFO - ROLLBACK
+2025-04-11 11:05:28,147 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:07:05,785 - INFO - select pg_catalog.version()
+2025-04-11 11:07:05,786 - INFO - [raw sql] {}
+2025-04-11 11:07:05,789 - INFO - select current_schema()
+2025-04-11 11:07:05,789 - INFO - [raw sql] {}
+2025-04-11 11:07:05,792 - INFO - show standard_conforming_strings
+2025-04-11 11:07:05,792 - INFO - [raw sql] {}
+2025-04-11 11:07:05,794 - INFO - BEGIN (implicit)
+2025-04-11 11:07:05,795 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:07:05,795 - INFO - [generated in 0.00021s] {}
+2025-04-11 11:07:05,809 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:07:05,809 - INFO - [generated in 0.00031s] {}
+2025-04-11 11:07:05,815 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:07:05,815 - INFO - [generated in 0.00034s] {}
+2025-04-11 11:07:05,819 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:07:05,819 - INFO - [generated in 0.00046s] {}
+2025-04-11 11:07:05,821 - INFO - COMMIT
+2025-04-11 11:07:06,082 - INFO - BEGIN (implicit)
+2025-04-11 11:07:06,083 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:07:06,084 - INFO - [generated in 0.00033s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$XyuZ5etwXSarx3WM4scdE.bo/HXdkhkOIZgjVVdYUnxtnBA/EWYNS', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 7, 4, 936912), 'is_admin': False}
+2025-04-11 11:07:06,087 - INFO - COMMIT
+2025-04-11 11:07:06,091 - INFO - BEGIN (implicit)
+2025-04-11 11:07:06,092 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:07:06,093 - INFO - [generated in 0.00026s] {'pk_1': 1}
+2025-04-11 11:07:06,098 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:07:06,098 - INFO - [generated in 0.00030s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 11:07:06,102 - INFO - COMMIT
+2025-04-11 11:07:06,106 - INFO - BEGIN (implicit)
+2025-04-11 11:07:06,107 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:07:06,107 - INFO - [generated in 0.00027s] {'pk_1': 1}
+2025-04-11 11:07:06,339 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:07:06,340 - INFO - [cached since 0.2566s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$y/nPbp/dc3t08OCY0j8qJe3wxzdBfjzJdde68x2bytsUnkSZxE61S', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 7, 4, 936912), 'is_admin': False}
+2025-04-11 11:07:06,342 - INFO - COMMIT
+2025-04-11 11:07:06,355 - INFO - BEGIN (implicit)
+2025-04-11 11:07:06,355 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:07:06,356 - INFO - [cached since 0.2625s ago] {'pk_1': 2}
+2025-04-11 11:07:06,358 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:07:06,359 - INFO - [cached since 0.26s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 11:07:06,360 - INFO - COMMIT
+2025-04-11 11:07:06,363 - INFO - BEGIN (implicit)
+2025-04-11 11:07:06,364 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:07:06,364 - INFO - [cached since 0.258s ago] {'pk_1': 2}
+2025-04-11 11:07:06,400 - INFO - BEGIN (implicit)
+2025-04-11 11:07:06,402 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:07:06,402 - INFO - [generated in 0.00038s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 11:07:06,640 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 11:07:06,642 - INFO - ROLLBACK
+2025-04-11 11:07:06,645 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:07:06,650 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 11:07:06,650 - INFO - BEGIN (implicit)
+2025-04-11 11:07:06,650 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:07:06,652 - INFO - [cached since 0.2493s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 11:07:06,655 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:07:06,660 - INFO - Listando todos os clientes
+2025-04-11 11:07:06,661 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:07:06,661 - INFO - [generated in 0.00030s] {'usuario_id_1': 1}
+2025-04-11 11:07:06,663 - INFO - Encontrados 1 clientes
+2025-04-11 11:07:06,665 - INFO - ROLLBACK
+2025-04-11 11:07:06,668 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:08:09,515 - INFO - select pg_catalog.version()
+2025-04-11 11:08:09,516 - INFO - [raw sql] {}
+2025-04-11 11:08:09,519 - INFO - select current_schema()
+2025-04-11 11:08:09,520 - INFO - [raw sql] {}
+2025-04-11 11:08:09,522 - INFO - show standard_conforming_strings
+2025-04-11 11:08:09,523 - INFO - [raw sql] {}
+2025-04-11 11:08:09,525 - INFO - BEGIN (implicit)
+2025-04-11 11:08:09,526 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:08:09,526 - INFO - [generated in 0.00032s] {}
+2025-04-11 11:08:09,529 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:08:09,529 - INFO - [generated in 0.00031s] {}
+2025-04-11 11:08:09,536 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:08:09,536 - INFO - [generated in 0.00036s] {}
+2025-04-11 11:08:09,541 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:08:09,541 - INFO - [generated in 0.00028s] {}
+2025-04-11 11:08:09,542 - INFO - COMMIT
+2025-04-11 11:08:09,805 - INFO - BEGIN (implicit)
+2025-04-11 11:08:09,807 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:08:09,807 - INFO - [generated in 0.00030s] {'nome': 'Teste', 'email': 'usuario1@example.com', 'senha_hash': '$2b$12$2VnlV7.spQib3Sv/1Jqy1OIlMvlFwur.MfhpiDcC3yegPDNfzEgdK', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 8, 8, 739172), 'is_admin': False}
+2025-04-11 11:08:09,811 - INFO - COMMIT
+2025-04-11 11:08:09,825 - INFO - BEGIN (implicit)
+2025-04-11 11:08:09,827 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:08:09,827 - INFO - [generated in 0.00026s] {'pk_1': 1}
+2025-04-11 11:08:09,832 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:08:09,832 - INFO - [generated in 0.00033s] {'usuario_id': 1, 'nome': 'Cliente 1', 'telefone': '123456789', 'endereco': 'Rua A, 123'}
+2025-04-11 11:08:09,835 - INFO - COMMIT
+2025-04-11 11:08:09,838 - INFO - BEGIN (implicit)
+2025-04-11 11:08:09,838 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:08:09,839 - INFO - [generated in 0.00021s] {'pk_1': 1}
+2025-04-11 11:08:10,072 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:08:10,072 - INFO - [cached since 0.2648s ago] {'nome': 'Teste', 'email': 'usuario2@example.com', 'senha_hash': '$2b$12$BAwwU.cs.QCNDsHPZwWqXecyhxBkmEY3aBfa9UGnlDAPLn/nIAgji', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 8, 8, 739172), 'is_admin': False}
+2025-04-11 11:08:10,074 - INFO - COMMIT
+2025-04-11 11:08:10,087 - INFO - BEGIN (implicit)
+2025-04-11 11:08:10,087 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:08:10,087 - INFO - [cached since 0.2606s ago] {'pk_1': 2}
+2025-04-11 11:08:10,091 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:08:10,092 - INFO - [cached since 0.2591s ago] {'usuario_id': 2, 'nome': 'Cliente 2', 'telefone': '987654321', 'endereco': 'Rua B, 456'}
+2025-04-11 11:08:10,093 - INFO - COMMIT
+2025-04-11 11:08:10,096 - INFO - BEGIN (implicit)
+2025-04-11 11:08:10,096 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:08:10,097 - INFO - [cached since 0.2575s ago] {'pk_1': 2}
+2025-04-11 11:08:10,133 - INFO - BEGIN (implicit)
+2025-04-11 11:08:10,134 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:08:10,135 - INFO - [generated in 0.00024s] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 11:08:10,370 - INFO - Token criado para o email: usuario1@example.com
+2025-04-11 11:08:10,372 - INFO - ROLLBACK
+2025-04-11 11:08:10,375 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:08:10,380 - INFO - Buscando usuário com e-mail: usuario1@example.com
+2025-04-11 11:08:10,381 - INFO - BEGIN (implicit)
+2025-04-11 11:08:10,381 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:08:10,381 - INFO - [cached since 0.2479s ago] {'email_1': 'usuario1@example.com', 'param_1': 1}
+2025-04-11 11:08:10,384 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:08:10,389 - INFO - Listando todos os clientes
+2025-04-11 11:08:10,391 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:08:10,391 - INFO - [generated in 0.00026s] {'usuario_id_1': 1}
+2025-04-11 11:08:10,394 - INFO - Encontrados 1 clientes
+2025-04-11 11:08:10,395 - INFO - ROLLBACK
+2025-04-11 11:08:10,399 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:10:38,309 - INFO - select pg_catalog.version()
+2025-04-11 11:10:38,309 - INFO - [raw sql] {}
+2025-04-11 11:10:38,312 - INFO - select current_schema()
+2025-04-11 11:10:38,312 - INFO - [raw sql] {}
+2025-04-11 11:10:38,314 - INFO - show standard_conforming_strings
+2025-04-11 11:10:38,314 - INFO - [raw sql] {}
+2025-04-11 11:10:38,319 - INFO - BEGIN (implicit)
+2025-04-11 11:10:38,319 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:10:38,320 - INFO - [generated in 0.00030s] {}
+2025-04-11 11:10:38,333 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:10:38,334 - INFO - [generated in 0.00043s] {}
+2025-04-11 11:10:38,341 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:10:38,341 - INFO - [generated in 0.00035s] {}
+2025-04-11 11:10:38,345 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:10:38,346 - INFO - [generated in 0.00027s] {}
+2025-04-11 11:10:38,347 - INFO - COMMIT
+2025-04-11 11:10:38,367 - WARNING - Erro ao verificar o token: Not enough segments
+2025-04-11 11:10:38,367 - ERROR - Erro inesperado na autenticação: 401: Token inválido
+2025-04-11 11:10:38,370 - INFO - HTTP Request: PATCH http://testserver/clientes/3 "HTTP/1.1 401 Unauthorized"
+2025-04-11 11:10:38,372 - INFO - BEGIN (implicit)
+2025-04-11 11:10:38,372 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:10:38,373 - INFO - [cached since 0.05365s ago] {}
+2025-04-11 11:10:38,375 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:10:38,376 - INFO - [cached since 0.04218s ago] {}
+2025-04-11 11:10:38,380 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:10:38,381 - INFO - [cached since 0.0406s ago] {}
+2025-04-11 11:10:38,385 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:10:38,385 - INFO - [cached since 0.04068s ago] {}
+2025-04-11 11:10:38,387 - INFO - COMMIT
+2025-04-11 11:10:38,648 - INFO - BEGIN (implicit)
+2025-04-11 11:10:38,649 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:10:38,650 - INFO - [generated in 0.00031s] {'nome': 'Teste3', 'email': 'teste3@example.com', 'senha_hash': '$2b$12$aHIZ1bcnU1mHXWPtJJYBGe42sO4a3tvUtgxfmx6U15wPRkO.NhjtW', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 10, 38, 392744), 'is_admin': False}
+2025-04-11 11:10:38,654 - INFO - COMMIT
+2025-04-11 11:10:38,657 - INFO - BEGIN (implicit)
+2025-04-11 11:10:38,659 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:10:38,659 - INFO - [generated in 0.00034s] {'pk_1': 1}
+2025-04-11 11:10:38,664 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:10:38,664 - INFO - [generated in 0.00032s] {'usuario_id': 1, 'nome': 'Fernando da Silva Sauro', 'telefone': '123456789', 'endereco': 'Rua das Flores Verdes'}
+2025-04-11 11:10:38,667 - INFO - COMMIT
+2025-04-11 11:10:38,670 - INFO - BEGIN (implicit)
+2025-04-11 11:10:38,671 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:10:38,671 - INFO - [generated in 0.00021s] {'pk_1': 1}
+2025-04-11 11:10:38,708 - INFO - BEGIN (implicit)
+2025-04-11 11:10:38,710 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:10:38,710 - INFO - [generated in 0.00042s] {'email_1': 'teste3@example.com', 'param_1': 1}
+2025-04-11 11:10:38,952 - INFO - Token criado para o email: teste3@example.com
+2025-04-11 11:10:38,953 - INFO - ROLLBACK
+2025-04-11 11:10:38,957 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:10:38,961 - INFO - Buscando usuário com e-mail: teste3@example.com
+2025-04-11 11:10:38,961 - INFO - BEGIN (implicit)
+2025-04-11 11:10:38,962 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:10:38,962 - INFO - [cached since 0.2526s ago] {'email_1': 'teste3@example.com', 'param_1': 1}
+2025-04-11 11:10:38,966 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:10:38,974 - ERROR - Erro ao tentar atualizar cliente: ClienteService.__init__() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\api\v1\endpoints\clientes.py", line 129, in cliente_update
+    service = ClienteService(db, usuario_logado)
+TypeError: ClienteService.__init__() takes 2 positional arguments but 3 were given
+2025-04-11 11:10:38,977 - INFO - ROLLBACK
+2025-04-11 11:10:38,980 - INFO - HTTP Request: PATCH http://testserver/clientes/1 "HTTP/1.1 403 Forbidden"
+2025-04-11 11:10:39,156 - INFO - BEGIN (implicit)
+2025-04-11 11:10:39,156 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:10:39,156 - INFO - [cached since 0.8379s ago] {}
+2025-04-11 11:10:39,160 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:10:39,160 - INFO - [cached since 0.8263s ago] {}
+2025-04-11 11:11:42,329 - INFO - select pg_catalog.version()
+2025-04-11 11:11:42,330 - INFO - [raw sql] {}
+2025-04-11 11:11:42,334 - INFO - select current_schema()
+2025-04-11 11:11:42,334 - INFO - [raw sql] {}
+2025-04-11 11:11:42,339 - INFO - show standard_conforming_strings
+2025-04-11 11:11:42,339 - INFO - [raw sql] {}
+2025-04-11 11:11:42,343 - INFO - BEGIN (implicit)
+2025-04-11 11:11:42,344 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:11:42,344 - INFO - [generated in 0.00034s] {}
+2025-04-11 11:11:42,356 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:11:42,356 - INFO - [generated in 0.00032s] {}
+2025-04-11 11:11:42,362 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:11:42,363 - INFO - [generated in 0.00037s] {}
+2025-04-11 11:11:42,367 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:11:42,367 - INFO - [generated in 0.00028s] {}
+2025-04-11 11:11:42,369 - INFO - COMMIT
+2025-04-11 11:12:23,097 - INFO - select pg_catalog.version()
+2025-04-11 11:12:23,097 - INFO - [raw sql] {}
+2025-04-11 11:12:23,101 - INFO - select current_schema()
+2025-04-11 11:12:23,101 - INFO - [raw sql] {}
+2025-04-11 11:12:23,104 - INFO - show standard_conforming_strings
+2025-04-11 11:12:23,104 - INFO - [raw sql] {}
+2025-04-11 11:12:23,108 - INFO - BEGIN (implicit)
+2025-04-11 11:12:23,109 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:12:23,109 - INFO - [generated in 0.00038s] {}
+2025-04-11 11:12:23,121 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:12:23,121 - INFO - [generated in 0.00031s] {}
+2025-04-11 11:12:23,129 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:12:23,129 - INFO - [generated in 0.00036s] {}
+2025-04-11 11:12:23,132 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:12:23,132 - INFO - [generated in 0.00027s] {}
+2025-04-11 11:12:23,133 - INFO - COMMIT
+2025-04-11 11:12:23,397 - INFO - BEGIN (implicit)
+2025-04-11 11:12:23,399 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:12:23,399 - INFO - [generated in 0.00035s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$D89T060A58aePlyuGYpG2.YzjZ4CWdHSw1211CLuMtxMRqhnAIIm6', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 12, 22, 329807), 'is_admin': True}
+2025-04-11 11:12:23,403 - INFO - COMMIT
+2025-04-11 11:12:23,407 - INFO - BEGIN (implicit)
+2025-04-11 11:12:23,409 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:12:23,409 - INFO - [generated in 0.00034s] {'pk_1': 1}
+2025-04-11 11:12:23,641 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:12:23,641 - INFO - [cached since 0.2422s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$HJD9gmTM7ZJiihXK.xP.X.Eue1qaXys2iv/zLu363NjOwT.QBFdhO', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 12, 22, 329807), 'is_admin': False}
+2025-04-11 11:12:23,644 - INFO - COMMIT
+2025-04-11 11:12:23,656 - INFO - BEGIN (implicit)
+2025-04-11 11:12:23,656 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:12:23,656 - INFO - [cached since 0.2479s ago] {'pk_1': 2}
+2025-04-11 11:12:23,660 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:12:23,661 - INFO - [generated in 0.00030s] {'pk_1': 1}
+2025-04-11 11:12:23,664 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:12:23,664 - INFO - [generated in 0.00031s] {'usuario_id': 1, 'nome': 'Cliente do Administrador', 'telefone': '999999999', 'endereco': 'Rua do Admin, 123'}
+2025-04-11 11:12:23,667 - INFO - COMMIT
+2025-04-11 11:12:23,671 - INFO - BEGIN (implicit)
+2025-04-11 11:12:23,671 - INFO - SELECT clientes.id, clientes.usuario_id, clientes.nome, clientes.telefone, clientes.endereco 
+FROM clientes 
+WHERE clientes.id = %(pk_1)s
+2025-04-11 11:12:23,672 - INFO - [generated in 0.00021s] {'pk_1': 1}
+2025-04-11 11:12:23,675 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:12:23,675 - INFO - [cached since 0.01555s ago] {'pk_1': 2}
+2025-04-11 11:12:23,679 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 240 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:12:23,679 - INFO - [generated in 0.00006s (insertmanyvalues) 1/1 (ordered)] {'endereco__0': 'Rua Cliente 0, nº 0', 'nome__0': 'Cliente 0', 'telefone__0': '99999-000', 'usuario_id__0': 2, 'endereco__1': 'Rua Cliente 1, nº 10', 'nome__1': 'Cliente 1', 'telefone__1': '99999-001', 'usuario_id__1': 2, 'endereco__2': 'Rua Cliente 2, nº 20', 'nome__2': 'Cliente 2', 'telefone__2': '99999-002', 'usuario_id__2': 2, 'endereco__3': 'Rua Cliente 3, nº 30', 'nome__3': 'Cliente 3', 'telefone__3': '99999-003', 'usuario_id__3': 2, 'endereco__4': 'Rua Cliente 4, nº 40', 'nome__4': 'Cliente 4', 'telefone__4': '99999-004', 'usuario_id__4': 2}
+2025-04-11 11:12:23,682 - INFO - COMMIT
+2025-04-11 11:14:37,819 - INFO - select pg_catalog.version()
+2025-04-11 11:14:37,820 - INFO - [raw sql] {}
+2025-04-11 11:14:37,823 - INFO - select current_schema()
+2025-04-11 11:14:37,823 - INFO - [raw sql] {}
+2025-04-11 11:14:37,826 - INFO - show standard_conforming_strings
+2025-04-11 11:14:37,826 - INFO - [raw sql] {}
+2025-04-11 11:14:37,829 - INFO - BEGIN (implicit)
+2025-04-11 11:14:37,829 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:14:37,831 - INFO - [generated in 0.00041s] {}
+2025-04-11 11:14:37,843 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:14:37,844 - INFO - [generated in 0.00032s] {}
+2025-04-11 11:14:37,850 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:14:37,850 - INFO - [generated in 0.00028s] {}
+2025-04-11 11:14:37,854 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:14:37,854 - INFO - [generated in 0.00029s] {}
+2025-04-11 11:14:37,855 - INFO - COMMIT
+2025-04-11 11:14:38,124 - INFO - BEGIN (implicit)
+2025-04-11 11:14:38,126 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:14:38,126 - INFO - [generated in 0.00031s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$ldPOvN7OUduuZOpKRkBNb.ifA4OhpNOCXRs9aqhNOkj/QBcb4X3Gy', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 14, 37, 25992), 'is_admin': True}
+2025-04-11 11:14:38,130 - INFO - COMMIT
+2025-04-11 11:14:38,133 - INFO - BEGIN (implicit)
+2025-04-11 11:14:38,135 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:14:38,135 - INFO - [generated in 0.00027s] {'pk_1': 1}
+2025-04-11 11:14:38,371 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:14:38,372 - INFO - [cached since 0.2463s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$.E4DEX1sPQ84mZfoPAnmJu1CLi06NdjFjOFqMqo1hZLcwPDWopxjS', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 14, 37, 25992), 'is_admin': False}
+2025-04-11 11:14:38,375 - INFO - COMMIT
+2025-04-11 11:14:38,378 - INFO - BEGIN (implicit)
+2025-04-11 11:14:38,378 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:14:38,378 - INFO - [cached since 0.2425s ago] {'pk_1': 2}
+2025-04-11 11:14:38,382 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:14:38,382 - INFO - [generated in 0.00036s] {'pk_1': 1}
+2025-04-11 11:14:38,386 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) VALUES (%(usuario_id)s, %(nome)s, %(telefone)s, %(endereco)s) RETURNING clientes.id
+2025-04-11 11:14:38,387 - INFO - [generated in 0.00032s] {'usuario_id': 1, 'nome': 'Cliente do Administrador', 'telefone': '999999999', 'endereco': 'Rua do Admin, 123'}
+2025-04-11 11:14:38,389 - INFO - COMMIT
+2025-04-11 11:14:38,392 - INFO - BEGIN (implicit)
+2025-04-11 11:14:38,393 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:14:38,393 - INFO - [cached since 0.01113s ago] {'pk_1': 2}
+2025-04-11 11:14:38,398 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 240 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:14:38,398 - INFO - [generated in 0.00007s (insertmanyvalues) 1/1 (ordered)] {'usuario_id__0': 2, 'nome__0': 'Cliente 0', 'endereco__0': 'Rua Cliente 0, nº 0', 'telefone__0': '99999-000', 'usuario_id__1': 2, 'nome__1': 'Cliente 1', 'endereco__1': 'Rua Cliente 1, nº 10', 'telefone__1': '99999-001', 'usuario_id__2': 2, 'nome__2': 'Cliente 2', 'endereco__2': 'Rua Cliente 2, nº 20', 'telefone__2': '99999-002', 'usuario_id__3': 2, 'nome__3': 'Cliente 3', 'endereco__3': 'Rua Cliente 3, nº 30', 'telefone__3': '99999-003', 'usuario_id__4': 2, 'nome__4': 'Cliente 4', 'endereco__4': 'Rua Cliente 4, nº 40', 'telefone__4': '99999-004'}
+2025-04-11 11:14:38,400 - INFO - COMMIT
+2025-04-11 11:14:38,419 - INFO - BEGIN (implicit)
+2025-04-11 11:14:38,420 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:14:38,420 - INFO - [generated in 0.00035s] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:14:38,657 - INFO - Token criado para o email: admin@example.com
+2025-04-11 11:14:38,659 - INFO - ROLLBACK
+2025-04-11 11:14:38,662 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:14:38,666 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:14:38,670 - INFO - Buscando usuário com e-mail: admin@example.com
+2025-04-11 11:14:38,671 - INFO - BEGIN (implicit)
+2025-04-11 11:14:38,671 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:14:38,672 - INFO - [cached since 0.2513s ago] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:14:38,675 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:14:38,681 - INFO - Listando todos os clientes
+2025-04-11 11:14:38,682 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:14:38,683 - INFO - [generated in 0.00032s] {'usuario_id_1': 1}
+2025-04-11 11:14:38,685 - INFO - Encontrados 1 clientes
+2025-04-11 11:14:38,686 - INFO - ROLLBACK
+2025-04-11 11:14:38,690 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:15:56,256 - INFO - select pg_catalog.version()
+2025-04-11 11:15:56,256 - INFO - [raw sql] {}
+2025-04-11 11:15:56,259 - INFO - select current_schema()
+2025-04-11 11:15:56,260 - INFO - [raw sql] {}
+2025-04-11 11:15:56,263 - INFO - show standard_conforming_strings
+2025-04-11 11:15:56,263 - INFO - [raw sql] {}
+2025-04-11 11:15:56,267 - INFO - BEGIN (implicit)
+2025-04-11 11:15:56,267 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:15:56,268 - INFO - [generated in 0.00025s] {}
+2025-04-11 11:15:56,280 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:15:56,280 - INFO - [generated in 0.00032s] {}
+2025-04-11 11:15:56,285 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:15:56,286 - INFO - [generated in 0.00036s] {}
+2025-04-11 11:15:56,290 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:15:56,290 - INFO - [generated in 0.00027s] {}
+2025-04-11 11:15:56,291 - INFO - COMMIT
+2025-04-11 11:15:56,552 - INFO - BEGIN (implicit)
+2025-04-11 11:15:56,554 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:15:56,554 - INFO - [generated in 0.00041s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$LKlmzp9N/MylcefnAGquPerYmzpGt9h6w7KG2iiwgbGuKext4fmdG', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 15, 55, 453634), 'is_admin': True}
+2025-04-11 11:15:56,557 - INFO - COMMIT
+2025-04-11 11:15:56,571 - INFO - BEGIN (implicit)
+2025-04-11 11:15:56,573 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:15:56,573 - INFO - [generated in 0.00027s] {'pk_1': 1}
+2025-04-11 11:15:56,806 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:15:56,807 - INFO - [cached since 0.2533s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$xA9P7V5zaSE36YFzt83BK.fbCRII874EF.fGwjNxBqUL3UGYuSDyS', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 15, 55, 453634), 'is_admin': False}
+2025-04-11 11:15:56,808 - INFO - COMMIT
+2025-04-11 11:15:56,812 - INFO - BEGIN (implicit)
+2025-04-11 11:15:56,813 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:15:56,813 - INFO - [cached since 0.2399s ago] {'pk_1': 2}
+2025-04-11 11:15:56,817 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:15:56,817 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 11:15:56,822 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 311 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:15:56,822 - INFO - [generated in 0.00007s (insertmanyvalues) 1/1 (ordered)] {'nome__0': 'Cliente do Administrador', 'usuario_id__0': 1, 'telefone__0': '999999999', 'endereco__0': 'Rua do Admin, 123', 'nome__1': 'Cliente 0', 'usuario_id__1': 2, 'telefone__1': '99999-000', 'endereco__1': 'Rua Cliente 0, nº 0', 'nome__2': 'Cliente 1', 'usuario_id__2': 2, 'telefone__2': '99999-001', 'endereco__2': 'Rua Cliente 1, nº 10', 'nome__3': 'Cliente 2', 'usuario_id__3': 2, 'telefone__3': '99999-002', 'endereco__3': 'Rua Cliente 2, nº 20', 'nome__4': 'Cliente 3', 'usuario_id__4': 2, 'telefone__4': '99999-003', 'endereco__4': 'Rua Cliente 3, nº 30', 'nome__5': 'Cliente 4', 'usuario_id__5': 2, 'telefone__5': '99999-004', 'endereco__5': 'Rua Cliente 4, nº 40'}
+2025-04-11 11:15:56,826 - INFO - COMMIT
+2025-04-11 11:15:56,843 - INFO - BEGIN (implicit)
+2025-04-11 11:15:56,844 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:15:56,844 - INFO - [generated in 0.00036s] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:15:57,080 - INFO - Token criado para o email: admin@example.com
+2025-04-11 11:15:57,081 - INFO - ROLLBACK
+2025-04-11 11:15:57,084 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:15:57,089 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:15:57,093 - INFO - Buscando usuário com e-mail: admin@example.com
+2025-04-11 11:15:57,094 - INFO - BEGIN (implicit)
+2025-04-11 11:15:57,094 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:15:57,094 - INFO - [cached since 0.2498s ago] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:15:57,097 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:15:57,103 - INFO - Listando todos os clientes
+2025-04-11 11:15:57,105 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:15:57,105 - INFO - [generated in 0.00025s] {'usuario_id_1': 1}
+2025-04-11 11:15:57,107 - INFO - Encontrados 1 clientes
+2025-04-11 11:15:57,108 - INFO - ROLLBACK
+2025-04-11 11:15:57,111 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:20:33,650 - INFO - select pg_catalog.version()
+2025-04-11 11:20:33,650 - INFO - [raw sql] {}
+2025-04-11 11:20:33,653 - INFO - select current_schema()
+2025-04-11 11:20:33,654 - INFO - [raw sql] {}
+2025-04-11 11:20:33,656 - INFO - show standard_conforming_strings
+2025-04-11 11:20:33,656 - INFO - [raw sql] {}
+2025-04-11 11:20:33,658 - INFO - BEGIN (implicit)
+2025-04-11 11:20:33,660 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:20:33,660 - INFO - [generated in 0.00026s] {}
+2025-04-11 11:20:33,673 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:20:33,674 - INFO - [generated in 0.00030s] {}
+2025-04-11 11:20:33,679 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:20:33,679 - INFO - [generated in 0.00028s] {}
+2025-04-11 11:20:33,684 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:20:33,684 - INFO - [generated in 0.00027s] {}
+2025-04-11 11:20:33,686 - INFO - COMMIT
+2025-04-11 11:20:33,945 - INFO - BEGIN (implicit)
+2025-04-11 11:20:33,947 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:20:33,947 - INFO - [generated in 0.00030s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$ZpqUVwJ2nVc6Qb8Z9/cIlOWWRf.ZQHfefcRPVnDnHzULoDXthrwYK', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 20, 32, 886325), 'is_admin': True}
+2025-04-11 11:20:33,952 - INFO - COMMIT
+2025-04-11 11:20:33,965 - INFO - BEGIN (implicit)
+2025-04-11 11:20:33,967 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:20:33,967 - INFO - [generated in 0.00030s] {'pk_1': 1}
+2025-04-11 11:20:34,201 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:20:34,201 - INFO - [cached since 0.2536s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$Wahx.WBuGjfc61KNx1exr.K.irXRKAD09C15uDn3o5jA9nqbRBPsq', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 20, 32, 886325), 'is_admin': False}
+2025-04-11 11:20:34,202 - INFO - COMMIT
+2025-04-11 11:20:34,217 - INFO - BEGIN (implicit)
+2025-04-11 11:20:34,217 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:20:34,217 - INFO - [cached since 0.249s ago] {'pk_1': 2}
+2025-04-11 11:20:34,221 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:20:34,221 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 11:20:34,225 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 311 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:20:34,225 - INFO - [generated in 0.00008s (insertmanyvalues) 1/1 (ordered)] {'nome__0': 'Cliente do Administrador', 'telefone__0': '999999999', 'usuario_id__0': 1, 'endereco__0': 'Rua do Admin, 123', 'nome__1': 'Cliente 0', 'telefone__1': '99999-000', 'usuario_id__1': 2, 'endereco__1': 'Rua Cliente 0, nº 0', 'nome__2': 'Cliente 1', 'telefone__2': '99999-001', 'usuario_id__2': 2, 'endereco__2': 'Rua Cliente 1, nº 10', 'nome__3': 'Cliente 2', 'telefone__3': '99999-002', 'usuario_id__3': 2, 'endereco__3': 'Rua Cliente 2, nº 20', 'nome__4': 'Cliente 3', 'telefone__4': '99999-003', 'usuario_id__4': 2, 'endereco__4': 'Rua Cliente 3, nº 30', 'nome__5': 'Cliente 4', 'telefone__5': '99999-004', 'usuario_id__5': 2, 'endereco__5': 'Rua Cliente 4, nº 40'}
+2025-04-11 11:20:34,229 - INFO - COMMIT
+2025-04-11 11:20:34,248 - INFO - BEGIN (implicit)
+2025-04-11 11:20:34,249 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:20:34,250 - INFO - [generated in 0.00034s] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:20:34,485 - INFO - Token criado para o email: admin@example.com
+2025-04-11 11:20:34,486 - INFO - ROLLBACK
+2025-04-11 11:20:34,491 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:20:34,495 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:20:34,499 - INFO - Buscando usuário com e-mail: admin@example.com
+2025-04-11 11:20:34,500 - INFO - BEGIN (implicit)
+2025-04-11 11:20:34,500 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:20:34,500 - INFO - [cached since 0.2514s ago] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:20:34,505 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:20:34,510 - INFO - Listando todos os clientes
+2025-04-11 11:20:34,511 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:20:34,512 - INFO - [generated in 0.00026s] {'usuario_id_1': 1}
+2025-04-11 11:20:34,514 - INFO - Encontrados 1 clientes
+2025-04-11 11:20:34,515 - INFO - ROLLBACK
+2025-04-11 11:20:34,518 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:24:47,802 - INFO - select pg_catalog.version()
+2025-04-11 11:24:47,803 - INFO - [raw sql] {}
+2025-04-11 11:24:47,807 - INFO - select current_schema()
+2025-04-11 11:24:47,807 - INFO - [raw sql] {}
+2025-04-11 11:24:47,810 - INFO - show standard_conforming_strings
+2025-04-11 11:24:47,810 - INFO - [raw sql] {}
+2025-04-11 11:24:47,813 - INFO - BEGIN (implicit)
+2025-04-11 11:24:47,814 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:24:47,815 - INFO - [generated in 0.00043s] {}
+2025-04-11 11:24:47,829 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:24:47,829 - INFO - [generated in 0.00036s] {}
+2025-04-11 11:24:47,835 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:24:47,835 - INFO - [generated in 0.00030s] {}
+2025-04-11 11:24:47,838 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:24:47,839 - INFO - [generated in 0.00030s] {}
+2025-04-11 11:24:47,840 - INFO - COMMIT
+2025-04-11 11:24:48,102 - INFO - BEGIN (implicit)
+2025-04-11 11:24:48,104 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:24:48,104 - INFO - [generated in 0.00035s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$NcHEI52jfoNW/Yj8BIA8NOSup.kB92hfOE0QTLLJz60sYLhyKpc2y', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 24, 46, 996123), 'is_admin': True}
+2025-04-11 11:24:48,108 - INFO - COMMIT
+2025-04-11 11:24:48,122 - INFO - BEGIN (implicit)
+2025-04-11 11:24:48,124 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:24:48,124 - INFO - [generated in 0.00027s] {'pk_1': 1}
+2025-04-11 11:24:48,358 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:24:48,358 - INFO - [cached since 0.2542s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$vO3rqQkbqtOlWae8vqluYepvStWU2p3QwLDlx2ZkJKpIj13rHVHFq', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 24, 46, 996123), 'is_admin': False}
+2025-04-11 11:24:48,360 - INFO - COMMIT
+2025-04-11 11:24:48,363 - INFO - BEGIN (implicit)
+2025-04-11 11:24:48,363 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:24:48,363 - INFO - [cached since 0.2402s ago] {'pk_1': 2}
+2025-04-11 11:24:48,367 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:24:48,367 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 11:24:48,373 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 311 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:24:48,373 - INFO - [generated in 0.00007s (insertmanyvalues) 1/1 (ordered)] {'endereco__0': 'Rua do Admin, 123', 'nome__0': 'Cliente do Administrador', 'usuario_id__0': 1, 'telefone__0': '999999999', 'endereco__1': 'Rua Cliente 0, nº 0', 'nome__1': 'Cliente 0', 'usuario_id__1': 2, 'telefone__1': '99999-000', 'endereco__2': 'Rua Cliente 1, nº 10', 'nome__2': 'Cliente 1', 'usuario_id__2': 2, 'telefone__2': '99999-001', 'endereco__3': 'Rua Cliente 2, nº 20', 'nome__3': 'Cliente 2', 'usuario_id__3': 2, 'telefone__3': '99999-002', 'endereco__4': 'Rua Cliente 3, nº 30', 'nome__4': 'Cliente 3', 'usuario_id__4': 2, 'telefone__4': '99999-003', 'endereco__5': 'Rua Cliente 4, nº 40', 'nome__5': 'Cliente 4', 'usuario_id__5': 2, 'telefone__5': '99999-004'}
+2025-04-11 11:24:48,377 - INFO - COMMIT
+2025-04-11 11:24:48,396 - INFO - BEGIN (implicit)
+2025-04-11 11:24:48,397 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:24:48,397 - INFO - [generated in 0.00036s] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:24:48,632 - INFO - Token criado para o email: admin@example.com
+2025-04-11 11:24:48,634 - INFO - ROLLBACK
+2025-04-11 11:24:48,638 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:24:48,642 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:24:48,646 - INFO - Buscando usuário com e-mail: admin@example.com
+2025-04-11 11:24:48,648 - INFO - BEGIN (implicit)
+2025-04-11 11:24:48,648 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:24:48,648 - INFO - [cached since 0.2508s ago] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:24:48,651 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:24:48,657 - INFO - Listando todos os clientes
+2025-04-11 11:24:48,659 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:24:48,659 - INFO - [generated in 0.00033s] {'usuario_id_1': 1}
+2025-04-11 11:24:48,661 - INFO - Encontrados 1 clientes
+2025-04-11 11:24:48,662 - INFO - ROLLBACK
+2025-04-11 11:24:48,665 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:34:17,471 - INFO - select pg_catalog.version()
+2025-04-11 11:34:17,471 - INFO - [raw sql] {}
+2025-04-11 11:34:17,474 - INFO - select current_schema()
+2025-04-11 11:34:17,474 - INFO - [raw sql] {}
+2025-04-11 11:34:17,476 - INFO - show standard_conforming_strings
+2025-04-11 11:34:17,476 - INFO - [raw sql] {}
+2025-04-11 11:34:17,479 - INFO - BEGIN (implicit)
+2025-04-11 11:34:17,480 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:34:17,480 - INFO - [generated in 0.00037s] {}
+2025-04-11 11:34:17,494 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:34:17,494 - INFO - [generated in 0.00031s] {}
+2025-04-11 11:34:17,502 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:34:17,502 - INFO - [generated in 0.00031s] {}
+2025-04-11 11:34:17,506 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:34:17,506 - INFO - [generated in 0.00030s] {}
+2025-04-11 11:34:17,507 - INFO - COMMIT
+2025-04-11 11:34:17,781 - INFO - BEGIN (implicit)
+2025-04-11 11:34:17,783 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:34:17,783 - INFO - [generated in 0.00033s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$ILdDBi2MmwUCLpnaTUshP.MBtu9H9sp4k4aciapgVleDMc3YX6q5G', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 34, 16, 627134), 'is_admin': True}
+2025-04-11 11:34:17,789 - INFO - COMMIT
+2025-04-11 11:34:17,793 - INFO - BEGIN (implicit)
+2025-04-11 11:34:17,794 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:34:17,795 - INFO - [generated in 0.00027s] {'pk_1': 1}
+2025-04-11 11:34:18,027 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:34:18,027 - INFO - [cached since 0.2447s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$knrdQC0AEav3uf0./j/KG.bZadSG7YC94N86EdMOB02pnGDUwav.a', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 34, 16, 627134), 'is_admin': False}
+2025-04-11 11:34:18,030 - INFO - COMMIT
+2025-04-11 11:34:18,033 - INFO - BEGIN (implicit)
+2025-04-11 11:34:18,034 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:34:18,034 - INFO - [cached since 0.2397s ago] {'pk_1': 2}
+2025-04-11 11:34:18,037 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:34:18,037 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 11:34:18,042 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 311 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:34:18,042 - INFO - [generated in 0.00009s (insertmanyvalues) 1/1 (ordered)] {'endereco__0': 'Rua do Admin, 123', 'nome__0': 'Cliente do Administrador', 'usuario_id__0': 1, 'telefone__0': '999999999', 'endereco__1': 'Rua Cliente 0, nº 0', 'nome__1': 'Cliente 0', 'usuario_id__1': 2, 'telefone__1': '99999-000', 'endereco__2': 'Rua Cliente 1, nº 10', 'nome__2': 'Cliente 1', 'usuario_id__2': 2, 'telefone__2': '99999-001', 'endereco__3': 'Rua Cliente 2, nº 20', 'nome__3': 'Cliente 2', 'usuario_id__3': 2, 'telefone__3': '99999-002', 'endereco__4': 'Rua Cliente 3, nº 30', 'nome__4': 'Cliente 3', 'usuario_id__4': 2, 'telefone__4': '99999-003', 'endereco__5': 'Rua Cliente 4, nº 40', 'nome__5': 'Cliente 4', 'usuario_id__5': 2, 'telefone__5': '99999-004'}
+2025-04-11 11:34:18,046 - INFO - COMMIT
+2025-04-11 11:34:18,066 - INFO - BEGIN (implicit)
+2025-04-11 11:34:18,067 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:34:18,068 - INFO - [generated in 0.00040s] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:34:18,306 - INFO - Token criado para o email: admin@example.com
+2025-04-11 11:34:18,307 - INFO - ROLLBACK
+2025-04-11 11:34:18,311 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:34:18,316 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:34:18,321 - INFO - Buscando usuário com e-mail: admin@example.com
+2025-04-11 11:34:18,322 - INFO - BEGIN (implicit)
+2025-04-11 11:34:18,323 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:34:18,323 - INFO - [cached since 0.2559s ago] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:34:18,327 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:34:18,334 - INFO - Listando todos os clientes
+2025-04-11 11:34:18,336 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:34:18,336 - INFO - [generated in 0.00034s] {'usuario_id_1': 1}
+2025-04-11 11:34:18,338 - INFO - Encontrados 1 clientes
+2025-04-11 11:34:18,339 - INFO - ROLLBACK
+2025-04-11 11:34:18,342 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:34:56,673 - INFO - select pg_catalog.version()
+2025-04-11 11:34:56,674 - INFO - [raw sql] {}
+2025-04-11 11:34:56,679 - INFO - select current_schema()
+2025-04-11 11:34:56,679 - INFO - [raw sql] {}
+2025-04-11 11:34:56,683 - INFO - show standard_conforming_strings
+2025-04-11 11:34:56,683 - INFO - [raw sql] {}
+2025-04-11 11:34:56,687 - INFO - BEGIN (implicit)
+2025-04-11 11:34:56,688 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:34:56,688 - INFO - [generated in 0.00035s] {}
+2025-04-11 11:34:56,702 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:34:56,703 - INFO - [generated in 0.00066s] {}
+2025-04-11 11:34:56,717 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:34:56,717 - INFO - [generated in 0.00043s] {}
+2025-04-11 11:34:56,726 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:34:56,726 - INFO - [generated in 0.00048s] {}
+2025-04-11 11:34:56,728 - INFO - COMMIT
+2025-04-11 11:34:57,003 - INFO - BEGIN (implicit)
+2025-04-11 11:34:57,004 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:34:57,004 - INFO - [generated in 0.00035s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$dJWIUbvil1xrtLR4egxGNOlBjiCBahQYRMOSHLNDHGKb35lZAzrTG', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 34, 55, 859709), 'is_admin': True}
+2025-04-11 11:34:57,009 - INFO - COMMIT
+2025-04-11 11:34:57,022 - INFO - BEGIN (implicit)
+2025-04-11 11:34:57,024 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:34:57,024 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 11:34:57,260 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:34:57,260 - INFO - [cached since 0.2562s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$1Rh0pC.KBGnv.7Izlg7ou.QvTOcBvAboQxw4QurDqsNttyKFteXR6', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 34, 55, 859709), 'is_admin': False}
+2025-04-11 11:34:57,262 - INFO - COMMIT
+2025-04-11 11:34:57,266 - INFO - BEGIN (implicit)
+2025-04-11 11:34:57,266 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:34:57,266 - INFO - [cached since 0.2424s ago] {'pk_1': 2}
+2025-04-11 11:34:57,270 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:34:57,270 - INFO - [generated in 0.00036s] {'pk_1': 1}
+2025-04-11 11:34:57,275 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 311 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:34:57,275 - INFO - [generated in 0.00008s (insertmanyvalues) 1/1 (ordered)] {'usuario_id__0': 1, 'telefone__0': '999999999', 'endereco__0': 'Rua do Admin, 123', 'nome__0': 'Cliente do Administrador', 'usuario_id__1': 2, 'telefone__1': '99999-001', 'endereco__1': 'Rua Cliente 1, nº 10', 'nome__1': 'Cliente 1', 'usuario_id__2': 2, 'telefone__2': '99999-002', 'endereco__2': 'Rua Cliente 2, nº 20', 'nome__2': 'Cliente 2', 'usuario_id__3': 2, 'telefone__3': '99999-003', 'endereco__3': 'Rua Cliente 3, nº 30', 'nome__3': 'Cliente 3', 'usuario_id__4': 2, 'telefone__4': '99999-004', 'endereco__4': 'Rua Cliente 4, nº 40', 'nome__4': 'Cliente 4', 'usuario_id__5': 2, 'telefone__5': '99999-005', 'endereco__5': 'Rua Cliente 5, nº 50', 'nome__5': 'Cliente 5'}
+2025-04-11 11:34:57,279 - INFO - COMMIT
+2025-04-11 11:34:57,297 - INFO - BEGIN (implicit)
+2025-04-11 11:34:57,298 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:34:57,299 - INFO - [generated in 0.00036s] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:34:57,536 - INFO - Token criado para o email: admin@example.com
+2025-04-11 11:34:57,542 - INFO - ROLLBACK
+2025-04-11 11:34:57,545 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:34:57,550 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:34:57,554 - INFO - Buscando usuário com e-mail: admin@example.com
+2025-04-11 11:34:57,555 - INFO - BEGIN (implicit)
+2025-04-11 11:34:57,555 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:34:57,555 - INFO - [cached since 0.2574s ago] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:34:57,559 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:34:57,565 - INFO - Listando todos os clientes
+2025-04-11 11:34:57,567 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:34:57,567 - INFO - [generated in 0.00032s] {'usuario_id_1': 1}
+2025-04-11 11:34:57,569 - INFO - Encontrados 1 clientes
+2025-04-11 11:34:57,571 - INFO - ROLLBACK
+2025-04-11 11:34:57,573 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:36:30,220 - INFO - select pg_catalog.version()
+2025-04-11 11:36:30,220 - INFO - [raw sql] {}
+2025-04-11 11:36:30,224 - INFO - select current_schema()
+2025-04-11 11:36:30,225 - INFO - [raw sql] {}
+2025-04-11 11:36:30,228 - INFO - show standard_conforming_strings
+2025-04-11 11:36:30,228 - INFO - [raw sql] {}
+2025-04-11 11:36:30,231 - INFO - BEGIN (implicit)
+2025-04-11 11:36:30,232 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:36:30,232 - INFO - [generated in 0.00030s] {}
+2025-04-11 11:36:30,245 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:36:30,245 - INFO - [generated in 0.00034s] {}
+2025-04-11 11:36:30,251 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:36:30,253 - INFO - [generated in 0.00037s] {}
+2025-04-11 11:36:30,258 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:36:30,258 - INFO - [generated in 0.00030s] {}
+2025-04-11 11:36:30,259 - INFO - COMMIT
+2025-04-11 11:36:30,521 - INFO - BEGIN (implicit)
+2025-04-11 11:36:30,523 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:36:30,523 - INFO - [generated in 0.00029s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$/U6J8Ie6dNSN2/fZsT6zbOQJm7yzIV8EZWnprRt8em6UJT6pi5iA6', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 36, 29, 469030), 'is_admin': True}
+2025-04-11 11:36:30,527 - INFO - COMMIT
+2025-04-11 11:36:30,531 - INFO - BEGIN (implicit)
+2025-04-11 11:36:30,532 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:36:30,532 - INFO - [generated in 0.00027s] {'pk_1': 1}
+2025-04-11 11:36:30,765 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:36:30,765 - INFO - [cached since 0.2435s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$HHWKUDazY1IF6tzZShNn4OZP2u8oeHsuq9rOxejiUfqtEROVTqMwe', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 36, 29, 469030), 'is_admin': False}
+2025-04-11 11:36:30,768 - INFO - COMMIT
+2025-04-11 11:36:30,771 - INFO - BEGIN (implicit)
+2025-04-11 11:36:30,771 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:36:30,772 - INFO - [cached since 0.2397s ago] {'pk_1': 2}
+2025-04-11 11:36:30,776 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:36:30,776 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 11:36:30,781 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 382 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:36:30,781 - INFO - [generated in 0.00008s (insertmanyvalues) 1/1 (ordered)] {'endereco__0': 'Rua do Admin, 123', 'nome__0': 'Cliente do Administrador', 'telefone__0': '999999999', 'usuario_id__0': 1, 'endereco__1': 'Rua Cliente 0, nº 0', 'nome__1': 'Cliente 0', 'telefone__1': '99999-000', 'usuario_id__1': 2, 'endereco__2': 'Rua Cliente 1, nº 10', 'nome__2': 'Cliente 1', 'telefone__2': '99999-001', 'usuario_id__2': 2, 'endereco__3': 'Rua Cliente 2, nº 20', 'nome__3': 'Cliente 2', 'telefone__3': '99999-002', 'usuario_id__3': 2, 'endereco__4': 'Rua Cliente 3, nº 30', 'nome__4': 'Cliente 3', 'telefone__4': '99999-003', 'usuario_id__4': 2, 'endereco__5': 'Rua Cliente 4, nº 40', 'nome__5': 'Cliente 4', 'telefone__5': '99999-004', 'usuario_id__5': 2, 'endereco__6': 'Rua Cliente 5, nº 50', 'nome__6': 'Cliente 5', 'telefone__6': '99999-005', 'usuario_id__6': 2}
+2025-04-11 11:36:30,784 - INFO - COMMIT
+2025-04-11 11:36:30,803 - INFO - BEGIN (implicit)
+2025-04-11 11:36:30,804 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:36:30,805 - INFO - [generated in 0.00038s] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:36:31,040 - INFO - Token criado para o email: admin@example.com
+2025-04-11 11:36:31,042 - INFO - ROLLBACK
+2025-04-11 11:36:31,046 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:36:31,050 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:36:31,053 - INFO - Buscando usuário com e-mail: admin@example.com
+2025-04-11 11:36:31,055 - INFO - BEGIN (implicit)
+2025-04-11 11:36:31,055 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:36:31,055 - INFO - [cached since 0.2513s ago] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:36:31,058 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:36:31,063 - INFO - Listando todos os clientes
+2025-04-11 11:36:31,065 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:36:31,065 - INFO - [generated in 0.00027s] {'usuario_id_1': 1}
+2025-04-11 11:36:31,067 - INFO - Encontrados 1 clientes
+2025-04-11 11:36:31,068 - INFO - ROLLBACK
+2025-04-11 11:36:31,072 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:42:16,717 - INFO - select pg_catalog.version()
+2025-04-11 11:42:16,717 - INFO - [raw sql] {}
+2025-04-11 11:42:16,726 - INFO - select current_schema()
+2025-04-11 11:42:16,726 - INFO - [raw sql] {}
+2025-04-11 11:42:16,730 - INFO - show standard_conforming_strings
+2025-04-11 11:42:16,730 - INFO - [raw sql] {}
+2025-04-11 11:42:16,734 - INFO - BEGIN (implicit)
+2025-04-11 11:42:16,736 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:42:16,736 - INFO - [generated in 0.00055s] {}
+2025-04-11 11:42:16,739 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:42:16,740 - INFO - [generated in 0.00043s] {}
+2025-04-11 11:42:16,752 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:42:16,752 - INFO - [generated in 0.00033s] {}
+2025-04-11 11:42:16,759 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:42:16,759 - INFO - [generated in 0.00032s] {}
+2025-04-11 11:42:16,761 - INFO - COMMIT
+2025-04-11 11:42:17,041 - INFO - BEGIN (implicit)
+2025-04-11 11:42:17,044 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:42:17,044 - INFO - [generated in 0.00083s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$8sAaTauzwch1AAOfXlGtjegYPw4.Y.NDxdviubmrdYWCBAgzkor5y', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 42, 15, 932632), 'is_admin': True}
+2025-04-11 11:42:17,051 - INFO - COMMIT
+2025-04-11 11:42:17,065 - INFO - BEGIN (implicit)
+2025-04-11 11:42:17,067 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:42:17,067 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 11:42:17,298 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:42:17,299 - INFO - [cached since 0.2555s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$Po6A7qHI4H8TIfJrjOIiku81tf2W2HQyY1hJfIoY2rU3PHcDrmyQy', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 42, 15, 932632), 'is_admin': False}
+2025-04-11 11:42:17,301 - INFO - COMMIT
+2025-04-11 11:42:17,315 - INFO - BEGIN (implicit)
+2025-04-11 11:42:17,315 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:42:17,315 - INFO - [cached since 0.249s ago] {'pk_1': 2}
+2025-04-11 11:42:17,319 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:42:17,320 - INFO - [generated in 0.00029s] {'pk_1': 1}
+2025-04-11 11:42:17,325 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 382 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:42:17,325 - INFO - [generated in 0.00008s (insertmanyvalues) 1/1 (ordered)] {'telefone__0': '999999999', 'nome__0': 'Cliente do Administrador', 'usuario_id__0': 1, 'endereco__0': 'Rua do Admin, 123', 'telefone__1': '99999-000', 'nome__1': 'Cliente 0', 'usuario_id__1': 2, 'endereco__1': 'Rua Cliente 0, nº 0', 'telefone__2': '99999-001', 'nome__2': 'Cliente 1', 'usuario_id__2': 2, 'endereco__2': 'Rua Cliente 1, nº 10', 'telefone__3': '99999-002', 'nome__3': 'Cliente 2', 'usuario_id__3': 2, 'endereco__3': 'Rua Cliente 2, nº 20', 'telefone__4': '99999-003', 'nome__4': 'Cliente 3', 'usuario_id__4': 2, 'endereco__4': 'Rua Cliente 3, nº 30', 'telefone__5': '99999-004', 'nome__5': 'Cliente 4', 'usuario_id__5': 2, 'endereco__5': 'Rua Cliente 4, nº 40', 'telefone__6': '99999-005', 'nome__6': 'Cliente 5', 'usuario_id__6': 2, 'endereco__6': 'Rua Cliente 5, nº 50'}
+2025-04-11 11:42:17,329 - INFO - COMMIT
+2025-04-11 11:42:17,348 - INFO - BEGIN (implicit)
+2025-04-11 11:42:17,349 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:42:17,349 - INFO - [generated in 0.00037s] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:42:17,591 - INFO - Token criado para o email: admin@example.com
+2025-04-11 11:42:17,592 - INFO - ROLLBACK
+2025-04-11 11:42:17,595 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:42:17,599 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:42:17,603 - INFO - Buscando usuário com e-mail: admin@example.com
+2025-04-11 11:42:17,603 - INFO - BEGIN (implicit)
+2025-04-11 11:42:17,604 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:42:17,604 - INFO - [cached since 0.2549s ago] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:42:17,607 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:42:17,613 - INFO - Listando todos os clientes
+2025-04-11 11:42:17,614 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:42:17,615 - INFO - [generated in 0.00039s] {'usuario_id_1': 1}
+2025-04-11 11:42:17,617 - INFO - Encontrados 1 clientes
+2025-04-11 11:42:17,618 - INFO - ROLLBACK
+2025-04-11 11:42:17,620 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:42:17,625 - INFO - BEGIN (implicit)
+2025-04-11 11:42:17,626 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:42:17,626 - INFO - [cached since 0.277s ago] {'email_1': 'usuario@example.com', 'param_1': 1}
+2025-04-11 11:42:17,859 - INFO - Token criado para o email: usuario@example.com
+2025-04-11 11:42:17,860 - INFO - ROLLBACK
+2025-04-11 11:42:17,863 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:42:17,867 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:42:17,871 - INFO - Buscando usuário com e-mail: usuario@example.com
+2025-04-11 11:42:17,872 - INFO - BEGIN (implicit)
+2025-04-11 11:42:17,872 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:42:17,872 - INFO - [cached since 0.5238s ago] {'email_1': 'usuario@example.com', 'param_1': 1}
+2025-04-11 11:42:17,876 - INFO - Usuário autenticado: ID=2
+2025-04-11 11:42:17,877 - INFO - Listando todos os clientes
+2025-04-11 11:42:17,877 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:42:17,877 - INFO - [cached since 0.2639s ago] {'usuario_id_1': 2}
+2025-04-11 11:42:17,880 - INFO - Encontrados 6 clientes
+2025-04-11 11:42:17,881 - INFO - ROLLBACK
+2025-04-11 11:42:17,884 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:48:23,796 - INFO - select pg_catalog.version()
+2025-04-11 11:48:23,797 - INFO - [raw sql] {}
+2025-04-11 11:48:23,799 - INFO - select current_schema()
+2025-04-11 11:48:23,799 - INFO - [raw sql] {}
+2025-04-11 11:48:23,803 - INFO - show standard_conforming_strings
+2025-04-11 11:48:23,804 - INFO - [raw sql] {}
+2025-04-11 11:48:23,807 - INFO - BEGIN (implicit)
+2025-04-11 11:48:23,807 - INFO - SET session_replication_role = 'replica';
+2025-04-11 11:48:23,808 - INFO - [generated in 0.00026s] {}
+2025-04-11 11:48:23,811 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 11:48:23,811 - INFO - [generated in 0.00031s] {}
+2025-04-11 11:48:23,820 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 11:48:23,820 - INFO - [generated in 0.00027s] {}
+2025-04-11 11:48:23,824 - INFO - SET session_replication_role = 'origin';
+2025-04-11 11:48:23,824 - INFO - [generated in 0.00032s] {}
+2025-04-11 11:48:23,825 - INFO - COMMIT
+2025-04-11 11:48:24,090 - INFO - BEGIN (implicit)
+2025-04-11 11:48:24,092 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:48:24,092 - INFO - [generated in 0.00028s] {'nome': 'Administrador', 'email': 'admin@example.com', 'senha_hash': '$2b$12$aeQQSuwjuy8uN2jpUFo8y.XDoKoEhtvUTdlrwDKawWdKaLvc4TU5m', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 48, 22, 993865), 'is_admin': True}
+2025-04-11 11:48:24,098 - INFO - COMMIT
+2025-04-11 11:48:24,112 - INFO - BEGIN (implicit)
+2025-04-11 11:48:24,114 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:48:24,114 - INFO - [generated in 0.00036s] {'pk_1': 1}
+2025-04-11 11:48:24,347 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 11:48:24,347 - INFO - [cached since 0.2555s ago] {'nome': 'Usuário Comum', 'email': 'usuario@example.com', 'senha_hash': '$2b$12$HytXjc25Z3HOH.zbo9dmIO./e7/l85OP2.s7KzpvblwR8QWwD4V2W', 'data_criacao': datetime.datetime(2025, 4, 11, 11, 48, 22, 993865), 'is_admin': False}
+2025-04-11 11:48:24,349 - INFO - COMMIT
+2025-04-11 11:48:24,362 - INFO - BEGIN (implicit)
+2025-04-11 11:48:24,363 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:48:24,363 - INFO - [cached since 0.2501s ago] {'pk_1': 2}
+2025-04-11 11:48:24,367 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 11:48:24,367 - INFO - [generated in 0.00035s] {'pk_1': 1}
+2025-04-11 11:48:24,372 - INFO - INSERT INTO clientes (usuario_id, nome, telefone, endereco) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR FROM (VALUES (%(usuario_id__0)s, %(nome__0)s, %(telefone__0)s, %(endereco__0)s, 0), (%(usuario_id__1)s, %(nome__1)s, %(telefone__1)s ... 671 characters truncated ... mp_sen(p0, p1, p2, p3, sen_counter) ORDER BY sen_counter RETURNING clientes.id, clientes.id AS id__1
+2025-04-11 11:48:24,373 - INFO - [generated in 0.00008s (insertmanyvalues) 1/1 (ordered)] {'usuario_id__0': 1, 'telefone__0': '999999999', 'nome__0': 'Cliente do Administrador', 'endereco__0': 'Rua do Admin, 123', 'usuario_id__1': 2, 'telefone__1': '99999-000', 'nome__1': 'Cliente 0', 'endereco__1': 'Rua Cliente 0, nº 0', 'usuario_id__2': 2, 'telefone__2': '99999-001', 'nome__2': 'Cliente 1', 'endereco__2': 'Rua Cliente 1, nº 10', 'usuario_id__3': 2, 'telefone__3': '99999-002', 'nome__3': 'Cliente 2', 'endereco__3': 'Rua Cliente 2, nº 20', 'usuario_id__4': 2, 'telefone__4': '99999-003', 'nome__4': 'Cliente 3', 'endereco__4': 'Rua Cliente 3, nº 30', 'usuario_id__5': 2, 'telefone__5': '99999-004', 'nome__5': 'Cliente 4', 'endereco__5': 'Rua Cliente 4, nº 40', 'usuario_id__6': 2, 'telefone__6': '99999-005', 'nome__6': 'Cliente 5', 'endereco__6': 'Rua Cliente 5, nº 50', 'usuario_id__7': 2, 'telefone__7': '99999-006', 'nome__7': 'Cliente 6', 'endereco__7': 'Rua Cliente 6, nº 60', 'usuario_id__8': 2, 'telefone__8': '99999-007', 'nome__8': 'Cliente 7', 'endereco__8': 'Rua Cliente 7, nº 70', 'usuario_id__9': 2, 'telefone__9': '99999-008', 'nome__9': 'Cliente 8', 'endereco__9': 'Rua Cliente 8, nº 80', 'usuario_id__10': 2, 'telefone__10': '99999-009', 'nome__10': 'Cliente 9', 'endereco__10': 'Rua Cliente 9, nº 90'}
+2025-04-11 11:48:24,377 - INFO - COMMIT
+2025-04-11 11:48:24,396 - INFO - BEGIN (implicit)
+2025-04-11 11:48:24,397 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:48:24,397 - INFO - [generated in 0.00034s] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:48:24,635 - INFO - Token criado para o email: admin@example.com
+2025-04-11 11:48:24,636 - INFO - ROLLBACK
+2025-04-11 11:48:24,640 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:48:24,643 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:48:24,649 - INFO - Buscando usuário com e-mail: admin@example.com
+2025-04-11 11:48:24,649 - INFO - BEGIN (implicit)
+2025-04-11 11:48:24,650 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:48:24,650 - INFO - [cached since 0.2524s ago] {'email_1': 'admin@example.com', 'param_1': 1}
+2025-04-11 11:48:24,653 - INFO - Usuário autenticado: ID=1
+2025-04-11 11:48:24,658 - INFO - Listando todos os clientes
+2025-04-11 11:48:24,659 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:48:24,659 - INFO - [generated in 0.00024s] {'usuario_id_1': 1}
+2025-04-11 11:48:24,662 - INFO - Encontrados 1 clientes
+2025-04-11 11:48:24,663 - INFO - ROLLBACK
+2025-04-11 11:48:24,666 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
+2025-04-11 11:48:24,671 - INFO - BEGIN (implicit)
+2025-04-11 11:48:24,672 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:48:24,672 - INFO - [cached since 0.2747s ago] {'email_1': 'usuario@example.com', 'param_1': 1}
+2025-04-11 11:48:24,903 - INFO - Token criado para o email: usuario@example.com
+2025-04-11 11:48:24,905 - INFO - ROLLBACK
+2025-04-11 11:48:24,908 - INFO - HTTP Request: POST http://testserver/auth/token "HTTP/1.1 200 OK"
+2025-04-11 11:48:24,912 - INFO - HTTP Request: GET http://testserver/clientes "HTTP/1.1 307 Temporary Redirect"
+2025-04-11 11:48:24,916 - INFO - Buscando usuário com e-mail: usuario@example.com
+2025-04-11 11:48:24,917 - INFO - BEGIN (implicit)
+2025-04-11 11:48:24,918 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 11:48:24,918 - INFO - [cached since 0.5212s ago] {'email_1': 'usuario@example.com', 'param_1': 1}
+2025-04-11 11:48:24,921 - INFO - Usuário autenticado: ID=2
+2025-04-11 11:48:24,922 - INFO - Listando todos os clientes
+2025-04-11 11:48:24,923 - INFO - SELECT clientes.id AS clientes_id, clientes.usuario_id AS clientes_usuario_id, clientes.nome AS clientes_nome, clientes.telefone AS clientes_telefone, clientes.endereco AS clientes_endereco 
+FROM clientes 
+WHERE clientes.usuario_id = %(usuario_id_1)s
+2025-04-11 11:48:24,923 - INFO - [cached since 0.2641s ago] {'usuario_id_1': 2}
+2025-04-11 11:48:24,926 - INFO - Encontrados 10 clientes
+2025-04-11 11:48:24,927 - INFO - ROLLBACK
+2025-04-11 11:48:24,931 - INFO - HTTP Request: GET http://testserver/clientes/ "HTTP/1.1 200 OK"
