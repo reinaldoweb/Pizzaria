@@ -1,4 +1,5 @@
 from typing import Optional
+from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 from app.models.usuario_model import UsuarioModel
 from app.schemas.usuario import UsuarioUpdateSchema
@@ -21,7 +22,9 @@ class UsuarioService:
         )
 
         if usuario_existente:
-            raise ValueError("E-mail já cadastrado")
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Email já cadastrado")
 
         try:
             novo_usuario = UsuarioModel(**usuario_data)

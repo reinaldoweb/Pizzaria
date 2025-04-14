@@ -6990,3 +6990,736 @@ WHERE clientes.usuario_id = %(usuario_id_1)s
 2025-04-11 14:00:15,264 - INFO - SET session_replication_role = 'origin';
 2025-04-11 14:00:15,265 - INFO - [cached since 0.2844s ago] {}
 2025-04-11 14:00:15,266 - INFO - COMMIT
+2025-04-11 14:27:14,368 - INFO - select pg_catalog.version()
+2025-04-11 14:27:14,368 - INFO - [raw sql] {}
+2025-04-11 14:27:14,373 - INFO - select current_schema()
+2025-04-11 14:27:14,373 - INFO - [raw sql] {}
+2025-04-11 14:27:14,376 - INFO - show standard_conforming_strings
+2025-04-11 14:27:14,377 - INFO - [raw sql] {}
+2025-04-11 14:27:14,379 - INFO - BEGIN (implicit)
+2025-04-11 14:27:14,379 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:27:14,379 - INFO - [generated in 0.00025s] {}
+2025-04-11 14:27:14,384 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:27:14,385 - INFO - [generated in 0.00048s] {}
+2025-04-11 14:27:14,397 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:27:14,397 - INFO - [generated in 0.00033s] {}
+2025-04-11 14:27:14,405 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:27:14,405 - INFO - [generated in 0.00037s] {}
+2025-04-11 14:27:14,407 - INFO - COMMIT
+2025-04-11 14:27:14,441 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:28:53,188 - INFO - select pg_catalog.version()
+2025-04-11 14:28:53,188 - INFO - [raw sql] {}
+2025-04-11 14:28:53,191 - INFO - select current_schema()
+2025-04-11 14:28:53,192 - INFO - [raw sql] {}
+2025-04-11 14:28:53,194 - INFO - show standard_conforming_strings
+2025-04-11 14:28:53,195 - INFO - [raw sql] {}
+2025-04-11 14:28:53,198 - INFO - BEGIN (implicit)
+2025-04-11 14:28:53,198 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:28:53,198 - INFO - [generated in 0.00023s] {}
+2025-04-11 14:28:53,212 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:28:53,212 - INFO - [generated in 0.00033s] {}
+2025-04-11 14:28:53,221 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:28:53,221 - INFO - [generated in 0.00030s] {}
+2025-04-11 14:28:53,229 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:28:53,229 - INFO - [generated in 0.00038s] {}
+2025-04-11 14:28:53,231 - INFO - COMMIT
+2025-04-11 14:28:53,265 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:31:19,565 - INFO - select pg_catalog.version()
+2025-04-11 14:31:19,566 - INFO - [raw sql] {}
+2025-04-11 14:31:19,569 - INFO - select current_schema()
+2025-04-11 14:31:19,569 - INFO - [raw sql] {}
+2025-04-11 14:31:19,570 - INFO - show standard_conforming_strings
+2025-04-11 14:31:19,571 - INFO - [raw sql] {}
+2025-04-11 14:31:19,574 - INFO - BEGIN (implicit)
+2025-04-11 14:31:19,575 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:31:19,575 - INFO - [generated in 0.00028s] {}
+2025-04-11 14:31:19,578 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:31:19,578 - INFO - [generated in 0.00031s] {}
+2025-04-11 14:31:19,587 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:31:19,588 - INFO - [generated in 0.00030s] {}
+2025-04-11 14:31:19,593 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:31:19,594 - INFO - [generated in 0.00033s] {}
+2025-04-11 14:31:19,595 - INFO - COMMIT
+2025-04-11 14:31:19,630 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:31:44,054 - INFO - select pg_catalog.version()
+2025-04-11 14:31:44,054 - INFO - [raw sql] {}
+2025-04-11 14:31:44,058 - INFO - select current_schema()
+2025-04-11 14:31:44,058 - INFO - [raw sql] {}
+2025-04-11 14:31:44,061 - INFO - show standard_conforming_strings
+2025-04-11 14:31:44,061 - INFO - [raw sql] {}
+2025-04-11 14:31:44,063 - INFO - BEGIN (implicit)
+2025-04-11 14:31:44,064 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:31:44,064 - INFO - [generated in 0.00037s] {}
+2025-04-11 14:31:44,068 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:31:44,068 - INFO - [generated in 0.00032s] {}
+2025-04-11 14:31:44,076 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:31:44,077 - INFO - [generated in 0.00028s] {}
+2025-04-11 14:31:44,083 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:31:44,083 - INFO - [generated in 0.00035s] {}
+2025-04-11 14:31:44,085 - INFO - COMMIT
+2025-04-11 14:31:44,118 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:32:32,724 - INFO - select pg_catalog.version()
+2025-04-11 14:32:32,725 - INFO - [raw sql] {}
+2025-04-11 14:32:32,728 - INFO - select current_schema()
+2025-04-11 14:32:32,728 - INFO - [raw sql] {}
+2025-04-11 14:32:32,731 - INFO - show standard_conforming_strings
+2025-04-11 14:32:32,731 - INFO - [raw sql] {}
+2025-04-11 14:32:32,735 - INFO - BEGIN (implicit)
+2025-04-11 14:32:32,735 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:32:32,736 - INFO - [generated in 0.00027s] {}
+2025-04-11 14:32:32,739 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:32:32,739 - INFO - [generated in 0.00032s] {}
+2025-04-11 14:32:32,747 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:32:32,747 - INFO - [generated in 0.00046s] {}
+2025-04-11 14:32:32,754 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:32:32,755 - INFO - [generated in 0.00031s] {}
+2025-04-11 14:32:32,756 - INFO - COMMIT
+2025-04-11 14:32:32,789 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:34:42,990 - INFO - select pg_catalog.version()
+2025-04-11 14:34:42,991 - INFO - [raw sql] {}
+2025-04-11 14:34:42,993 - INFO - select current_schema()
+2025-04-11 14:34:42,994 - INFO - [raw sql] {}
+2025-04-11 14:34:42,996 - INFO - show standard_conforming_strings
+2025-04-11 14:34:42,996 - INFO - [raw sql] {}
+2025-04-11 14:34:42,999 - INFO - BEGIN (implicit)
+2025-04-11 14:34:42,999 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:34:42,999 - INFO - [generated in 0.00027s] {}
+2025-04-11 14:34:43,012 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:34:43,013 - INFO - [generated in 0.00033s] {}
+2025-04-11 14:34:43,020 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:34:43,020 - INFO - [generated in 0.00047s] {}
+2025-04-11 14:34:43,026 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:34:43,026 - INFO - [generated in 0.00029s] {}
+2025-04-11 14:34:43,028 - INFO - COMMIT
+2025-04-11 14:34:43,058 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:35:19,731 - INFO - select pg_catalog.version()
+2025-04-11 14:35:19,731 - INFO - [raw sql] {}
+2025-04-11 14:35:19,734 - INFO - select current_schema()
+2025-04-11 14:35:19,735 - INFO - [raw sql] {}
+2025-04-11 14:35:19,738 - INFO - show standard_conforming_strings
+2025-04-11 14:35:19,738 - INFO - [raw sql] {}
+2025-04-11 14:35:19,741 - INFO - BEGIN (implicit)
+2025-04-11 14:35:19,742 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:35:19,742 - INFO - [generated in 0.00025s] {}
+2025-04-11 14:35:19,745 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:35:19,745 - INFO - [generated in 0.00030s] {}
+2025-04-11 14:35:19,751 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:35:19,752 - INFO - [generated in 0.00055s] {}
+2025-04-11 14:35:19,757 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:35:19,757 - INFO - [generated in 0.00028s] {}
+2025-04-11 14:35:19,759 - INFO - COMMIT
+2025-04-11 14:35:19,791 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:40:56,257 - INFO - select pg_catalog.version()
+2025-04-11 14:40:56,257 - INFO - [raw sql] {}
+2025-04-11 14:40:56,260 - INFO - select current_schema()
+2025-04-11 14:40:56,260 - INFO - [raw sql] {}
+2025-04-11 14:40:56,260 - INFO - show standard_conforming_strings
+2025-04-11 14:40:56,260 - INFO - [raw sql] {}
+2025-04-11 14:40:56,267 - INFO - BEGIN (implicit)
+2025-04-11 14:40:56,268 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:40:56,268 - INFO - [generated in 0.00024s] {}
+2025-04-11 14:40:56,270 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:40:56,270 - INFO - [generated in 0.00043s] {}
+2025-04-11 14:40:56,270 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:40:56,270 - INFO - [generated in 0.00031s] {}
+2025-04-11 14:40:56,283 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:40:56,283 - INFO - [generated in 0.00028s] {}
+2025-04-11 14:40:56,285 - INFO - COMMIT
+2025-04-11 14:40:56,315 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:45:32,005 - INFO - select pg_catalog.version()
+2025-04-11 14:45:32,005 - INFO - [raw sql] {}
+2025-04-11 14:45:32,008 - INFO - select current_schema()
+2025-04-11 14:45:32,008 - INFO - [raw sql] {}
+2025-04-11 14:45:32,011 - INFO - show standard_conforming_strings
+2025-04-11 14:45:32,011 - INFO - [raw sql] {}
+2025-04-11 14:45:32,015 - INFO - BEGIN (implicit)
+2025-04-11 14:45:32,015 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:45:32,016 - INFO - [generated in 0.00033s] {}
+2025-04-11 14:45:32,029 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:45:32,029 - INFO - [generated in 0.00063s] {}
+2025-04-11 14:45:32,036 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:45:32,036 - INFO - [generated in 0.00030s] {}
+2025-04-11 14:45:32,041 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:45:32,041 - INFO - [generated in 0.00029s] {}
+2025-04-11 14:45:32,042 - INFO - COMMIT
+2025-04-11 14:46:49,174 - INFO - select pg_catalog.version()
+2025-04-11 14:46:49,175 - INFO - [raw sql] {}
+2025-04-11 14:46:49,180 - INFO - select current_schema()
+2025-04-11 14:46:49,181 - INFO - [raw sql] {}
+2025-04-11 14:46:49,184 - INFO - show standard_conforming_strings
+2025-04-11 14:46:49,184 - INFO - [raw sql] {}
+2025-04-11 14:46:49,187 - INFO - BEGIN (implicit)
+2025-04-11 14:46:49,187 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:46:49,188 - INFO - [generated in 0.00036s] {}
+2025-04-11 14:46:49,191 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:46:49,191 - INFO - [generated in 0.00032s] {}
+2025-04-11 14:46:49,198 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:46:49,198 - INFO - [generated in 0.00048s] {}
+2025-04-11 14:46:49,203 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:46:49,203 - INFO - [generated in 0.00041s] {}
+2025-04-11 14:46:49,205 - INFO - COMMIT
+2025-04-11 14:46:49,238 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:47:42,080 - INFO - select pg_catalog.version()
+2025-04-11 14:47:42,081 - INFO - [raw sql] {}
+2025-04-11 14:47:42,085 - INFO - select current_schema()
+2025-04-11 14:47:42,085 - INFO - [raw sql] {}
+2025-04-11 14:47:42,089 - INFO - show standard_conforming_strings
+2025-04-11 14:47:42,089 - INFO - [raw sql] {}
+2025-04-11 14:47:42,091 - INFO - BEGIN (implicit)
+2025-04-11 14:47:42,092 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:47:42,092 - INFO - [generated in 0.00028s] {}
+2025-04-11 14:47:42,106 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:47:42,107 - INFO - [generated in 0.00036s] {}
+2025-04-11 14:47:42,115 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:47:42,115 - INFO - [generated in 0.00035s] {}
+2025-04-11 14:47:42,120 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:47:42,120 - INFO - [generated in 0.00028s] {}
+2025-04-11 14:47:42,121 - INFO - COMMIT
+2025-04-11 14:47:42,154 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:48:27,247 - INFO - select pg_catalog.version()
+2025-04-11 14:48:27,248 - INFO - [raw sql] {}
+2025-04-11 14:48:27,251 - INFO - select current_schema()
+2025-04-11 14:48:27,251 - INFO - [raw sql] {}
+2025-04-11 14:48:27,254 - INFO - show standard_conforming_strings
+2025-04-11 14:48:27,254 - INFO - [raw sql] {}
+2025-04-11 14:48:27,257 - INFO - BEGIN (implicit)
+2025-04-11 14:48:27,259 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:48:27,259 - INFO - [generated in 0.00033s] {}
+2025-04-11 14:48:27,259 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:48:27,259 - INFO - [generated in 0.00031s] {}
+2025-04-11 14:48:27,259 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:48:27,259 - INFO - [generated in 0.00028s] {}
+2025-04-11 14:48:27,272 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:48:27,273 - INFO - [generated in 0.00027s] {}
+2025-04-11 14:48:27,275 - INFO - COMMIT
+2025-04-11 14:48:27,559 - INFO - BEGIN (implicit)
+2025-04-11 14:48:27,559 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 14:48:27,559 - INFO - [generated in 0.00030s] {'email_1': 'joao@example.com', 'param_1': 1}
+2025-04-11 14:48:27,559 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 14:48:27,559 - INFO - [generated in 0.00032s] {'nome': 'João', 'email': 'joao@example.com', 'senha_hash': '$2b$12$dHZ5vKFC.DqEgXE/TgyEsO7UYGcKL964nFnrc3zZT4WaHNukuY4fS', 'data_criacao': datetime.datetime(2025, 4, 11, 14, 48, 27, 280319), 'is_admin': False}
+2025-04-11 14:48:27,573 - INFO - COMMIT
+2025-04-11 14:48:27,573 - INFO - BEGIN (implicit)
+2025-04-11 14:48:27,573 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 14:48:27,573 - INFO - [generated in 0.00023s] {'pk_1': 1}
+2025-04-11 14:48:27,573 - INFO - Usuário criado: joao@example.com
+2025-04-11 14:48:27,573 - INFO - ROLLBACK
+2025-04-11 14:48:27,573 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-11 14:50:16,032 - INFO - select pg_catalog.version()
+2025-04-11 14:50:16,033 - INFO - [raw sql] {}
+2025-04-11 14:50:16,035 - INFO - select current_schema()
+2025-04-11 14:50:16,036 - INFO - [raw sql] {}
+2025-04-11 14:50:16,038 - INFO - show standard_conforming_strings
+2025-04-11 14:50:16,038 - INFO - [raw sql] {}
+2025-04-11 14:50:16,040 - INFO - BEGIN (implicit)
+2025-04-11 14:50:16,042 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:50:16,042 - INFO - [generated in 0.00046s] {}
+2025-04-11 14:50:16,055 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:50:16,055 - INFO - [generated in 0.00033s] {}
+2025-04-11 14:50:16,061 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:50:16,061 - INFO - [generated in 0.00026s] {}
+2025-04-11 14:50:16,066 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:50:16,066 - INFO - [generated in 0.00026s] {}
+2025-04-11 14:50:16,068 - INFO - COMMIT
+2025-04-11 14:50:16,355 - INFO - BEGIN (implicit)
+2025-04-11 14:50:16,358 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 14:50:16,358 - INFO - [generated in 0.00038s] {'email_1': 'joao@example.com', 'param_1': 1}
+2025-04-11 14:50:16,363 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 14:50:16,363 - INFO - [generated in 0.00033s] {'nome': 'João', 'email': 'joao@example.com', 'senha_hash': '$2b$12$qZ/0y3xWuHWdnlfQY.XjYePrgDgDDm5TEdSRSiEO0d.1cuP/t/Hvy', 'data_criacao': datetime.datetime(2025, 4, 11, 14, 50, 16, 74276), 'is_admin': False}
+2025-04-11 14:50:16,366 - INFO - COMMIT
+2025-04-11 14:50:16,370 - INFO - BEGIN (implicit)
+2025-04-11 14:50:16,371 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 14:50:16,371 - INFO - [generated in 0.00022s] {'pk_1': 1}
+2025-04-11 14:50:16,375 - INFO - Usuário criado: joao@example.com
+2025-04-11 14:50:16,376 - INFO - ROLLBACK
+2025-04-11 14:50:16,379 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-11 14:51:19,609 - INFO - select pg_catalog.version()
+2025-04-11 14:51:19,610 - INFO - [raw sql] {}
+2025-04-11 14:51:19,613 - INFO - select current_schema()
+2025-04-11 14:51:19,613 - INFO - [raw sql] {}
+2025-04-11 14:51:19,616 - INFO - show standard_conforming_strings
+2025-04-11 14:51:19,616 - INFO - [raw sql] {}
+2025-04-11 14:51:19,619 - INFO - BEGIN (implicit)
+2025-04-11 14:51:19,620 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:51:19,620 - INFO - [generated in 0.00023s] {}
+2025-04-11 14:51:19,624 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:51:19,624 - INFO - [generated in 0.00038s] {}
+2025-04-11 14:51:19,630 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:51:19,631 - INFO - [generated in 0.00045s] {}
+2025-04-11 14:51:19,636 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:51:19,636 - INFO - [generated in 0.00030s] {}
+2025-04-11 14:51:19,638 - INFO - COMMIT
+2025-04-11 14:51:19,924 - INFO - BEGIN (implicit)
+2025-04-11 14:51:19,926 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 14:51:19,926 - INFO - [generated in 0.00030s] {'email_1': 'jose@example.com', 'param_1': 1}
+2025-04-11 14:51:19,932 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 14:51:19,933 - INFO - [generated in 0.00054s] {'nome': 'João', 'email': 'jose@example.com', 'senha_hash': '$2b$12$7RWWjxcpLf6jvqfcWkVCEu3ZmkohoXfpJGssgQ8q4mgHyEWaisWDO', 'data_criacao': datetime.datetime(2025, 4, 11, 14, 51, 19, 644362), 'is_admin': False}
+2025-04-11 14:51:19,936 - INFO - COMMIT
+2025-04-11 14:51:19,949 - INFO - BEGIN (implicit)
+2025-04-11 14:51:19,950 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 14:51:19,951 - INFO - [generated in 0.00028s] {'pk_1': 1}
+2025-04-11 14:51:19,954 - INFO - Usuário criado: jose@example.com
+2025-04-11 14:51:19,955 - INFO - ROLLBACK
+2025-04-11 14:51:19,958 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-11 14:51:37,225 - INFO - select pg_catalog.version()
+2025-04-11 14:51:37,226 - INFO - [raw sql] {}
+2025-04-11 14:51:37,228 - INFO - select current_schema()
+2025-04-11 14:51:37,229 - INFO - [raw sql] {}
+2025-04-11 14:51:37,231 - INFO - show standard_conforming_strings
+2025-04-11 14:51:37,231 - INFO - [raw sql] {}
+2025-04-11 14:51:37,234 - INFO - BEGIN (implicit)
+2025-04-11 14:51:37,235 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:51:37,235 - INFO - [generated in 0.00048s] {}
+2025-04-11 14:51:37,238 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:51:37,238 - INFO - [generated in 0.00035s] {}
+2025-04-11 14:51:37,243 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:51:37,244 - INFO - [generated in 0.00043s] {}
+2025-04-11 14:51:37,248 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:51:37,248 - INFO - [generated in 0.00028s] {}
+2025-04-11 14:51:37,250 - INFO - COMMIT
+2025-04-11 14:51:37,539 - INFO - BEGIN (implicit)
+2025-04-11 14:51:37,541 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 14:51:37,541 - INFO - [generated in 0.00051s] {'email_1': 'jose@example.com', 'param_1': 1}
+2025-04-11 14:51:37,546 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 14:51:37,547 - INFO - [generated in 0.00033s] {'nome': 'João', 'email': 'jose@example.com', 'senha_hash': '$2b$12$cK8vRbIOz.FYrFQue7XnlO.WK5M6nYRaYaMTnGT/5rgvl82FD4/Li', 'data_criacao': datetime.datetime(2025, 4, 11, 14, 51, 37, 255425), 'is_admin': False}
+2025-04-11 14:51:37,550 - INFO - COMMIT
+2025-04-11 14:51:37,564 - INFO - BEGIN (implicit)
+2025-04-11 14:51:37,565 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 14:51:37,565 - INFO - [generated in 0.00024s] {'pk_1': 1}
+2025-04-11 14:51:37,568 - INFO - Usuário criado: jose@example.com
+2025-04-11 14:51:37,570 - INFO - ROLLBACK
+2025-04-11 14:51:37,573 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-11 14:54:22,430 - INFO - select pg_catalog.version()
+2025-04-11 14:54:22,430 - INFO - [raw sql] {}
+2025-04-11 14:54:22,434 - INFO - select current_schema()
+2025-04-11 14:54:22,434 - INFO - [raw sql] {}
+2025-04-11 14:54:22,436 - INFO - show standard_conforming_strings
+2025-04-11 14:54:22,437 - INFO - [raw sql] {}
+2025-04-11 14:54:22,439 - INFO - BEGIN (implicit)
+2025-04-11 14:54:22,440 - INFO - SET session_replication_role = 'replica';
+2025-04-11 14:54:22,440 - INFO - [generated in 0.00020s] {}
+2025-04-11 14:54:22,453 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 14:54:22,453 - INFO - [generated in 0.00032s] {}
+2025-04-11 14:54:22,459 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 14:54:22,459 - INFO - [generated in 0.00030s] {}
+2025-04-11 14:54:22,464 - INFO - SET session_replication_role = 'origin';
+2025-04-11 14:54:22,464 - INFO - [generated in 0.00029s] {}
+2025-04-11 14:54:22,466 - INFO - COMMIT
+2025-04-11 14:54:22,491 - INFO - BEGIN (implicit)
+2025-04-11 14:54:22,493 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios
+2025-04-11 14:54:22,493 - INFO - [generated in 0.00026s] {}
+2025-04-11 14:54:22,499 - INFO - ROLLBACK
+2025-04-11 14:54:22,503 - INFO - HTTP Request: GET http://testserver/usuarios/ "HTTP/1.1 200 OK"
+2025-04-11 14:54:22,513 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 422 Unprocessable Entity"
+2025-04-11 14:54:22,772 - INFO - BEGIN (implicit)
+2025-04-11 14:54:22,773 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 14:54:22,773 - INFO - [generated in 0.00027s] {'email_1': 'jose@example.com', 'param_1': 1}
+2025-04-11 14:54:22,780 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 14:54:22,780 - INFO - [generated in 0.00034s] {'nome': 'João', 'email': 'jose@example.com', 'senha_hash': '$2b$12$1zdhY7maTcYsV6l44enrte0xYpJGW3F5oI8NRGA.uVI253gOk9bZm', 'data_criacao': datetime.datetime(2025, 4, 11, 14, 54, 22, 471549), 'is_admin': False}
+2025-04-11 14:54:22,783 - INFO - COMMIT
+2025-04-11 14:54:22,797 - INFO - BEGIN (implicit)
+2025-04-11 14:54:22,798 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 14:54:22,798 - INFO - [generated in 0.00031s] {'pk_1': 1}
+2025-04-11 14:54:22,801 - INFO - Usuário criado: jose@example.com
+2025-04-11 14:54:22,803 - INFO - ROLLBACK
+2025-04-11 14:54:22,806 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-11 15:07:05,379 - INFO - select pg_catalog.version()
+2025-04-11 15:07:05,379 - INFO - [raw sql] {}
+2025-04-11 15:07:05,382 - INFO - select current_schema()
+2025-04-11 15:07:05,382 - INFO - [raw sql] {}
+2025-04-11 15:07:05,385 - INFO - show standard_conforming_strings
+2025-04-11 15:07:05,385 - INFO - [raw sql] {}
+2025-04-11 15:07:05,388 - INFO - BEGIN (implicit)
+2025-04-11 15:07:05,388 - INFO - SET session_replication_role = 'replica';
+2025-04-11 15:07:05,388 - INFO - [generated in 0.00026s] {}
+2025-04-11 15:07:05,392 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 15:07:05,392 - INFO - [generated in 0.00032s] {}
+2025-04-11 15:07:05,400 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 15:07:05,400 - INFO - [generated in 0.00042s] {}
+2025-04-11 15:07:05,407 - INFO - SET session_replication_role = 'origin';
+2025-04-11 15:07:05,407 - INFO - [generated in 0.00033s] {}
+2025-04-11 15:07:05,409 - INFO - COMMIT
+2025-04-11 15:07:05,695 - INFO - BEGIN (implicit)
+2025-04-11 15:07:05,697 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 15:07:05,697 - INFO - [generated in 0.00035s] {'email_1': 'jose@example.com', 'param_1': 1}
+2025-04-11 15:07:05,702 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 15:07:05,703 - INFO - [generated in 0.00037s] {'nome': 'João', 'email': 'jose@example.com', 'senha_hash': '$2b$12$0UK20p57AegaNP0Oz/irQeCtIBXtvvh4aqVlOD270qLmkHOCpWxmG', 'data_criacao': datetime.datetime(2025, 4, 11, 15, 7, 5, 415247), 'is_admin': False}
+2025-04-11 15:07:05,707 - INFO - COMMIT
+2025-04-11 15:07:05,720 - INFO - BEGIN (implicit)
+2025-04-11 15:07:05,721 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 15:07:05,721 - INFO - [generated in 0.00026s] {'pk_1': 1}
+2025-04-11 15:07:05,725 - INFO - Usuário criado: jose@example.com
+2025-04-11 15:07:05,726 - INFO - ROLLBACK
+2025-04-11 15:07:05,729 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-11 15:07:05,964 - INFO - BEGIN (implicit)
+2025-04-11 15:07:05,965 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 15:07:05,965 - INFO - [cached since 0.2682s ago] {'email_1': 'jose@example.com', 'param_1': 1}
+2025-04-11 15:07:05,970 - INFO - ROLLBACK
+2025-04-11 15:07:05,973 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 400 Bad Request"
+2025-04-11 15:07:42,188 - INFO - select pg_catalog.version()
+2025-04-11 15:07:42,188 - INFO - [raw sql] {}
+2025-04-11 15:07:42,192 - INFO - select current_schema()
+2025-04-11 15:07:42,192 - INFO - [raw sql] {}
+2025-04-11 15:07:42,195 - INFO - show standard_conforming_strings
+2025-04-11 15:07:42,196 - INFO - [raw sql] {}
+2025-04-11 15:07:42,199 - INFO - BEGIN (implicit)
+2025-04-11 15:07:42,199 - INFO - SET session_replication_role = 'replica';
+2025-04-11 15:07:42,200 - INFO - [generated in 0.00044s] {}
+2025-04-11 15:07:42,203 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 15:07:42,203 - INFO - [generated in 0.00032s] {}
+2025-04-11 15:07:42,212 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 15:07:42,213 - INFO - [generated in 0.00029s] {}
+2025-04-11 15:07:42,217 - INFO - SET session_replication_role = 'origin';
+2025-04-11 15:07:42,217 - INFO - [generated in 0.00027s] {}
+2025-04-11 15:07:42,218 - INFO - COMMIT
+2025-04-11 15:07:42,507 - INFO - BEGIN (implicit)
+2025-04-11 15:07:42,509 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 15:07:42,509 - INFO - [generated in 0.00032s] {'email_1': 'jose@example.com', 'param_1': 1}
+2025-04-11 15:07:42,515 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 15:07:42,515 - INFO - [generated in 0.00033s] {'nome': 'João', 'email': 'jose@example.com', 'senha_hash': '$2b$12$AStgsuBodMXU7ZyfdifZSOX4G9JGxnm3ci752J0jSeIZiQuTeGXA2', 'data_criacao': datetime.datetime(2025, 4, 11, 15, 7, 42, 223730), 'is_admin': False}
+2025-04-11 15:07:42,519 - INFO - COMMIT
+2025-04-11 15:07:42,531 - INFO - BEGIN (implicit)
+2025-04-11 15:07:42,532 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 15:07:42,532 - INFO - [generated in 0.00026s] {'pk_1': 1}
+2025-04-11 15:07:42,536 - INFO - Usuário criado: jose@example.com
+2025-04-11 15:07:42,538 - INFO - ROLLBACK
+2025-04-11 15:07:42,541 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-11 15:07:42,775 - INFO - BEGIN (implicit)
+2025-04-11 15:07:42,775 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 15:07:42,775 - INFO - [cached since 0.2665s ago] {'email_1': 'jose@example.com', 'param_1': 1}
+2025-04-11 15:07:42,779 - INFO - ROLLBACK
+2025-04-11 15:07:42,783 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 400 Bad Request"
+2025-04-11 15:27:11,074 - INFO - select pg_catalog.version()
+2025-04-11 15:27:11,074 - INFO - [raw sql] {}
+2025-04-11 15:27:11,080 - INFO - select current_schema()
+2025-04-11 15:27:11,080 - INFO - [raw sql] {}
+2025-04-11 15:27:11,082 - INFO - show standard_conforming_strings
+2025-04-11 15:27:11,082 - INFO - [raw sql] {}
+2025-04-11 15:27:11,082 - INFO - BEGIN (implicit)
+2025-04-11 15:27:11,082 - INFO - SET session_replication_role = 'replica';
+2025-04-11 15:27:11,082 - INFO - [generated in 0.00043s] {}
+2025-04-11 15:27:11,097 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 15:27:11,097 - INFO - [generated in 0.00033s] {}
+2025-04-11 15:27:11,113 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 15:27:11,113 - INFO - [generated in 0.00029s] {}
+2025-04-11 15:27:11,120 - INFO - SET session_replication_role = 'origin';
+2025-04-11 15:27:11,120 - INFO - [generated in 0.00028s] {}
+2025-04-11 15:27:11,122 - INFO - COMMIT
+2025-04-11 15:27:11,414 - INFO - BEGIN (implicit)
+2025-04-11 15:27:11,414 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 15:27:11,414 - INFO - [generated in 0.00030s] {'email_1': 'jose@example.com', 'param_1': 1}
+2025-04-11 15:27:11,414 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 15:27:11,425 - INFO - [generated in 0.00033s] {'nome': 'João', 'email': 'jose@example.com', 'senha_hash': '$2b$12$I7j/oNVbCmqJHNozOAH6K.6yMXoDx9opmakwpTOM7cNO7CnUKJHiK', 'data_criacao': datetime.datetime(2025, 4, 11, 15, 27, 11, 124774), 'is_admin': False}
+2025-04-11 15:27:11,429 - INFO - COMMIT
+2025-04-11 15:27:11,429 - INFO - BEGIN (implicit)
+2025-04-11 15:27:11,429 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 15:27:11,434 - INFO - [generated in 0.00024s] {'pk_1': 1}
+2025-04-11 15:27:11,434 - INFO - Usuário criado: jose@example.com
+2025-04-11 15:27:11,434 - INFO - ROLLBACK
+2025-04-11 15:27:11,434 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-11 15:29:26,007 - INFO - select pg_catalog.version()
+2025-04-11 15:29:26,007 - INFO - [raw sql] {}
+2025-04-11 15:29:26,010 - INFO - select current_schema()
+2025-04-11 15:29:26,010 - INFO - [raw sql] {}
+2025-04-11 15:29:26,014 - INFO - show standard_conforming_strings
+2025-04-11 15:29:26,014 - INFO - [raw sql] {}
+2025-04-11 15:29:26,016 - INFO - BEGIN (implicit)
+2025-04-11 15:29:26,017 - INFO - SET session_replication_role = 'replica';
+2025-04-11 15:29:26,017 - INFO - [generated in 0.00023s] {}
+2025-04-11 15:29:26,031 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 15:29:26,031 - INFO - [generated in 0.00032s] {}
+2025-04-11 15:29:26,039 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 15:29:26,039 - INFO - [generated in 0.00031s] {}
+2025-04-11 15:29:26,045 - INFO - SET session_replication_role = 'origin';
+2025-04-11 15:29:26,045 - INFO - [generated in 0.00028s] {}
+2025-04-11 15:29:26,046 - INFO - COMMIT
+2025-04-11 15:29:26,335 - INFO - BEGIN (implicit)
+2025-04-11 15:29:26,337 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 15:29:26,337 - INFO - [generated in 0.00030s] {'email_1': 'josea@example.com', 'param_1': 1}
+2025-04-11 15:29:26,343 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 15:29:26,343 - INFO - [generated in 0.00034s] {'nome': 'João', 'email': 'josea@example.com', 'senha_hash': '$2b$12$xRgHXjwivjZxLGBKZuztq.DyIwb14QkJ8MlCkogU5nEG7NAKssWBa', 'data_criacao': datetime.datetime(2025, 4, 11, 15, 29, 26, 54213), 'is_admin': False}
+2025-04-11 15:29:26,346 - INFO - COMMIT
+2025-04-11 15:29:26,350 - INFO - BEGIN (implicit)
+2025-04-11 15:29:26,351 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 15:29:26,351 - INFO - [generated in 0.00025s] {'pk_1': 1}
+2025-04-11 15:29:26,354 - INFO - Usuário criado: josea@example.com
+2025-04-11 15:29:26,355 - INFO - ROLLBACK
+2025-04-11 15:29:26,359 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-11 15:29:39,615 - INFO - select pg_catalog.version()
+2025-04-11 15:29:39,616 - INFO - [raw sql] {}
+2025-04-11 15:29:39,619 - INFO - select current_schema()
+2025-04-11 15:29:39,619 - INFO - [raw sql] {}
+2025-04-11 15:29:39,622 - INFO - show standard_conforming_strings
+2025-04-11 15:29:39,622 - INFO - [raw sql] {}
+2025-04-11 15:29:39,625 - INFO - BEGIN (implicit)
+2025-04-11 15:29:39,626 - INFO - SET session_replication_role = 'replica';
+2025-04-11 15:29:39,626 - INFO - [generated in 0.00031s] {}
+2025-04-11 15:29:39,640 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-11 15:29:39,641 - INFO - [generated in 0.00033s] {}
+2025-04-11 15:29:39,648 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-11 15:29:39,648 - INFO - [generated in 0.00028s] {}
+2025-04-11 15:29:39,653 - INFO - SET session_replication_role = 'origin';
+2025-04-11 15:29:39,653 - INFO - [generated in 0.00027s] {}
+2025-04-11 15:29:39,655 - INFO - COMMIT
+2025-04-11 15:29:39,941 - INFO - BEGIN (implicit)
+2025-04-11 15:29:39,942 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-11 15:29:39,943 - INFO - [generated in 0.00032s] {'email_1': 'josea@example.com', 'param_1': 1}
+2025-04-11 15:29:39,948 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-11 15:29:39,948 - INFO - [generated in 0.00033s] {'nome': 'João', 'email': 'josea@example.com', 'senha_hash': '$2b$12$M7Vc8MYvOh3p4ElBz3YrQ.riP2AsceeQ89gLsEMjEo3Gc8WQeyKH.', 'data_criacao': datetime.datetime(2025, 4, 11, 15, 29, 39, 661846), 'is_admin': False}
+2025-04-11 15:29:39,951 - INFO - COMMIT
+2025-04-11 15:29:39,965 - INFO - BEGIN (implicit)
+2025-04-11 15:29:39,966 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-11 15:29:39,966 - INFO - [generated in 0.00022s] {'pk_1': 1}
+2025-04-11 15:29:39,969 - INFO - Usuário criado: josea@example.com
+2025-04-11 15:29:39,971 - INFO - ROLLBACK
+2025-04-11 15:29:39,974 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-14 09:11:32,396 - INFO - select pg_catalog.version()
+2025-04-14 09:11:32,396 - INFO - [raw sql] {}
+2025-04-14 09:11:32,400 - INFO - select current_schema()
+2025-04-14 09:11:32,401 - INFO - [raw sql] {}
+2025-04-14 09:11:32,404 - INFO - show standard_conforming_strings
+2025-04-14 09:11:32,404 - INFO - [raw sql] {}
+2025-04-14 09:11:32,408 - INFO - BEGIN (implicit)
+2025-04-14 09:11:32,408 - INFO - SET session_replication_role = 'replica';
+2025-04-14 09:11:32,409 - INFO - [generated in 0.00030s] {}
+2025-04-14 09:11:32,411 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 09:11:32,412 - INFO - [generated in 0.00047s] {}
+2025-04-14 09:11:32,423 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 09:11:32,423 - INFO - [generated in 0.00046s] {}
+2025-04-14 09:11:32,429 - INFO - SET session_replication_role = 'origin';
+2025-04-14 09:11:32,429 - INFO - [generated in 0.00036s] {}
+2025-04-14 09:11:32,431 - INFO - COMMIT
+2025-04-14 09:11:32,782 - INFO - BEGIN (implicit)
+2025-04-14 09:11:32,786 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-14 09:11:32,786 - INFO - [generated in 0.00040s] {'email_1': 'josea@example.com', 'param_1': 1}
+2025-04-14 09:11:32,792 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-14 09:11:32,794 - INFO - [generated in 0.00041s] {'nome': 'João', 'email': 'josea@example.com', 'senha_hash': '$2b$12$jsRXxtwpUsIwvInudmQg1uYFjMA3u.SaHalmDRbIgrYcpQIsTmJHS', 'data_criacao': datetime.datetime(2025, 4, 14, 9, 11, 32, 438910), 'is_admin': False}
+2025-04-14 09:11:32,797 - INFO - COMMIT
+2025-04-14 09:11:32,801 - INFO - BEGIN (implicit)
+2025-04-14 09:11:32,802 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-14 09:11:32,803 - INFO - [generated in 0.00039s] {'pk_1': 1}
+2025-04-14 09:11:32,806 - INFO - Usuário criado: josea@example.com
+2025-04-14 09:11:32,809 - INFO - ROLLBACK
+2025-04-14 09:11:32,813 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-14 09:11:57,572 - INFO - select pg_catalog.version()
+2025-04-14 09:11:57,572 - INFO - [raw sql] {}
+2025-04-14 09:11:57,578 - INFO - select current_schema()
+2025-04-14 09:11:57,578 - INFO - [raw sql] {}
+2025-04-14 09:11:57,581 - INFO - show standard_conforming_strings
+2025-04-14 09:11:57,582 - INFO - [raw sql] {}
+2025-04-14 09:11:57,586 - INFO - BEGIN (implicit)
+2025-04-14 09:11:57,587 - INFO - SET session_replication_role = 'replica';
+2025-04-14 09:11:57,587 - INFO - [generated in 0.00042s] {}
+2025-04-14 09:11:57,591 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 09:11:57,592 - INFO - [generated in 0.00049s] {}
+2025-04-14 09:11:57,602 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 09:11:57,602 - INFO - [generated in 0.00036s] {}
+2025-04-14 09:11:57,608 - INFO - SET session_replication_role = 'origin';
+2025-04-14 09:11:57,608 - INFO - [generated in 0.00036s] {}
+2025-04-14 09:11:57,610 - INFO - COMMIT
+2025-04-14 09:11:57,950 - INFO - BEGIN (implicit)
+2025-04-14 09:11:57,952 - INFO - SELECT usuarios.id AS usuarios_id, usuarios.nome AS usuarios_nome, usuarios.email AS usuarios_email, usuarios.senha_hash AS usuarios_senha_hash, usuarios.data_criacao AS usuarios_data_criacao, usuarios.is_admin AS usuarios_is_admin 
+FROM usuarios 
+WHERE usuarios.email = %(email_1)s 
+ LIMIT %(param_1)s
+2025-04-14 09:11:57,953 - INFO - [generated in 0.00034s] {'email_1': 'josea@example.com', 'param_1': 1}
+2025-04-14 09:11:57,958 - INFO - INSERT INTO usuarios (nome, email, senha_hash, data_criacao, is_admin) VALUES (%(nome)s, %(email)s, %(senha_hash)s, %(data_criacao)s, %(is_admin)s) RETURNING usuarios.id
+2025-04-14 09:11:57,959 - INFO - [generated in 0.00036s] {'nome': 'João da Silva', 'email': 'josea@example.com', 'senha_hash': '$2b$12$8Sa4K2iVnzP8.k1Vx8Hfbum860LsG4oyLur4nkaCyOPQN.lVX2cKe', 'data_criacao': datetime.datetime(2025, 4, 14, 9, 11, 57, 616054), 'is_admin': False}
+2025-04-14 09:11:57,961 - INFO - COMMIT
+2025-04-14 09:11:57,964 - INFO - BEGIN (implicit)
+2025-04-14 09:11:57,966 - INFO - SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.senha_hash, usuarios.data_criacao, usuarios.is_admin 
+FROM usuarios 
+WHERE usuarios.id = %(pk_1)s
+2025-04-14 09:11:57,966 - INFO - [generated in 0.00031s] {'pk_1': 1}
+2025-04-14 09:11:57,970 - INFO - Usuário criado: josea@example.com
+2025-04-14 09:11:57,971 - INFO - ROLLBACK
+2025-04-14 09:11:57,974 - INFO - HTTP Request: POST http://testserver/usuarios/ "HTTP/1.1 201 Created"
+2025-04-14 10:17:27,242 - INFO - select pg_catalog.version()
+2025-04-14 10:17:27,242 - INFO - [raw sql] {}
+2025-04-14 10:17:27,247 - INFO - select current_schema()
+2025-04-14 10:17:27,247 - INFO - [raw sql] {}
+2025-04-14 10:17:27,251 - INFO - show standard_conforming_strings
+2025-04-14 10:17:27,251 - INFO - [raw sql] {}
+2025-04-14 10:17:27,254 - INFO - BEGIN (implicit)
+2025-04-14 10:17:27,254 - INFO - SET session_replication_role = 'replica';
+2025-04-14 10:17:27,254 - INFO - [generated in 0.00026s] {}
+2025-04-14 10:17:27,267 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 10:17:27,267 - INFO - [generated in 0.00032s] {}
+2025-04-14 10:17:27,284 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 10:17:27,285 - INFO - [generated in 0.00038s] {}
+2025-04-14 10:17:27,297 - INFO - SET session_replication_role = 'origin';
+2025-04-14 10:17:27,297 - INFO - [generated in 0.00046s] {}
+2025-04-14 10:17:27,299 - INFO - COMMIT
+2025-04-14 10:18:54,189 - INFO - select pg_catalog.version()
+2025-04-14 10:18:54,189 - INFO - [raw sql] {}
+2025-04-14 10:18:54,192 - INFO - select current_schema()
+2025-04-14 10:18:54,193 - INFO - [raw sql] {}
+2025-04-14 10:18:54,196 - INFO - show standard_conforming_strings
+2025-04-14 10:18:54,196 - INFO - [raw sql] {}
+2025-04-14 10:18:54,198 - INFO - BEGIN (implicit)
+2025-04-14 10:18:54,199 - INFO - SET session_replication_role = 'replica';
+2025-04-14 10:18:54,199 - INFO - [generated in 0.00022s] {}
+2025-04-14 10:18:54,203 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 10:18:54,203 - INFO - [generated in 0.00032s] {}
+2025-04-14 10:18:54,208 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 10:18:54,208 - INFO - [generated in 0.00045s] {}
+2025-04-14 10:18:54,222 - INFO - SET session_replication_role = 'origin';
+2025-04-14 10:18:54,222 - INFO - [generated in 0.00030s] {}
+2025-04-14 10:18:54,223 - INFO - COMMIT
+2025-04-14 10:19:43,478 - INFO - select pg_catalog.version()
+2025-04-14 10:19:43,478 - INFO - [raw sql] {}
+2025-04-14 10:19:43,481 - INFO - select current_schema()
+2025-04-14 10:19:43,482 - INFO - [raw sql] {}
+2025-04-14 10:19:43,485 - INFO - show standard_conforming_strings
+2025-04-14 10:19:43,485 - INFO - [raw sql] {}
+2025-04-14 10:19:43,488 - INFO - BEGIN (implicit)
+2025-04-14 10:19:43,489 - INFO - SET session_replication_role = 'replica';
+2025-04-14 10:19:43,489 - INFO - [generated in 0.00036s] {}
+2025-04-14 10:19:43,503 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 10:19:43,503 - INFO - [generated in 0.00034s] {}
+2025-04-14 10:19:43,519 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 10:19:43,519 - INFO - [generated in 0.00053s] {}
+2025-04-14 10:19:43,525 - INFO - SET session_replication_role = 'origin';
+2025-04-14 10:19:43,525 - INFO - [generated in 0.00029s] {}
+2025-04-14 10:19:43,527 - INFO - COMMIT
+2025-04-14 10:55:39,899 - INFO - select pg_catalog.version()
+2025-04-14 10:55:39,900 - INFO - [raw sql] {}
+2025-04-14 10:55:39,903 - INFO - select current_schema()
+2025-04-14 10:55:39,903 - INFO - [raw sql] {}
+2025-04-14 10:55:39,907 - INFO - show standard_conforming_strings
+2025-04-14 10:55:39,907 - INFO - [raw sql] {}
+2025-04-14 10:55:39,910 - INFO - BEGIN (implicit)
+2025-04-14 10:55:39,911 - INFO - SET session_replication_role = 'replica';
+2025-04-14 10:55:39,911 - INFO - [generated in 0.00022s] {}
+2025-04-14 10:55:39,915 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 10:55:39,915 - INFO - [generated in 0.00048s] {}
+2025-04-14 10:55:39,930 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 10:55:39,930 - INFO - [generated in 0.00029s] {}
+2025-04-14 10:55:39,939 - INFO - SET session_replication_role = 'origin';
+2025-04-14 10:55:39,939 - INFO - [generated in 0.00030s] {}
+2025-04-14 10:55:39,942 - INFO - COMMIT
+2025-04-14 10:57:10,495 - INFO - select pg_catalog.version()
+2025-04-14 10:57:10,495 - INFO - [raw sql] {}
+2025-04-14 10:57:10,498 - INFO - select current_schema()
+2025-04-14 10:57:10,499 - INFO - [raw sql] {}
+2025-04-14 10:57:10,501 - INFO - show standard_conforming_strings
+2025-04-14 10:57:10,502 - INFO - [raw sql] {}
+2025-04-14 10:57:10,504 - INFO - BEGIN (implicit)
+2025-04-14 10:57:10,504 - INFO - SET session_replication_role = 'replica';
+2025-04-14 10:57:10,505 - INFO - [generated in 0.00022s] {}
+2025-04-14 10:57:10,508 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 10:57:10,508 - INFO - [generated in 0.00036s] {}
+2025-04-14 10:57:10,517 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 10:57:10,517 - INFO - [generated in 0.00029s] {}
+2025-04-14 10:57:10,523 - INFO - SET session_replication_role = 'origin';
+2025-04-14 10:57:10,524 - INFO - [generated in 0.00030s] {}
+2025-04-14 10:57:10,525 - INFO - COMMIT
+2025-04-14 10:57:22,970 - INFO - select pg_catalog.version()
+2025-04-14 10:57:22,971 - INFO - [raw sql] {}
+2025-04-14 10:57:22,974 - INFO - select current_schema()
+2025-04-14 10:57:22,975 - INFO - [raw sql] {}
+2025-04-14 10:57:22,978 - INFO - show standard_conforming_strings
+2025-04-14 10:57:22,978 - INFO - [raw sql] {}
+2025-04-14 10:57:22,981 - INFO - BEGIN (implicit)
+2025-04-14 10:57:22,981 - INFO - SET session_replication_role = 'replica';
+2025-04-14 10:57:22,981 - INFO - [generated in 0.00021s] {}
+2025-04-14 10:57:22,985 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 10:57:22,985 - INFO - [generated in 0.00032s] {}
+2025-04-14 10:57:22,995 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 10:57:22,995 - INFO - [generated in 0.00028s] {}
+2025-04-14 10:57:23,000 - INFO - SET session_replication_role = 'origin';
+2025-04-14 10:57:23,002 - INFO - [generated in 0.00029s] {}
+2025-04-14 10:57:23,003 - INFO - COMMIT
+2025-04-14 11:12:11,384 - INFO - select pg_catalog.version()
+2025-04-14 11:12:11,385 - INFO - [raw sql] {}
+2025-04-14 11:12:11,388 - INFO - select current_schema()
+2025-04-14 11:12:11,388 - INFO - [raw sql] {}
+2025-04-14 11:12:11,390 - INFO - show standard_conforming_strings
+2025-04-14 11:12:11,391 - INFO - [raw sql] {}
+2025-04-14 11:12:11,393 - INFO - BEGIN (implicit)
+2025-04-14 11:12:11,394 - INFO - SET session_replication_role = 'replica';
+2025-04-14 11:12:11,394 - INFO - [generated in 0.00036s] {}
+2025-04-14 11:12:11,398 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 11:12:11,398 - INFO - [generated in 0.00038s] {}
+2025-04-14 11:12:11,408 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 11:12:11,408 - INFO - [generated in 0.00030s] {}
+2025-04-14 11:12:11,414 - INFO - SET session_replication_role = 'origin';
+2025-04-14 11:12:11,414 - INFO - [generated in 0.00030s] {}
+2025-04-14 11:12:11,416 - INFO - COMMIT
+2025-04-14 11:12:35,769 - INFO - select pg_catalog.version()
+2025-04-14 11:12:35,770 - INFO - [raw sql] {}
+2025-04-14 11:12:35,773 - INFO - select current_schema()
+2025-04-14 11:12:35,773 - INFO - [raw sql] {}
+2025-04-14 11:12:35,775 - INFO - show standard_conforming_strings
+2025-04-14 11:12:35,776 - INFO - [raw sql] {}
+2025-04-14 11:12:35,779 - INFO - BEGIN (implicit)
+2025-04-14 11:12:35,779 - INFO - SET session_replication_role = 'replica';
+2025-04-14 11:12:35,779 - INFO - [generated in 0.00022s] {}
+2025-04-14 11:12:35,793 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 11:12:35,793 - INFO - [generated in 0.00032s] {}
+2025-04-14 11:12:35,802 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 11:12:35,802 - INFO - [generated in 0.00030s] {}
+2025-04-14 11:12:35,806 - INFO - SET session_replication_role = 'origin';
+2025-04-14 11:12:35,806 - INFO - [generated in 0.00029s] {}
+2025-04-14 11:12:35,808 - INFO - COMMIT

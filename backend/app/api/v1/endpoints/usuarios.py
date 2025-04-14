@@ -23,7 +23,8 @@ router = APIRouter()
     description="Endpoint para cadastrar um novo usuário no sistema",
 )
 def create_usuario(
-    usuario: UsuarioCreateSchema, db: Session = Depends(get_db)
+    usuario: UsuarioCreateSchema,
+    db: Session = Depends(get_db)
 ) -> UsuarioSchema:
     """
     Cria um novo usuário no sistema.
@@ -58,8 +59,8 @@ def create_usuario(
     except Exception as e:
         logger.error(f"Erro ao criar usuário: {str(e)}")
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Erro interno ao criar usuário",
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Erro ao criar usuário",
         )
 
 
