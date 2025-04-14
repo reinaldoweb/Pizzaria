@@ -7723,3 +7723,413 @@ WHERE usuarios.id = %(pk_1)s
 2025-04-14 11:12:35,806 - INFO - SET session_replication_role = 'origin';
 2025-04-14 11:12:35,806 - INFO - [generated in 0.00029s] {}
 2025-04-14 11:12:35,808 - INFO - COMMIT
+2025-04-14 14:14:04,264 - INFO - select pg_catalog.version()
+2025-04-14 14:14:04,266 - INFO - [raw sql] {}
+2025-04-14 14:14:04,272 - INFO - select current_schema()
+2025-04-14 14:14:04,273 - INFO - [raw sql] {}
+2025-04-14 14:14:04,278 - INFO - show standard_conforming_strings
+2025-04-14 14:14:04,278 - INFO - [raw sql] {}
+2025-04-14 14:14:04,282 - INFO - BEGIN (implicit)
+2025-04-14 14:14:04,283 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:14:04,284 - INFO - [generated in 0.00051s] {}
+2025-04-14 14:14:04,288 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:14:04,288 - INFO - [generated in 0.00036s] {}
+2025-04-14 14:14:04,316 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:14:04,316 - INFO - [generated in 0.00036s] {}
+2025-04-14 14:14:04,331 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:14:04,332 - INFO - [generated in 0.00037s] {}
+2025-04-14 14:14:04,333 - INFO - COMMIT
+2025-04-14 14:14:04,354 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:16:15,968 - INFO - select pg_catalog.version()
+2025-04-14 14:16:15,969 - INFO - [raw sql] {}
+2025-04-14 14:16:15,972 - INFO - select current_schema()
+2025-04-14 14:16:15,972 - INFO - [raw sql] {}
+2025-04-14 14:16:15,976 - INFO - show standard_conforming_strings
+2025-04-14 14:16:15,976 - INFO - [raw sql] {}
+2025-04-14 14:16:15,980 - INFO - BEGIN (implicit)
+2025-04-14 14:16:15,981 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:16:15,981 - INFO - [generated in 0.00023s] {}
+2025-04-14 14:16:15,984 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:16:15,984 - INFO - [generated in 0.00033s] {}
+2025-04-14 14:16:15,996 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:16:15,996 - INFO - [generated in 0.00032s] {}
+2025-04-14 14:16:16,003 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:16:16,003 - INFO - [generated in 0.00028s] {}
+2025-04-14 14:16:16,004 - INFO - COMMIT
+2025-04-14 14:16:16,034 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:17:47,402 - INFO - select pg_catalog.version()
+2025-04-14 14:17:47,403 - INFO - [raw sql] {}
+2025-04-14 14:17:47,407 - INFO - select current_schema()
+2025-04-14 14:17:47,407 - INFO - [raw sql] {}
+2025-04-14 14:17:47,410 - INFO - show standard_conforming_strings
+2025-04-14 14:17:47,410 - INFO - [raw sql] {}
+2025-04-14 14:17:47,413 - INFO - BEGIN (implicit)
+2025-04-14 14:17:47,414 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:17:47,414 - INFO - [generated in 0.00022s] {}
+2025-04-14 14:17:47,431 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:17:47,431 - INFO - [generated in 0.00038s] {}
+2025-04-14 14:17:47,443 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:17:47,443 - INFO - [generated in 0.00033s] {}
+2025-04-14 14:17:47,451 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:17:47,451 - INFO - [generated in 0.00028s] {}
+2025-04-14 14:17:47,453 - INFO - COMMIT
+2025-04-14 14:17:47,471 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:20:29,625 - INFO - select pg_catalog.version()
+2025-04-14 14:20:29,626 - INFO - [raw sql] {}
+2025-04-14 14:20:29,629 - INFO - select current_schema()
+2025-04-14 14:20:29,629 - INFO - [raw sql] {}
+2025-04-14 14:20:29,632 - INFO - show standard_conforming_strings
+2025-04-14 14:20:29,633 - INFO - [raw sql] {}
+2025-04-14 14:20:29,635 - INFO - BEGIN (implicit)
+2025-04-14 14:20:29,636 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:20:29,636 - INFO - [generated in 0.00038s] {}
+2025-04-14 14:20:29,639 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:20:29,639 - INFO - [generated in 0.00035s] {}
+2025-04-14 14:20:29,650 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:20:29,650 - INFO - [generated in 0.00031s] {}
+2025-04-14 14:20:29,658 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:20:29,658 - INFO - [generated in 0.00029s] {}
+2025-04-14 14:20:29,658 - INFO - COMMIT
+2025-04-14 14:23:04,988 - INFO - select pg_catalog.version()
+2025-04-14 14:23:04,989 - INFO - [raw sql] {}
+2025-04-14 14:23:04,992 - INFO - select current_schema()
+2025-04-14 14:23:04,992 - INFO - [raw sql] {}
+2025-04-14 14:23:04,995 - INFO - show standard_conforming_strings
+2025-04-14 14:23:04,995 - INFO - [raw sql] {}
+2025-04-14 14:23:04,999 - INFO - BEGIN (implicit)
+2025-04-14 14:23:04,999 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:23:04,999 - INFO - [generated in 0.00037s] {}
+2025-04-14 14:23:05,013 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:23:05,014 - INFO - [generated in 0.00037s] {}
+2025-04-14 14:23:05,023 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:23:05,023 - INFO - [generated in 0.00034s] {}
+2025-04-14 14:23:05,030 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:23:05,030 - INFO - [generated in 0.00034s] {}
+2025-04-14 14:23:05,031 - INFO - COMMIT
+2025-04-14 14:23:05,050 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:41:41,304 - INFO - select pg_catalog.version()
+2025-04-14 14:41:41,304 - INFO - [raw sql] {}
+2025-04-14 14:41:41,308 - INFO - select current_schema()
+2025-04-14 14:41:41,308 - INFO - [raw sql] {}
+2025-04-14 14:41:41,310 - INFO - show standard_conforming_strings
+2025-04-14 14:41:41,311 - INFO - [raw sql] {}
+2025-04-14 14:41:41,313 - INFO - BEGIN (implicit)
+2025-04-14 14:41:41,313 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:41:41,313 - INFO - [generated in 0.00027s] {}
+2025-04-14 14:41:41,316 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:41:41,316 - INFO - [generated in 0.00033s] {}
+2025-04-14 14:41:41,328 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:41:41,328 - INFO - [generated in 0.00030s] {}
+2025-04-14 14:41:41,336 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:41:41,336 - INFO - [generated in 0.00030s] {}
+2025-04-14 14:41:41,337 - INFO - COMMIT
+2025-04-14 14:41:41,354 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:43:37,649 - INFO - select pg_catalog.version()
+2025-04-14 14:43:37,649 - INFO - [raw sql] {}
+2025-04-14 14:43:37,655 - INFO - select current_schema()
+2025-04-14 14:43:37,656 - INFO - [raw sql] {}
+2025-04-14 14:43:37,660 - INFO - show standard_conforming_strings
+2025-04-14 14:43:37,661 - INFO - [raw sql] {}
+2025-04-14 14:43:37,665 - INFO - BEGIN (implicit)
+2025-04-14 14:43:37,666 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:43:37,666 - INFO - [generated in 0.00053s] {}
+2025-04-14 14:43:37,671 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:43:37,672 - INFO - [generated in 0.00044s] {}
+2025-04-14 14:43:37,673 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:43:37,673 - INFO - [generated in 0.00031s] {}
+2025-04-14 14:43:37,689 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:43:37,689 - INFO - [generated in 0.00034s] {}
+2025-04-14 14:43:37,691 - INFO - COMMIT
+2025-04-14 14:43:37,709 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:43:52,259 - INFO - select pg_catalog.version()
+2025-04-14 14:43:52,260 - INFO - [raw sql] {}
+2025-04-14 14:43:52,262 - INFO - select current_schema()
+2025-04-14 14:43:52,262 - INFO - [raw sql] {}
+2025-04-14 14:43:52,267 - INFO - show standard_conforming_strings
+2025-04-14 14:43:52,267 - INFO - [raw sql] {}
+2025-04-14 14:43:52,271 - INFO - BEGIN (implicit)
+2025-04-14 14:43:52,271 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:43:52,273 - INFO - [generated in 0.00033s] {}
+2025-04-14 14:43:52,274 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:43:52,274 - INFO - [generated in 0.00033s] {}
+2025-04-14 14:43:52,286 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:43:52,286 - INFO - [generated in 0.00033s] {}
+2025-04-14 14:43:52,289 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:43:52,289 - INFO - [generated in 0.00029s] {}
+2025-04-14 14:43:52,289 - INFO - COMMIT
+2025-04-14 14:43:52,310 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:46:56,860 - INFO - select pg_catalog.version()
+2025-04-14 14:46:56,860 - INFO - [raw sql] {}
+2025-04-14 14:46:56,864 - INFO - select current_schema()
+2025-04-14 14:46:56,864 - INFO - [raw sql] {}
+2025-04-14 14:46:56,867 - INFO - show standard_conforming_strings
+2025-04-14 14:46:56,867 - INFO - [raw sql] {}
+2025-04-14 14:46:56,870 - INFO - BEGIN (implicit)
+2025-04-14 14:46:56,871 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:46:56,871 - INFO - [generated in 0.00025s] {}
+2025-04-14 14:46:56,874 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:46:56,874 - INFO - [generated in 0.00031s] {}
+2025-04-14 14:46:56,882 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:46:56,882 - INFO - [generated in 0.00029s] {}
+2025-04-14 14:46:56,887 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:46:56,887 - INFO - [generated in 0.00028s] {}
+2025-04-14 14:46:56,889 - INFO - COMMIT
+2025-04-14 14:46:56,906 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:47:53,865 - INFO - select pg_catalog.version()
+2025-04-14 14:47:53,866 - INFO - [raw sql] {}
+2025-04-14 14:47:53,869 - INFO - select current_schema()
+2025-04-14 14:47:53,869 - INFO - [raw sql] {}
+2025-04-14 14:47:53,872 - INFO - show standard_conforming_strings
+2025-04-14 14:47:53,872 - INFO - [raw sql] {}
+2025-04-14 14:47:53,875 - INFO - BEGIN (implicit)
+2025-04-14 14:47:53,875 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:47:53,876 - INFO - [generated in 0.00023s] {}
+2025-04-14 14:47:53,878 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:47:53,879 - INFO - [generated in 0.00033s] {}
+2025-04-14 14:47:53,886 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:47:53,887 - INFO - [generated in 0.00028s] {}
+2025-04-14 14:47:53,891 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:47:53,891 - INFO - [generated in 0.00029s] {}
+2025-04-14 14:47:53,893 - INFO - COMMIT
+2025-04-14 14:47:53,910 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:48:33,600 - INFO - select pg_catalog.version()
+2025-04-14 14:48:33,601 - INFO - [raw sql] {}
+2025-04-14 14:48:33,604 - INFO - select current_schema()
+2025-04-14 14:48:33,604 - INFO - [raw sql] {}
+2025-04-14 14:48:33,607 - INFO - show standard_conforming_strings
+2025-04-14 14:48:33,607 - INFO - [raw sql] {}
+2025-04-14 14:48:33,610 - INFO - BEGIN (implicit)
+2025-04-14 14:48:33,611 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:48:33,612 - INFO - [generated in 0.00049s] {}
+2025-04-14 14:48:33,614 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:48:33,614 - INFO - [generated in 0.00034s] {}
+2025-04-14 14:48:33,622 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:48:33,622 - INFO - [generated in 0.00049s] {}
+2025-04-14 14:48:33,629 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:48:33,629 - INFO - [generated in 0.00037s] {}
+2025-04-14 14:48:33,631 - INFO - COMMIT
+2025-04-14 14:48:33,648 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:50:27,518 - INFO - select pg_catalog.version()
+2025-04-14 14:50:27,518 - INFO - [raw sql] {}
+2025-04-14 14:50:27,521 - INFO - select current_schema()
+2025-04-14 14:50:27,521 - INFO - [raw sql] {}
+2025-04-14 14:50:27,524 - INFO - show standard_conforming_strings
+2025-04-14 14:50:27,525 - INFO - [raw sql] {}
+2025-04-14 14:50:27,527 - INFO - BEGIN (implicit)
+2025-04-14 14:50:27,527 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:50:27,528 - INFO - [generated in 0.00021s] {}
+2025-04-14 14:50:27,541 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:50:27,542 - INFO - [generated in 0.00031s] {}
+2025-04-14 14:50:27,550 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:50:27,550 - INFO - [generated in 0.00030s] {}
+2025-04-14 14:50:27,555 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:50:27,556 - INFO - [generated in 0.00045s] {}
+2025-04-14 14:50:27,557 - INFO - COMMIT
+2025-04-14 14:50:27,572 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 14:51:44,684 - INFO - select pg_catalog.version()
+2025-04-14 14:51:44,685 - INFO - [raw sql] {}
+2025-04-14 14:51:44,687 - INFO - select current_schema()
+2025-04-14 14:51:44,688 - INFO - [raw sql] {}
+2025-04-14 14:51:44,690 - INFO - show standard_conforming_strings
+2025-04-14 14:51:44,691 - INFO - [raw sql] {}
+2025-04-14 14:51:44,694 - INFO - BEGIN (implicit)
+2025-04-14 14:51:44,694 - INFO - SET session_replication_role = 'replica';
+2025-04-14 14:51:44,695 - INFO - [generated in 0.00025s] {}
+2025-04-14 14:51:44,709 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 14:51:44,709 - INFO - [generated in 0.00034s] {}
+2025-04-14 14:51:44,717 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 14:51:44,717 - INFO - [generated in 0.00067s] {}
+2025-04-14 14:51:44,721 - INFO - SET session_replication_role = 'origin';
+2025-04-14 14:51:44,721 - INFO - [generated in 0.00030s] {}
+2025-04-14 14:51:44,723 - INFO - COMMIT
+2025-04-14 14:51:44,739 - ERROR - Erro ao criar pedido
+Traceback (most recent call last):
+  File "C:\Projetos\pizzaria\backend\app\services\pedido_service.py", line 23, in criar_novo_pedido
+    novo_pedido = PedidoModel(
+  File "<string>", line 4, in __init__
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Projetos\pizzaria\backend\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'quantidade' is an invalid keyword argument for PedidoModel
+2025-04-14 15:18:56,152 - INFO - select pg_catalog.version()
+2025-04-14 15:18:56,152 - INFO - [raw sql] {}
+2025-04-14 15:18:56,158 - INFO - select current_schema()
+2025-04-14 15:18:56,158 - INFO - [raw sql] {}
+2025-04-14 15:18:56,158 - INFO - show standard_conforming_strings
+2025-04-14 15:18:56,158 - INFO - [raw sql] {}
+2025-04-14 15:18:56,158 - INFO - BEGIN (implicit)
+2025-04-14 15:18:56,167 - INFO - SET session_replication_role = 'replica';
+2025-04-14 15:18:56,167 - INFO - [generated in 0.00031s] {}
+2025-04-14 15:18:56,180 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 15:18:56,180 - INFO - [generated in 0.00037s] {}
+2025-04-14 15:18:56,190 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 15:18:56,190 - INFO - [generated in 0.00029s] {}
+2025-04-14 15:18:56,195 - INFO - SET session_replication_role = 'origin';
+2025-04-14 15:18:56,195 - INFO - [generated in 0.00029s] {}
+2025-04-14 15:18:56,197 - INFO - COMMIT
+2025-04-14 15:18:56,203 - INFO - Pedido criado: <MagicMock name='PedidoModel().id' id='2929995501280'>
+2025-04-14 15:19:30,566 - INFO - select pg_catalog.version()
+2025-04-14 15:19:30,566 - INFO - [raw sql] {}
+2025-04-14 15:19:30,569 - INFO - select current_schema()
+2025-04-14 15:19:30,569 - INFO - [raw sql] {}
+2025-04-14 15:19:30,571 - INFO - show standard_conforming_strings
+2025-04-14 15:19:30,572 - INFO - [raw sql] {}
+2025-04-14 15:19:30,574 - INFO - BEGIN (implicit)
+2025-04-14 15:19:30,574 - INFO - SET session_replication_role = 'replica';
+2025-04-14 15:19:30,575 - INFO - [generated in 0.00021s] {}
+2025-04-14 15:19:30,578 - INFO - TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE
+2025-04-14 15:19:30,578 - INFO - [generated in 0.00033s] {}
+2025-04-14 15:19:30,586 - INFO - TRUNCATE TABLE clientes RESTART IDENTITY CASCADE
+2025-04-14 15:19:30,586 - INFO - [generated in 0.00041s] {}
+2025-04-14 15:19:30,593 - INFO - SET session_replication_role = 'origin';
+2025-04-14 15:19:30,593 - INFO - [generated in 0.00029s] {}
+2025-04-14 15:19:30,594 - INFO - COMMIT
+2025-04-14 15:19:30,603 - INFO - Pedido criado: <MagicMock name='PedidoModel().id' id='1745401352048'>

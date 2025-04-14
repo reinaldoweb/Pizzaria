@@ -52,6 +52,7 @@ class PedidoService:
                 detail="Erro ao calcular pedido",
             )
 
+    # Função privada para buscar o cliente e a pizza
     def _buscar_cliente(self, cliente_id: int) -> ClienteModel:
         cliente = (
             self.db.query(
@@ -65,6 +66,7 @@ class PedidoService:
             )
         return cliente
 
+    # Função privada para buscar a pizza
     def _buscar_pizza(self, pizza_id: int) -> PizzaModel:
         pizza = self.db.query(
             PizzaModel).filter(PizzaModel.id == pizza_id).first()
