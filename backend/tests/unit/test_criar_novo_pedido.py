@@ -14,11 +14,10 @@ def test_criar_novo_pedido_valido():
 
     pedido_data = {
         "pizza_id": 1,
-        "cliente_id": 10,
-        "status": "pendente",
         "quantidade": 2,
         "preco": 30.00,
     }
+
     # Cria o mocks
     db_mock = MagicMock()
     cliente_mock = {id: 1}
@@ -46,7 +45,10 @@ def test_criar_novo_pedido_valido():
         resultado = service.criar_novo_pedido(pedido_data, cliente_id=10)
 
         PedidoModelMock.assert_called_once_with(
-            cliente_id=10, pizza_id=1, quantidade=2, preco=60.0,
+            cliente_id=10,
+            pizza_id=1,
+            quantidade=2,
+            preco=60.0,
             status="pendente"
         )
 
