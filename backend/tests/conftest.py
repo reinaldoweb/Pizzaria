@@ -7,6 +7,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from backend.main import app
 from app.core.database import get_db
+from app.services.pedido_service import PedidoService
+from unittest.mock import MagicMock
 
 client = TestClient(app)
 
@@ -55,3 +57,11 @@ def token_usuario_admin():
 
     token = response.json()["access_token"]
     return token
+
+
+@pytest.fixture
+def pedido_service_mockado():
+    db_mock = MagicMock()
+    usuario_fake = {"id": 1, "is_admin": True}
+    service = PedidoService(db=db_mock, usuario_logado=usuario_fake)
+    return service, db_mock

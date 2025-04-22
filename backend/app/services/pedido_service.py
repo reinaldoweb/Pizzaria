@@ -53,17 +53,17 @@ class PedidoService:
             logger.exception("Erro ao criar pedido")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="Erro ao criar pedido",
+                detail="Erro ao criar o pedido",
             )
 
     def calcular_pedido(self, preco: float, quantidade: int) -> float:
         try:
             return preco * quantidade
         except Exception as e:
-            logger.error(f"Erro ao calcular pedido: {e}")
+            logger.error(f"Erro ao calcular o pedido: {e}")
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Erro ao calcular pedido",
+                detail="Erro ao calcular o pedido."
             )
 
     # Função privada para buscar o cliente e a pizza
