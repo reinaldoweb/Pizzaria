@@ -10,6 +10,7 @@ def test_criar_cliente_sem_autenticacao():
         "nome": "Cliente Teste",
         "endereco": "Rua Teste, 123",
         "telefone": "123456789",
+        "usuario_id": 1,  # ID do usuário que está criando o cliente
     }
     response = client.post("/clientes/", json=payload)
     assert response.status_code == 401

@@ -18,6 +18,20 @@ class PedidoService:
         preco_total = self.calcular_pedido(
             pedido_data["preco"], pedido_data["quantidade"]
         )
+        # Verifica se o cliente existe
+        cliente = self._buscar_cliente(cliente_id)
+        if not cliente:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Cliente não encontrado",
+            )
+        # Verifica se a pizza existe
+        pizza = self._buscar_pizza(pedido_data["pizza_id"])
+        if not pizza:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Pizza não encontrada",
+            )
 
         try:
             novo_pedido = PedidoModel(

@@ -15,7 +15,7 @@ def test_calcular_pedido_dados_invalido():
 
     # 2. Chamar calcular_pedido com preco=None e quantidade válida
     with pytest.raises(HTTPException) as exc_info:
-        PedidoServiceFake.calcular_pedido(preco=None, quantidade=1)
+        PedidoServiceFake.calcular_pedido(preco=59.0, quantidade=None)
 
     # 3. Capturar a HTTPException e verificar se:
     #    - status_code == 400

@@ -48,7 +48,7 @@ def test_criar_novo_pedido_valido():
             cliente_id=10,
             pizza_id=1,
             quantidade=2,
-            preco=60.0,
+            preco=60.00,
             status="pendente"
         )
 
